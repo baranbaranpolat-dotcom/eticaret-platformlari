@@ -141,6 +141,8 @@
   .feat-pill.no { opacity: 0.45; }
   .feat-pill.no .value { color: var(--text-mute); }
   .feat-pill.partial .value { color: var(--warn); }
+  .feat-pill.unknown { opacity: 0.6; border-style: dashed; }
+  .feat-pill.unknown .value { color: var(--text-mute); }
   .feat-pill:hover { border-color: var(--accent); }
   .feat-pill::after { content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--text); color: var(--bg-2); padding: 4px 8px; border-radius: 5px; font-size: 10px; font-weight: 500; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 10; }
   .feat-pill:hover::after { opacity: 1; }
@@ -483,8 +485,9 @@
   </section>
 
   <footer>
-    <p>Veriler kamuya açık kaynaklardan derlenmiştir; fiyatlar zamanla değişebilir. Karar vermeden önce ilgili platformun resmi sitesini kontrol edin.</p>
-    <p style="margin-top: 6px">Bağımsız karşılaştırma · v3.0 · <a href="https://github.com/baranbaranpolat-dotcom/eticaret-platformlari" target="_blank">GitHub</a></p>
+    <p>Veriler platformların resmi sitelerinden ve kamuya açık kaynaklardan derlenmiştir. Fiyatlar, tema sayıları, müşteri sayıları ve entegrasyon listeleri zaman içinde değişir. <strong style="color:var(--accent-2)">"?" ile işaretli alanlar</strong> platformun resmi sitesinde net olarak yayınlanmamış, doğrulanamamış verilerdir.</p>
+    <p style="margin-top: 4px">Karar vermeden önce mutlaka ilgili platformun resmi sitesini kontrol edin. Bu sayfa bağımsızdır; hiçbir platformla resmi/iş ortaklığı yoktur.</p>
+    <p style="margin-top: 8px">Bağımsız karşılaştırma · v4.0 · <a href="https://github.com/baranbaranpolat-dotcom/eticaret-platformlari" target="_blank">GitHub</a></p>
   </footer>
 </div>
 
@@ -495,25 +498,25 @@ const PLATFORMS = [
     id: 'hemenmagaza', name: 'Hemenmağaza', logoCls: 'lg-hemen', logoTxt: 'H',
     sub: 'Yeni nesil sade panel', badge: { txt: 'YENİ', cls: 'badge-new' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 1, foundedYear: 2024,
-    foundedNote: 'Yeni (2024)', customers: '200+',
+    foundedNote: 'Yeni', customers: '200+ mağaza',
     pricing: { starter: '1.490₺/ay', growth: '2.990₺/ay', enterprise: '5.990₺/ay' },
     trial: '30 gün',
-    features: { themes: 5, mobile: 0, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 2, marketplaces: 0 },
-    pros: ['Sade ve modern yönetim paneli, kurumsal yapıya uygun', 'Şeffaf 3 paket fiyatı (1.490₺ / 2.990₺ / 5.990₺)', '30 gün ücretsiz deneme — sektör ortalamasının üstü', '7/24 destek altyapısı', 'Hızlı kurulum, kendi domainde panel', 'iyzico ve PayTR entegrasyonu', 'Yurtiçi ve Aras Kargo entegrasyonu', 'Klaviyo ve ElasticSearch desteği'],
-    cons: ['Yeni platform, uzun vadeli referans azlığı', 'Pazaryeri entegrasyonu (Trendyol/HB) henüz yok', 'Az tema seçeneği', 'Geliştirici/eklenti ekosistemi henüz oluşmamış', 'Mobil yönetim uygulaması yok', 'Komisyon politikası net duyurulmamış'],
-    scores: { fiyat: 7, ozellik: 6, kolaylik: 9, destek: 8, ekosistem: 4 },
+    features: { themes: null, mobile: null, ai: 0, b2b: null, multilang: 1, pos: 1, payments: 3, marketplaces: null },
+    pros: ['Şeffaf 3 paket fiyatı (1.490₺ / 2.990₺ / 5.990₺)', '30 gün ücretsiz deneme — sektör ortalamasının üstü', 'TR/EN/DE çoklu dil ve TL/USD/EUR para birimi desteği', 'Web + POS hibrit sipariş yönetimi destekleniyor', 'iyzico, PayTR ödeme entegrasyonu', 'Yurtiçi ve Aras Kargo entegrasyonu', '7/24 destek altyapısı', 'Kendi domainde panel'],
+    cons: ['Yeni platform — uzun vadeli referans azlığı', 'Resmi sitede tema sayısı belirtilmemiş', 'Trendyol/Hepsiburada gibi pazaryeri entegrasyonları net duyurulmamış', 'Native mobil yönetim uygulaması bilgisi yok', 'AI özellikleri sunulmuyor', 'Komisyon politikası net duyurulmamış', 'Ekosistem/eklenti pazarı henüz yok'],
+    scores: { fiyat: 7, ozellik: 6, kolaylik: 9, destek: 7, ekosistem: 4 },
     bestFor: 'Sade çözüm arayan yeni nesil D2C markalar'
   },
   {
     id: 'ikas', name: 'ikas', logoCls: 'lg-ikas', logoTxt: 'i',
     sub: 'KOBİ favorisi, hızla büyüyen', badge: { txt: 'POPÜLER', cls: 'badge-pop' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 9, foundedYear: 2017,
-    foundedNote: '2017, Türkiye', customers: '20.000+',
-    pricing: { starter: 'Ücretsiz (Start)', growth: '~1.000₺+/ay', enterprise: 'Premium özel' },
-    trial: '14 gün',
-    features: { themes: 25, mobile: 1, ai: 0.5, b2b: 0, multilang: 1, pos: 0.5, payments: 8, marketplaces: 4 },
-    pros: ['Ücretsiz Start paketi — 0₺ ile başlangıç', 'AWS altyapı, %99.9 uptime', '20.000+ aktif Türk mağaza', 'Trendyol, Hepsiburada, Amazon, Etsy entegre', 'iyzico, PayTR, Tami, Paratika ödeme', 'Yurtiçi, Aras, MNG, HepsiJET kargo', 'Modern mobil odaklı arayüz', 'Sınırsız ürün ve trafik', 'Türkçe 7/24 destek'],
-    cons: ['Tema özelleştirme için Premium paket gerek', 'Aylık fiyat ölçeklendikçe hızla yükseliyor', 'Bazı entegrasyonlar ek ücretli', 'API/headless desteği sınırlı', 'B2B özellikleri zayıf'],
+    foundedNote: '2017, Türkiye', customers: '20.000+ kullanıcı',
+    pricing: { starter: 'Start ücretsiz', growth: 'Ücretli paketler (resmi sayfada belirsiz)', enterprise: 'Premium özel' },
+    trial: '3 gün',
+    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: 1, pos: 0, payments: 4, marketplaces: 4 },
+    pros: ['Ücretsiz Start paketi — 0₺ ile başlangıç', 'AWS altyapı, sınırsız ürün ve trafik', '20.000+ aktif Türk kullanıcı', 'Trendyol, Hepsiburada, Amazon, Etsy entegre', 'iyzico, PayTR, Tami, Paratika, United Payment ödeme', 'Sovos Foriba, Paraşüt, QNB E-Finans entegrasyonları', 'Sınırsız dil ve para birimi desteği', '256-bit SSL ve SHA-256 şifreleme', 'Türkçe destek'],
+    cons: ['Ücretsiz deneme yalnızca 3 gün (sektörün altı)', 'Resmi sayfada paket fiyatları açıkça listelenmemiş', 'Tema özelleştirme için Premium paket gerekli', 'Ölçeklendikçe ücret hızla yükseliyor', 'AI özellikleri ana sayfada vurgulanmıyor'],
     scores: { fiyat: 9, ozellik: 8, kolaylik: 9, destek: 9, ekosistem: 9 },
     bestFor: 'KOBİ ve yeni başlayan D2C markalar'
   },
@@ -521,25 +524,25 @@ const PLATFORMS = [
     id: 'ticimax', name: 'Ticimax', logoCls: 'lg-tici', logoTxt: 'T',
     sub: 'Kurumsal markalar için', badge: { txt: 'KURUMSAL', cls: 'badge-ent' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 9, foundedYear: 2010,
-    foundedNote: '2010, Türkiye', customers: '30.000+',
+    foundedNote: '2010, Türkiye', customers: '30.000+ marka',
     pricing: { starter: 'Özel teklif', growth: 'Özel teklif', enterprise: 'Özel teklif' },
-    trial: '15 gün',
-    features: { themes: 50, mobile: 1, ai: 1, b2b: 1, multilang: 1, pos: 1, payments: 15, marketplaces: 6 },
-    pros: ['30.000+ marka — sektörün en geniş referansı', "Victoria's Secret, Starbucks, English Home gibi kurumsal müşteriler", 'Yapay zeka destekli içerik üretimi', 'Native iOS/Android mobil uygulama', 'WMS (Depo Yönetim Sistemi) yerleşik', 'Omnichannel (mağaza+web+pazaryeri) tek panel', 'B2B + B2C + e-ihracat paketleri', '7/24 ödüllü Türkçe destek', 'Ödeme: iyzico, PayTR, Sipay, Logo POS, +15'],
-    cons: ['Fiyatlandırma kapalı — özel teklif modeli', 'Yeni başlayanlar için karmaşık', 'Panel öğrenme eğrisi dik', 'Küçük işletmeler için maliyet yüksek', 'Bazı özelleştirmeler ek teknik destek ister'],
-    scores: { fiyat: 5, ozellik: 9, kolaylik: 6, destek: 9, ekosistem: 9 },
+    trial: 'Resmi sayfada belirsiz',
+    features: { themes: null, mobile: 1, ai: 1, b2b: null, multilang: 1, pos: 1, payments: null, marketplaces: null },
+    pros: ['30.000+ marka — sektörün en geniş referansı', "Victoria's Secret, Starbucks, English Home gibi kurumsal müşteriler", 'Ticimax AI — ürün açıklaması, SEO başlık ve blog üretimi', 'Native iOS/Android mobil uygulama çözümleri', 'Omnichannel — pazaryerleri + fiziki mağaza tek panel', 'E-ihracat paketleri (globalde yerelleştirme)', '7/24 ödüllü Türkçe destek'],
+    cons: ['Fiyatlandırma kapalı — resmi sayfada paket fiyatları yok', 'Tema, ödeme yöntemi, pazaryeri sayısı açıkça duyurulmamış', 'Yeni başlayanlar için karmaşık', 'Panel öğrenme eğrisi dik', 'Küçük işletmeler için maliyet yüksek'],
+    scores: { fiyat: 5, ozellik: 9, kolaylik: 6, destek: 9, ekosistem: 8 },
     bestFor: 'Orta-büyük markalar, omnichannel/e-ihracat'
   },
   {
     id: 'ideasoft', name: 'ideaSoft', logoCls: 'lg-idea', logoTxt: 'iS',
     sub: 'Köklü, anahtar teslim', badge: { txt: 'KÖKLÜ', cls: 'badge-ent' },
-    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 10, foundedYear: 2007,
-    foundedNote: '2007, Türkiye', customers: '50.000+',
-    pricing: { starter: '~1.658₺/ay (indirimli)', growth: '~5.408₺/ay', enterprise: '~7.075₺/ay' },
+    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 10, foundedYear: 2005,
+    foundedNote: '2005, Türkiye', customers: '50.000+ firma',
+    pricing: { starter: 'Pro 19.900₺/ay', growth: 'Entegre 64.900₺/ay', enterprise: 'Platinum 84.900₺/ay' },
     trial: '15 gün',
-    features: { themes: 100, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: 0, payments: 12, marketplaces: 5 },
-    pros: ['50.000+ firma — Türkiye en geniş kullanıcı tabanı', '100+ hazır tema ve tasarım', 'ideaSoft AI — yapay zeka ürün/içerik üretimi', 'Sınırsız panel kullanıcısı (tüm paketler)', 'Logo Tiger, Mikro, Nebim, Paraşüt muhasebe entegre', 'Trendyol, Hepsiburada, n11, ÇiçekSepeti, PttAVM', 'VIP danışman desteği üst paketlerde', 'Anahtar teslim kurulum hizmeti', '%99.9 uptime SLA', 'E-fatura, E-arşiv yerleşik'],
-    cons: ['Üst paketler (Platinum) pahalı', 'UI/UX bazı kullanıcılara eski geliyor', 'Tema özelleştirmesi için teknik bilgi gerek', 'Bazı entegrasyonlar modüler/ek ücretli', 'Yıllık peşin ödeme modeli', 'B2B özellikleri Ticimax/T-Soft\'a göre zayıf'],
+    features: { themes: 100, mobile: 1, ai: 1, b2b: 1, multilang: null, pos: 1, payments: 10, marketplaces: 36 },
+    pros: ['50.000+ firma — Türkiye\'nin en geniş kullanıcı tabanı', '100+ hazır tema ve tasarım seçeneği', 'ideaSoft AI: görsel düzenleme, analiz aracı, içerik üretici', 'Gelişmiş B2B / Toptan Bayi Sistemi', 'Sınırsız panel kullanıcısı (tüm paketlerde)', 'Logo Tiger, Mikro, Nebim, Paraşüt muhasebe entegre', '36+ pazaryeri: Trendyol, Hepsiburada, n11, Amazon, ÇiçekSepeti, PttAVM', 'Platinum pakette mobil uygulama + Offline Sipariş Modülü', 'Anahtar teslim kurulum hizmeti', '15 gün ücretsiz deneme'],
+    cons: ['Yıllık fiyatlar oldukça yüksek (Pro 19.900₺/ay)', 'UI/UX bazı kullanıcılara eski geliyor', 'Tema özelleştirmesi için teknik bilgi gerek', 'Çok dilli yapı resmi sayfada vurgulanmamış', 'Yıllık peşin ödeme modeli'],
     scores: { fiyat: 6, ozellik: 9, kolaylik: 7, destek: 9, ekosistem: 9 },
     bestFor: 'ERP/muhasebe entegrasyonu kritik olan markalar'
   },
@@ -547,40 +550,40 @@ const PLATFORMS = [
     id: 'tsoft', name: 'T-Soft', logoCls: 'lg-tsoft', logoTxt: 'TS',
     sub: 'B2B ve özelleştirme odaklı', badge: { txt: 'KURUMSAL', cls: 'badge-ent' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 7, foundedYear: 2003,
-    foundedNote: '2003, Türkiye', customers: '10.000+',
+    foundedNote: '2003, Türkiye', customers: 'Kurumsal portföy',
     pricing: { starter: 'Özel teklif', growth: 'Özel teklif', enterprise: 'Özel teklif' },
     trial: 'Talebe bağlı',
-    features: { themes: 30, mobile: 1, ai: 0, b2b: 1, multilang: 1, pos: 1, payments: 10, marketplaces: 5 },
-    pros: ['Türkiye\'nin en eski e-ticaret altyapısı (2003)', 'B2B, B2C ve B2B2C senaryoları güçlü', 'Derin ERP entegrasyonu (SAP, Logo, Netsis, Mikro)', 'Çok dilli + çok para birimli (e-ihracat)', 'Yüksek özelleştirilebilirlik — kaynak kod erişimi', 'Mağaza zincirleri için olgun çözüm', 'POS + perakende senaryoları', 'Native mobil uygulama', '20+ pazaryeri entegrasyonu', 'Kurumsal SLA ve hesap yöneticisi'],
-    cons: ['Fiyatlandırma tamamen kapalı', 'Modern UI/UX rakiplerden geride', 'Küçük işletmeler için fazla kurumsal', 'Setup ve eğitim süreci uzun (haftalar)', 'Geliştirici/topluluk eklenti pazarı dar', 'Modern tema/storefront seçenekleri sınırlı'],
-    scores: { fiyat: 5, ozellik: 8, kolaylik: 5, destek: 7, ekosistem: 7 },
+    features: { themes: null, mobile: null, ai: null, b2b: 1, multilang: 1, pos: 1, payments: null, marketplaces: null },
+    pros: ['Türkiye\'nin köklü e-ticaret altyapılarından (2003\'ten beri)', 'B2B, B2C ve B2B2C senaryolarında sektörde tanınır', 'Derin ERP entegrasyon deneyimi (SAP, Logo, Netsis, Mikro)', 'Mağaza zincirleri ve perakende senaryoları için olgun', 'Yüksek özelleştirilebilirlik', 'Kurumsal SLA ve hesap yöneticisi yaklaşımı'],
+    cons: ['Resmi siteye erişim sınırlı — net özellik/fiyat verisi yok', 'Fiyatlandırma tamamen kapalı', 'Modern UI/UX rakiplerden geride bildirimler var', 'Küçük işletmeler için fazla kurumsal', 'Setup süreci uzun', 'Topluluk/eklenti pazarı dar'],
+    scores: { fiyat: 5, ozellik: 7, kolaylik: 5, destek: 7, ekosistem: 6 },
     bestFor: 'Mağaza zincirleri, B2B, derin ERP gerektiren markalar'
   },
   {
     id: 'platinmarket', name: 'PlatinMarket', logoCls: 'lg-platin', logoTxt: 'PM',
     sub: 'Köklü, çoklu özellik paketi', badge: null,
-    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 5, foundedYear: 2008,
-    foundedNote: '~2008, Türkiye', customers: 'Geniş',
-    pricing: { starter: '~1.000-2.000₺/ay', growth: '~3.000-5.000₺/ay', enterprise: 'Özel teklif' },
-    trial: 'Demo talep',
-    features: { themes: 30, mobile: 0.5, ai: 0, b2b: 1, multilang: 1, pos: 0.5, payments: 5, marketplaces: 4 },
-    pros: ['Geniş özellik seti — modüler yapı', 'B2B ve B2C aynı panelde', 'Çoklu mağaza yönetimi', '15+ yıllık köklü Türk platformu', 'Pazaryeri entegrasyonu (Trendyol, HB, n11)', 'Türkçe destek ekibi', 'Toptan + perakende senaryoları'],
-    cons: ['Panel modern hissi vermiyor', 'Mobil deneyim sınırlı', 'Yeni başlayanlar için karmaşık', 'Fiyat şeffaf değil — paket detayları kapalı', 'AI özellikleri yok', 'Tema çeşitliliği orta'],
-    scores: { fiyat: 6, ozellik: 7, kolaylik: 6, destek: 7, ekosistem: 6 },
-    bestFor: 'B2B + B2C hibrit çalışan orta ölçek işletmeler'
+    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 5, foundedYear: 2003,
+    foundedNote: '22 yıllık tecrübe', customers: '5.000+ müşteri',
+    pricing: { starter: 'Resmi sayfada belirsiz', growth: 'Resmi sayfada belirsiz', enterprise: 'Özel teklif' },
+    trial: 'Ücretsiz dene (süre belirsiz)',
+    features: { themes: null, mobile: 1, ai: null, b2b: null, multilang: null, pos: 1, payments: null, marketplaces: null },
+    pros: ['22 yıllık köklü Türk platformu (~2003\'ten beri)', 'PlatinMarket Admin Mobil yönetim uygulaması', 'Tami, iyzico, PayTR, Param, Hepsipay ödeme entegrasyonu', 'Banka sanal POS entegrasyonları', 'Trendyol ve Hepsiburada pazaryeri', '5.000+ aktif müşteri portföyü', 'Onlarca hazır tema + özgün tasarım hizmeti', 'Türkçe destek ekibi'],
+    cons: ['Resmi sayfada fiyat ve özellik listesi sınırlı', 'AI özellikleri net olarak belirtilmemiş', 'B2B / çok dil desteği açık olarak duyurulmamış', 'Modern UI/UX algısı rakiplere göre geride', 'Tema sayısı net değil', 'Pazaryeri listesi kısıtlı'],
+    scores: { fiyat: 6, ozellik: 6, kolaylik: 6, destek: 7, ekosistem: 6 },
+    bestFor: 'Köklü Türk platform tercih eden orta ölçek işletmeler'
   },
   {
     id: 'faprika', name: 'Faprika', logoCls: 'lg-faprika', logoTxt: 'Fp',
     sub: 'Modern KOBİ çözümü', badge: null,
-    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 5, foundedYear: 2016,
-    foundedNote: '~2016, Türkiye', customers: '3000+',
-    pricing: { starter: '~800-1.500₺/ay', growth: '~2.500₺/ay', enterprise: 'Özel teklif' },
-    trial: 'Demo talep',
-    features: { themes: 15, mobile: 0.5, ai: 0, b2b: 0, multilang: 1, pos: 0, payments: 5, marketplaces: 3 },
-    pros: ['Düşük giriş fiyatı (~800₺/ay)', 'Modern, anlaşılır arayüz', 'KOBİ odaklı paket yapısı', 'Yerel Türkçe destek', 'iyzico, PayTR ödeme', 'Trendyol, HB pazaryeri', 'Hızlı kurulum'],
-    cons: ['Tanınırlığı görece düşük', 'Ölçek konusunda sınırlar (büyük markalara dar)', 'Tema seçeneği orta düzeyde', 'Topluluk/forum küçük', 'AI özellikleri yok', 'B2B desteği sınırlı'],
-    scores: { fiyat: 7, ozellik: 7, kolaylik: 8, destek: 7, ekosistem: 6 },
-    bestFor: 'Bütçe dostu, modern panel arayan KOBİ\'ler'
+    region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 5, foundedYear: null,
+    foundedNote: 'Türkiye', customers: '3.000+ müşteri',
+    pricing: { starter: 'Resmi sayfada belirsiz', growth: 'Resmi sayfada belirsiz', enterprise: 'Özel teklif' },
+    trial: 'Ücretsiz dene (süre belirsiz)',
+    features: { themes: null, mobile: null, ai: 0, b2b: 1, multilang: 1, pos: 1, payments: 50, marketplaces: 11 },
+    pros: ['Sınırsız dil ve sınırsız para birimi yerleşik', 'Bayi / alt-bayi komisyonlu satış (B2B benzeri yapı)', 'Mollie üzerinden 50+ global ödeme yöntemi', '11 pazaryeri: Trendyol, HB, GittiGidiyor, ÇiçekSepeti, Amazon, AliExpress, Ozon, Morhipo, N11, FLO, Modanisa', 'Banka sanal POS entegrasyonları', '3.000+ aktif müşteri', 'KOBİ odaklı modern arayüz', 'Türkçe destek'],
+    cons: ['Resmi sayfada paket fiyatları açıkça listelenmemiş', 'Kuruluş yılı resmi sayfada belirtilmemiş', 'AI özellikleri yok', 'Mobil yönetim uygulaması bilgisi net değil', 'Topluluk/forum küçük', 'Tema sayısı net değil'],
+    scores: { fiyat: 7, ozellik: 7, kolaylik: 7, destek: 7, ekosistem: 7 },
+    bestFor: 'E-ihracat ve çoklu pazaryeri yapan KOBİ\'ler'
   },
 
   // ===== ULUSLARARASI SaaS =====
@@ -588,12 +591,12 @@ const PLATFORMS = [
     id: 'shopify', name: 'Shopify', logoCls: 'lg-shopify', logoTxt: 'Sh',
     sub: 'Dünyanın en büyük e-ticaret SaaS\'ı', badge: { txt: 'KRAL', cls: 'badge-king' },
     region: 'Global', model: 'SaaS', country: '🇨🇦', popularity: 10, foundedYear: 2006,
-    foundedNote: '2006, Kanada', customers: '4.000.000+',
-    pricing: { starter: 'Basic $39/ay', growth: 'Shopify $105/ay', enterprise: 'Advanced $399 / Plus $2.000+' },
-    trial: '3 gün ($1/ay promo)',
+    foundedNote: '2006, Kanada', customers: 'Milyonlarca mağaza',
+    pricing: { starter: 'Basic $19/ay (yıllık)', growth: 'Grow $54/ay', enterprise: 'Advanced $299 / Plus $2.300+' },
+    trial: '3 gün ($1/ay 3 ay promo)',
     features: { themes: 130, mobile: 1, ai: 1, b2b: 0.5, multilang: 1, pos: 1, payments: 100, marketplaces: 10 },
-    pros: ['4M+ aktif mağaza — dünyanın #1\'i', '8.000+ uygulama eklenti pazarı', '130+ premium tema (Liquid)', 'Shopify Payments + Shop Pay (1-click checkout)', '100+ ödeme yöntemi (Stripe, PayPal, Apple Pay)', 'POS donanımı + omnichannel', 'Shopify Magic (AI içerik, ürün açıklaması)', '175+ ülkede aktif, 20+ dil', '99.99% uptime, AWS altyapı', 'Headless commerce (Hydrogen, Storefront API)'],
-    cons: ['Shopify Payments dışında %2 işlem komisyonu', 'Türkiye\'de doğrudan destek sınırlı', 'iyzico/PayTR için 3. parti eklenti gerek', 'Aylık fiyat USD cinsinden', 'Tema özelleştirme Liquid bilgisi ister', 'Trendyol/HB direkt entegre değil'],
+    pros: ['Sektörün en büyük SaaS\'ı — milyonlarca aktif mağaza', '8.000+ uygulama eklenti pazarı', '130+ premium tema (Liquid)', 'Shopify Payments + Shop Pay (1-click checkout)', '100+ ödeme yöntemi (Stripe, PayPal, Apple Pay)', 'Shopify POS + omnichannel donanım', 'Shopify Magic (AI içerik üretimi)', '175+ ülkede aktif, 20+ dil', 'Headless: Hydrogen, Storefront API'],
+    cons: ['3. parti ödeme sağlayıcısı kullanırsan komisyon: Basic %2 → Plus %0,2', 'Türkiye\'de doğrudan destek sınırlı', 'iyzico/PayTR için 3. parti eklenti gerek', 'Aylık fiyat USD cinsinden', 'Tema özelleştirme Liquid bilgisi ister', 'Trendyol/HB direkt entegre değil', 'Sadece 3 gün ücretsiz deneme'],
     scores: { fiyat: 6, ozellik: 10, kolaylik: 9, destek: 9, ekosistem: 10 },
     bestFor: 'Global ölçekli D2C, yurt dışına satan markalar'
   },
@@ -653,13 +656,13 @@ const PLATFORMS = [
     id: 'ecwid', name: 'Ecwid by Lightspeed', logoCls: 'lg-ecwid', logoTxt: 'Ec',
     sub: 'Mevcut siteye eklenebilir', badge: null,
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: 2009,
-    foundedNote: '2009, ABD (Lightspeed)', customers: '1.5M+',
-    pricing: { starter: 'Free (10 ürün)', growth: 'Venture $25 / Business $35', enterprise: 'Unlimited $105/ay' },
-    trial: 'Ücretsiz plan kalıcı',
-    features: { themes: 20, mobile: 1, ai: 0, b2b: 0, multilang: 1, pos: 1, payments: 50, marketplaces: 5 },
-    pros: ['Kalıcı ücretsiz plan (10 ürün)', 'Mevcut WordPress/Wix/Joomla site\'ye widget olarak eklenir', 'Native iOS/Android yönetim uygulaması', 'Facebook, Instagram, Amazon, eBay satış', 'Lightspeed POS entegrasyonu', '50+ ödeme gateway (PayPal, Stripe, vs)', '50+ dil desteği', 'Hızlı kurulum (5 dk)'],
-    cons: ['Tek başına storefront sınırlı', 'Tema/tasarım çok kısıtlı', 'Türkiye ödeme/kargo entegrasyonu yetersiz', 'Gelişmiş özellikler üst paketlerde', 'SEO sınırlı', 'B2B yok', 'AI yok'],
-    scores: { fiyat: 9, ozellik: 6, kolaylik: 8, destek: 7, ekosistem: 6 },
+    foundedNote: '2009, ABD (Lightspeed)', customers: 'Geniş kullanıcı tabanı',
+    pricing: { starter: 'Starter $5/ay (10 ürün)', growth: 'Venture $35 / Business $65', enterprise: 'Unlimited $149/ay' },
+    trial: 'Yıllık ödemede %16 indirim',
+    features: { themes: 70, mobile: 1, ai: 0, b2b: 0, multilang: 1, pos: 1, payments: 50, marketplaces: 3 },
+    pros: ['Starter $5/ay ile çok düşük giriş', '70+ site şablonu', 'Mevcut WordPress/Wix/Joomla site\'ye widget olarak eklenir', 'Native iOS/Android yönetim uygulaması', 'Amazon, eBay, Walmart pazaryeri (3. parti app üzerinden)', 'Lightspeed POS entegrasyonu', '50+ ödeme gateway', 'Sınırsız bant genişliği'],
+    cons: ['Tek başına storefront sınırlı', 'Tema/tasarım çok kısıtlı', 'Pazaryeri entegrasyonu 3. parti app gerektirir', 'Türkiye ödeme/kargo entegrasyonu yetersiz', 'Gelişmiş özellikler üst paketlerde', 'B2B yok', 'AI yok'],
+    scores: { fiyat: 8, ozellik: 6, kolaylik: 8, destek: 7, ekosistem: 6 },
     bestFor: 'Var olan bir siteye/blog\'a satış ekleyenler'
   },
   {
@@ -680,11 +683,11 @@ const PLATFORMS = [
     sub: 'Sanatçı & yaratıcı odaklı', badge: { txt: 'NICHE', cls: 'badge-ent' },
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 4, foundedYear: 2005,
     foundedNote: '2005, ABD', customers: 'Geniş yaratıcı topluluk',
-    pricing: { starter: 'Free (5 ürün)', growth: 'Platinum $9.99 / Diamond $19.99', enterprise: 'Titanium $29.99/ay' },
+    pricing: { starter: 'Gold ücretsiz (5 ürün)', growth: 'Platinum $15/ay (50 ürün)', enterprise: 'Diamond $30/ay (500 ürün)' },
     trial: 'Ücretsiz plan kalıcı',
-    features: { themes: 20, mobile: 1, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 3, marketplaces: 0 },
-    pros: ['Çok düşük başlangıç maliyeti', 'Bağımsız sanatçılar için özel tasarlanmış', 'Hızlı setup (10 dk)', 'Minimal, temiz tasarım', 'Hiçbir işlem komisyonu yok', 'Stripe, PayPal entegre', 'Mobil app (Big Cartel Mobile)', 'Topluluğu güçlü (sanatçı/maker)'],
-    cons: ['Ürün sayısı çok sınırlı (max 500)', 'Özellik seti zayıf — basit storefront', 'Ciddi e-ticaret için yetersiz', 'Türkiye ödeme entegrasyonu yok', 'B2B yok', 'AI yok', 'Marketplace entegrasyonu yok', 'Çok dilli destek yok'],
+    features: { themes: null, mobile: 1, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 3, marketplaces: 0 },
+    pros: ['Gold paketinde Big Cartel işlem ücreti yok', 'Bağımsız sanatçılar için özel tasarlanmış', 'Hızlı setup (dakikalar)', 'Minimal, temiz tasarım', 'Mobil uyumlu şablon', 'iOS ve Android mobil uygulaması', 'Etsy, Squarespace, Shopify\'dan ürün içe aktarma', 'Online ödeme + temel raporlama'],
+    cons: ['Ürün sayısı sınırlı (Gold 5 / Platinum 50 / Diamond 500)', 'Özellik seti zayıf — basit storefront', 'Ciddi e-ticaret için yetersiz', 'Türkiye ödeme entegrasyonu yok', 'B2B yok', 'AI yok', 'Marketplace entegrasyonu yok', 'Çok dilli destek yok'],
     scores: { fiyat: 9, ozellik: 4, kolaylik: 9, destek: 6, ekosistem: 3 },
     bestFor: 'Sanatçılar, yaratıcılar, butik el yapımı ürün satanlar'
   },
@@ -692,13 +695,13 @@ const PLATFORMS = [
     id: 'shoplazza', name: 'Shoplazza', logoCls: 'lg-shoplazza', logoTxt: 'Sl',
     sub: 'Sınır ötesi e-ticaret', badge: null,
     region: 'Global', model: 'SaaS', country: '🇨🇳', popularity: 5, foundedYear: 2017,
-    foundedNote: '2017, Singapur/Çin', customers: '360.000+',
-    pricing: { starter: 'Free / $29/ay', growth: '$59/ay', enterprise: '$269+/ay' },
-    trial: '7 gün',
-    features: { themes: 30, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: 0.5, payments: 30, marketplaces: 5 },
-    pros: ['Çin/Asya pazarına satış için güçlü', 'Çok dilli, çok para birimli yapı', 'Dropshipping odaklı araçlar', 'Düşük başlangıç fiyatı', 'Hızlı kurulum', 'AI tasarım ve ürün açıklaması', 'WhatsApp, TikTok Shop entegre', '30+ ödeme yöntemi (Alipay, WeChat, vs)'],
-    cons: ['Türkiye için doğrudan uygun değil', 'Premium temalar sınırlı', 'Eklenti ekosistemi küçük', 'Destek genelde İngilizce/Çince', 'Türk pazaryeri yok', 'iyzico/PayTR yok'],
-    scores: { fiyat: 8, ozellik: 7, kolaylik: 8, destek: 6, ekosistem: 6 },
+    foundedNote: '2017, Singapur/Çin', customers: '650.000+ mağaza',
+    pricing: { starter: 'Resmi sayfada belirsiz', growth: 'Resmi sayfada belirsiz', enterprise: 'Resmi sayfada belirsiz' },
+    trial: 'Kayıt gerekmeden önizleme',
+    features: { themes: null, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: null, payments: null, marketplaces: null },
+    pros: ['650.000+ mağaza, 180+ ülkede aktif', 'AI Store Builder — açıklamayla otomatik mağaza kurulumu', 'Athena AI Assistant — ürün, sipariş, promosyon yönetimi', '200+ uygulama app store\'da', 'Multichannel ve omnichannel sync', 'Kayıt gerektirmeden önizleme', 'Çok dilli, çok para birimli yapı', 'Sınır ötesi e-ticaret odaklı'],
+    cons: ['Resmi sitede fiyatlandırma belirsiz', 'Türk pazaryeri ve iyzico/PayTR entegrasyonu yok', 'Destek genelde İngilizce/Çince', 'Eklenti ekosistemi Shopify\'a göre küçük', 'Türkiye için doğrudan uygun değil'],
+    scores: { fiyat: 7, ozellik: 7, kolaylik: 8, destek: 6, ekosistem: 6 },
     bestFor: 'Çin\'e veya Asya pazarına ihracat yapanlar'
   },
 
@@ -707,12 +710,12 @@ const PLATFORMS = [
     id: 'woocommerce', name: 'WooCommerce', logoCls: 'lg-woo', logoTxt: 'Wc',
     sub: 'WordPress\'in e-ticaret eklentisi', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
     region: 'Global', model: 'OSS', country: '🌐', popularity: 10, foundedYear: 2008,
-    foundedNote: '2008, ABD (Automattic)', customers: '3.000.000+ mağaza',
+    foundedNote: '2008, ABD (Automattic)', customers: '4.000.000+ mağaza',
     pricing: { starter: 'Plugin ücretsiz', growth: 'Hosting $10-50/ay + eklenti', enterprise: 'Eklenti $50-300+/ay toplam' },
     trial: 'Sürekli ücretsiz',
-    features: { themes: 1000, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 1, payments: 100, marketplaces: 20 },
-    pros: ['Plugin tamamen ücretsiz — açık kaynak', '3M+ mağaza ile dünyanın en büyük topluluğu', 'Sınırsız özelleştirme (PHP açık kaynak)', '1.000+ tema (premium + ücretsiz)', '50.000+ WordPress eklentisi mevcut', 'WordPress\'in tüm SEO gücü (Yoast vs)', 'Tüm ödeme/kargo entegre edilebilir', 'Türkçe iyzico, PayTR eklentileri var', 'WooCommerce Subscriptions, Bookings, Memberships', 'WP-CLI ile otomasyon, REST API güçlü'],
-    cons: ['Hosting + güvenlik + bakım sana ait', 'Setup için teknik bilgi şart (LAMP)', 'Eklentiler birikince site yavaşlar', 'Update\'ler bazen breaking — yedekleme şart', 'Türkçe resmi destek yok', 'Performans için CDN + cache şart', 'Güvenlik açıkları — düzenli update'],
+    features: { themes: null, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 1, payments: 100, marketplaces: 20 },
+    pros: ['Plugin tamamen ücretsiz — açık kaynak', '4M+ mağaza — Top 1M e-ticaret sitesinin %31\'i WooCommerce', 'WordPress üzerinde çalışır (internetin %43\'ü WP)', 'Sınırsız özelleştirme (PHP açık kaynak)', 'Yüzlerce premium ve ücretsiz tema', 'Geniş eklenti pazarı (resmi + 3. parti)', 'WordPress\'in tüm SEO gücü (Yoast, Rank Math)', 'Türkçe iyzico, PayTR eklentileri mevcut', 'WooCommerce Subscriptions, Bookings, Memberships', 'WP-CLI + REST API güçlü'],
+    cons: ['Hosting + güvenlik + bakım sana ait', 'Setup için teknik bilgi şart (LAMP/LEMP)', 'Eklentiler birikince site yavaşlar', 'Update\'ler bazen breaking — yedekleme şart', 'Türkçe resmi destek yok', 'Performans için CDN + cache şart', 'Güvenlik için düzenli update gerekli'],
     scores: { fiyat: 9, ozellik: 9, kolaylik: 5, destek: 5, ekosistem: 10 },
     bestFor: 'Teknik bilgisi olan, full kontrol isteyen markalar'
   },
@@ -733,7 +736,7 @@ const PLATFORMS = [
     id: 'prestashop', name: 'PrestaShop', logoCls: 'lg-prestashop', logoTxt: 'Ps',
     sub: 'Avrupa\'nın açık kaynak çözümü', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
     region: 'Global', model: 'OSS', country: '🇫🇷', popularity: 7, foundedYear: 2007,
-    foundedNote: '2007, Fransa', customers: '300.000+ mağaza',
+    foundedNote: '2007, Fransa', customers: '250.000+ mağaza',
     pricing: { starter: 'Yazılım ücretsiz', growth: 'Hosting $5-30/ay + modüller', enterprise: 'PrestaShop Cloud + Enterprise' },
     trial: 'Ücretsiz indir',
     features: { themes: 600, mobile: 0.5, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: 250, marketplaces: 10 },
@@ -774,12 +777,12 @@ const PLATFORMS = [
     id: 'commercetools', name: 'commercetools', logoCls: 'lg-commercetools', logoTxt: 'Ct',
     sub: 'Headless, API-first', badge: { txt: 'HEADLESS', cls: 'badge-ent' },
     region: 'Global', model: 'Enterprise', country: '🇩🇪', popularity: 6, foundedYear: 2006,
-    foundedNote: '2006, Almanya', customers: '300+ büyük marka',
-    pricing: { starter: 'Revenue-based', growth: 'Order volume bazlı', enterprise: 'Yıllık $50K-$500K+' },
-    trial: 'Demo',
-    features: { themes: 0, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: 30, marketplaces: 5 },
-    pros: ['MACH (Microservices, API-first, Cloud, Headless) öncüsü', 'Tam esneklik — istediğin frontend (React, Vue, Next)', 'Modüler microservices mimarisi', 'Audi, Tiffany, Express, Telekom gibi müşteriler', 'Gartner Leader (Magic Quadrant)', 'Composable commerce — sadece ihtiyaç olan modüller', 'B2B + B2C tek API', 'GraphQL + REST API güçlü', 'Düşük TCO uzun vadede (enterprise için)'],
-    cons: ['Pahalı (minimum 5 figür yıllık)', 'Headless yaklaşımı geliştirici ekibi gerektirir', 'Out-of-the-box frontend yok — sıfırdan inşa', 'Setup 3-6 ay', 'Küçük marka için aşırı', 'Tasarım/UI ayrı maliyet (frontend dev)', 'Modüler — eksik özellikler 3. parti'],
+    foundedNote: '2006, Almanya', customers: '600+ küresel işletme',
+    pricing: { starter: 'Revenue-based', growth: 'Order volume bazlı', enterprise: 'Yıllık 5-6 haneli sözleşme' },
+    trial: 'Ücretsiz deneme + kurumsal iletişim',
+    features: { themes: 0, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: null, marketplaces: null },
+    pros: ['Headless / API-first mimari — özgün frontend tasarımı (React, Vue, Next)', '600+ küresel işletme: L.L.Bean, BMW, Bang & Olufsen, Danone, Ulta Beauty, NBCUniversal, Woolworths, Zoro', 'B2X Commerce: B2C + B2B + B2B2C + D2C tek platform', 'Unified commerce foundation — çok kanal/pazar deneyimi', 'Modern API-first ve bulut yerel mimari', 'Composable commerce yaklaşımı', 'Gartner Magic Quadrant\'ta Leader'],
+    cons: ['Pahalı (kurumsal sözleşme)', 'Headless yaklaşımı geliştirici ekibi gerektirir', 'Out-of-the-box frontend yok — sıfırdan inşa', 'Setup 3-6 ay arası', 'Küçük marka için aşırı', 'Tasarım/UI ayrı maliyet (frontend dev)', 'Resmi sayfada fiyatlandırma yok'],
     scores: { fiyat: 3, ozellik: 10, kolaylik: 3, destek: 8, ekosistem: 7 },
     bestFor: 'Headless commerce isteyen, geliştirici ekibi olan büyük markalar'
   }
@@ -836,7 +839,6 @@ function filterPlatforms() {
 function featPill(icon, label, value, tipName) {
   let cls = '', display = '', tip = tipName;
   if (typeof value === 'number' && value <= 1 && value > 0) {
-    // Binary feature (0/0.5/1)
     if (value === 1) { display = '✓'; tip = `${tipName}: Var`; }
     else if (value === 0.5) { display = '◐'; cls = 'partial'; tip = `${tipName}: Kısmen`; }
   } else if (value === 0) {
@@ -845,7 +847,7 @@ function featPill(icon, label, value, tipName) {
     display = value >= 100 ? `${value}+` : `${value}`;
     tip = `${tipName}: ${display}`;
   } else {
-    display = '–'; cls = 'no';
+    display = '?'; cls = 'unknown'; tip = `${tipName}: Belirsiz (kamuya açık veri yok)`;
   }
   return `<div class="feat-pill ${cls}" data-tip="${tip}">
     <div class="icon">${icon}</div>
@@ -988,10 +990,10 @@ function boolFmt(v) {
   if (v === 1) return '<span class="check">✓ Var</span>';
   if (v === 0.5) return '<span class="partial">◐ Kısmen</span>';
   if (v === 0) return '<span class="cross">✗ Yok</span>';
-  return '–';
+  return '<span style="color:var(--text-mute)">? Belirsiz</span>';
 }
 function featFmt(v) {
-  if (typeof v !== 'number') return '–';
+  if (typeof v !== 'number') return '<span style="color:var(--text-mute)">?</span>';
   if (v === 0) return '<span class="cross">✗ 0</span>';
   return v >= 100 ? `${v}+` : `${v}`;
 }
