@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Ticaret Platformu Karşılaştırma — Türkiye & Dünya</title>
-<meta name="description" content="22 e-ticaret platformunun tarafsız karşılaştırması: fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana inceleme.">
+<title>Türk E-Ticaret Platformu Karşılaştırma</title>
+<meta name="description" content="Türkiye'de aktif 7 e-ticaret platformunun tarafsız karşılaştırması: Hemenmağaza, ikas, Ticimax, ideaSoft, T-Soft, PlatinMarket, Faprika — fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana inceleme.">
 <style>
   :root {
     --bg: #f5faf7; --bg-2: #ffffff; --card: #ffffff; --card-hover: #ecfdf5;
@@ -353,16 +353,15 @@
 <div class="container" id="main-content">
 
   <section class="hero">
-    <div class="hero-badge">Bağımsız Karşılaştırma · 22 Platform · 2026</div>
-    <h1><span class="grad">E-ticaret platformunu</span> tarafsız kıyasla</h1>
-    <p>7 Türk + 15 küresel altyapı; fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana. Hiçbir markaya kayırma yok.</p>
+    <div class="hero-badge">Bağımsız Karşılaştırma · 7 Türk Platform · 2026</div>
+    <h1><span class="grad">Türk e-ticaret platformlarını</span> tarafsız kıyasla</h1>
+    <p>Türkiye'de aktif 7 e-ticaret altyapısı; fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana. Hiçbir markaya kayırma yok.</p>
   </section>
 
   <div class="stats">
-    <div class="stat"><div class="num">22</div><div class="lbl">Platform</div></div>
-    <div class="stat"><div class="num">7</div><div class="lbl">Türkiye 🇹🇷</div></div>
-    <div class="stat"><div class="num">15</div><div class="lbl">Dünya 🌍</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Türk Platform 🇹🇷</div></div>
     <div class="stat"><div class="num">8</div><div class="lbl">Özellik / Platform</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Kriter Skoru</div></div>
     <div class="stat"><div class="num">0₺</div><div class="lbl">En düşük başlangıç</div></div>
   </div>
 
@@ -376,18 +375,6 @@
   <div class="filter-bar" id="filterBar">
     <div class="filter-search">
       <input type="text" id="searchInput" placeholder="Platform ara (ör: Shopify, ikas, WooCommerce)..." autocomplete="off">
-    </div>
-    <div class="chip-group" id="regionChips">
-      <div class="chip active" data-filter="region" data-val="all">Tümü <span class="count" data-count="region-all"></span></div>
-      <div class="chip" data-filter="region" data-val="TR">🇹🇷 Türkiye <span class="count" data-count="region-TR"></span></div>
-      <div class="chip" data-filter="region" data-val="Global">🌍 Dünya <span class="count" data-count="region-Global"></span></div>
-    </div>
-    <div class="chip-group" id="modelChips">
-      <div class="chip active" data-filter="model" data-val="brands">🏷️ Markalar <span class="count" data-count="brands"></span></div>
-      <div class="chip" data-filter="model" data-val="all">Tümü <span class="count" data-count="all"></span></div>
-      <div class="chip" data-filter="model" data-val="SaaS">SaaS <span class="count" data-count="SaaS"></span></div>
-      <div class="chip" data-filter="model" data-val="OSS">Açık Kaynak <span class="count" data-count="OSS"></span></div>
-      <div class="chip" data-filter="model" data-val="Enterprise">Kurumsal <span class="count" data-count="Enterprise"></span></div>
     </div>
     <select id="sortSelect" class="btn">
       <option value="score">Skor (yüksek → düşük)</option>
@@ -605,223 +592,6 @@ const PLATFORMS = [
     scores: { fiyat: 7, ozellik: 7, kolaylik: 7, destek: 7, ekosistem: 7 },
     bestFor: 'E-ihracat ve çoklu pazaryeri yapan KOBİ\'ler'
   },
-
-  // ===== ULUSLARARASI SaaS =====
-  {
-    id: 'shopify', name: 'Shopify', logoCls: 'lg-shopify', logoTxt: 'Sh',
-    sub: 'Dünyanın en büyük e-ticaret SaaS\'ı', badge: { txt: 'KRAL', cls: 'badge-king' },
-    region: 'Global', model: 'SaaS', country: '🇨🇦', popularity: 10, foundedYear: 2006,
-    foundedNote: '2006, Kanada', customers: 'Milyonlarca mağaza',
-    pricing: { starter: 'Free 3 days then id: 'shopify', name: 'Shopify', logoCls: 'lg-shopify', logoTxt: 'Sh',
-    sub: 'Dünyanın en büyük e-ticaret SaaS\'ı', badge: { txt: 'KRAL', cls: 'badge-king' },
-    region: 'Global', model: 'SaaS', country: '🇨🇦', popularity: 10, foundedYear: 2006,
-    foundedNote: '2006, Kanada', customers: 'Milyonlarca mağaza',
-    pricing: { starter: /month for 3 months', growth: '$79/mo', enterprise: 'Plus from $2300/mo' },
-    trial: '3 days free',
-    features: { themes: 130, mobile: 1, ai: 1, b2b: 0.5, multilang: 1, pos: 1, payments: 100, marketplaces: 10 },
-    pros: ['4 paketli şeffaf fiyatlandırma: Basic $19 / Grow $54 / Advanced $299 / Plus $2.300 (yıllık ödeme — resmi sayfa)', '3. parti ödeme sağlayıcı komisyon oranları açık: Basic %2 → Grow %1 → Advanced %0,6 → Plus %0,2 (resmi sayfa)', '3 gün ücretsiz deneme + 3 ay $1/ay promo (resmi sayfa)', 'Shopify Payments, Shop Pay, Shopify POS, Shopify Magic (AI), Hydrogen (headless) ürünleri (resmi tanıtım)', 'Eklenti / tema / pazaryeri sayıları resmi marketing\'de duyuruluyor (somut sayılar sürekli değişir)'],
-    cons: ['Shopify Payments dışında ödeme sağlayıcısı kullanırsan %0,2-%2 arası komisyon', 'Türkiye\'de doğrudan müşteri destek hattı sınırlı', 'iyzico/PayTR/Türk pazaryeri entegrasyonları için 3. parti eklenti gerekir', 'Aylık fiyat USD cinsinden (TL\'ye göre maliyet kur dalgalanmasından etkilenir)', 'Tema özelleştirme Shopify Liquid bilgisi gerektirir', 'Ücretsiz deneme süresi yalnızca 3 gün'],
-    scores: { fiyat: 6, ozellik: 10, kolaylik: 9, destek: 9, ekosistem: 10 },
-    bestFor: 'Global ölçekli D2C, yurt dışına satan markalar'
-  },
-  {
-    id: 'bigcommerce', name: 'BigCommerce', logoCls: 'lg-bigc', logoTxt: 'BC',
-    sub: 'Shopify\'ın yakın rakibi', badge: { txt: 'POPÜLER', cls: 'badge-pop' },
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 7, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: '29/month', growth: '79/month', enterprise: 'Custom pricing' },
-    trial: '15 days',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['Sektörde tanınan global SaaS e-ticaret altyapısı (genel kanı)', 'Resmi olarak işlem komisyonu uygulamadığı bilinir (3. parti kaynaklar)'],
-    cons: ['Resmi web sitesi otomatik erişime kapalı (HTTP 403) — bu sayfada yer alan tüm spesifik iddialar bağımsız olarak doğrulanamadı', 'Fiyat, paket, tema, özellik, müşteri sayısı, kuruluş yılı vb. somut veri sağlanamadı', 'Karar vermeden önce bigcommerce.com adresinden detayları doğrudan kontrol edin'],
-    scores: { fiyat: 7, ozellik: 9, kolaylik: 8, destek: 8, ekosistem: 7 },
-    bestFor: 'Komisyonsuz Shopify alternatifi arayan global markalar'
-  },
-  {
-    id: 'wix', name: 'Wix eCommerce', logoCls: 'lg-wix', logoTxt: 'W',
-    sub: 'Drag-drop site + ticaret', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇮🇱', popularity: 8, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '500000+',
-    pricing: { starter: 'Belirsiz (sayfa içeriği kırpıldı)', growth: 'Belirsiz', enterprise: 'Belirsiz' },
-    trial: 'Belirsiz',
-    features: { themes: null, mobile: null, ai: 1, b2b: 0, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['Sürükle-bırak site builder olarak sektörde yaygın bilinir (genel kanı)', 'Wix ADI (AI site builder) ürünü kamuya açık (resmi tanıtım)'],
-    cons: ['Resmi fiyatlandırma sayfası WebFetch tarafından tam alınamadı — fiyat, plan, deneme süresi bağımsız doğrulanamadı', 'Tema sayısı, ürün limitleri, ödeme yöntemleri ana sayfadan teyit edilemedi', 'E-ticaret odaklı derinlik ile genel site builder dengesi konusunda kullanıcı yorumlarına bakın', 'Karar vermeden önce wix.com/ecommerce üzerinden detayları doğrulayın'],
-    scores: { fiyat: 8, ozellik: 7, kolaylik: 9, destek: 7, ekosistem: 7 },
-    bestFor: 'Tasarım önemli, ufak-orta ölçek markalar'
-  },
-  {
-    id: 'squarespace', name: 'Squarespace Commerce', logoCls: 'lg-squarespace', logoTxt: 'Sq',
-    sub: 'Estetik tasarım odaklı', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 7, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Aylık/yıllık seçenek var — somut fiyat sayfada gösterilmedi', growth: 'Belirsiz', enterprise: 'Belirsiz' },
-    trial: '14 days',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['14 gün ücretsiz deneme — kart bilgisi gerekmez (resmi sayfa)', 'Tüm ücretli planlarda ürün/hizmet satışı (resmi sayfa)', 'İşlem komisyonu plan başına %0-%2 arası — online mağaza, %0-%7 dijital içerik (resmi sayfa karşılaştırma tablosu)'],
-    cons: ['Resmi fiyatlandırma sayfasında USD rakamları doğrudan gösterilmedi', 'Tema sayısı sayfada sayısal verilmedi', 'B2B, çok dilli, pazaryeri entegrasyon detayları bağımsız doğrulanamadı', 'Türkiye odaklı entegrasyonlar (iyzico, PayTR, Trendyol) sayfada belirtilmiyor'],
-    scores: { fiyat: 7, ozellik: 6, kolaylik: 9, destek: 7, ekosistem: 5 },
-    bestFor: 'Estetik öncelikli, az ürünlü butik markalar'
-  },
-  {
-    id: 'webflow', name: 'Webflow eCommerce', logoCls: 'lg-webflow', logoTxt: 'Wf',
-    sub: 'Tasarımcılar için no-code', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Free', growth: 'id: 'webflow', name: 'Webflow eCommerce', logoCls: 'lg-webflow', logoTxt: 'Wf',
-    sub: 'Tasarımcılar için no-code', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Free', growth: 5/mo billed yearly', enterprise: 'Custom' },
-    trial: 'Ücretsiz Starter plan',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['3 paketli şeffaf fiyatlandırma: Standard $29 / Plus $74 / Advanced $212 (yıllık ödeme — resmi sayfa)', 'Ürün sayısı limitleri açık: Standard 500 / Plus 5.000 / Advanced 15.000 (resmi sayfa)', 'İşlem komisyonu: Standard %2 / Plus %0 / Advanced %0 (resmi sayfa)', 'Ücretsiz Starter plan ile deneyebilme (resmi sayfa)'],
-    cons: ['Üst plan dahi 15.000 ürünle sınırlı — büyük katalog için uygunsuz', 'Resmi sayfa eCommerce planları için belirli ücretsiz deneme süresi sunmuyor', 'Türkiye odaklı ödeme/pazaryeri/kargo entegrasyon bilgisi resmi sayfada yok', 'B2B, mobil yönetim app, AI vb. özellikler resmi pricing sayfasında detaylandırılmamış', 'Tasarım odaklı — CSS/HTML bilgisi yarar sağlar'],
-    scores: { fiyat: 6, ozellik: 7, kolaylik: 6, destek: 7, ekosistem: 6 },
-    bestFor: 'Tasarım odaklı, ajans/tasarımcı ile çalışan markalar'
-  },
-  {
-    id: 'ecwid', name: 'Ecwid by Lightspeed', logoCls: 'lg-ecwid', logoTxt: 'Ec',
-    sub: 'Mevcut siteye eklenebilir', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: '$5/month', growth: '$35/month', enterprise: 'id: 'ecwid', name: 'Ecwid by Lightspeed', logoCls: 'lg-ecwid', logoTxt: 'Ec',
-    sub: 'Mevcut siteye eklenebilir', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: '$5/month', growth: '$35/month', enterprise: 49/month' },
-    trial: 'Yıllık ödemede %16 indirim',
-    features: { themes: 70, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['4 paketli şeffaf fiyatlandırma: Starter $5 / Venture $35 / Business $65 / Unlimited $149 aylık (resmi sayfa)', 'Ürün limitleri açık: 10 / 100 / 2.500 / sınırsız (resmi sayfa)', '70+ tasarlanmış şablon (resmi sayfa)', 'Hiçbir kurulum veya işlem ücreti yok (resmi sayfa)', 'Tüm planlarda sınırsız bant genişliği (resmi sayfa)', 'Yıllık ödeme yapıldığında %16 indirim (resmi sayfa)'],
-    cons: ['Starter planında yalnızca 10 ürün — başlangıç seviyesinin altı', 'Türkiye odaklı ödeme/kargo/pazaryeri entegrasyon detayları resmi sayfada yer almıyor', 'B2B, AI, çok dilli destek vb. ana sayfada detaylandırılmamış', 'Pazaryeri entegrasyonu (Amazon/eBay/Walmart) 3. parti app gerektirir', 'Storefront tek başına sınırlı — daha çok mevcut siteye widget olarak kurulur'],
-    scores: { fiyat: 8, ozellik: 6, kolaylik: 8, destek: 7, ekosistem: 6 },
-    bestFor: 'Var olan bir siteye/blog\'a satış ekleyenler'
-  },
-  {
-    id: 'squareonline', name: 'Square Online', logoCls: 'lg-square', logoTxt: 'SqO',
-    sub: 'Square POS ile entegre', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Belirsiz', growth: 'Belirsiz', enterprise: 'Belirsiz' },
-    trial: 'Belirsiz',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: 1, payments: null, marketplaces: null },
-    pros: ['Square POS / online ödeme ekosisteminin bir parçası (Square tanıtım ürün listesinden teyit)'],
-    cons: ['Resmi fiyatlandırma sayfası WebFetch ile tam alınamadı — plan adları, fiyatlar, ücretsiz plan içeriği bağımsız olarak doğrulanamadı', 'Türkiye\'de Square ödeme altyapısı şu an aktif değil — fiili kullanım mümkün değil', 'iyzico/PayTR/Türk pazaryeri entegrasyonu yok', 'Karar vermeden önce squareup.com/online-store sayfasından detayları doğrulayın'],
-    scores: { fiyat: 9, ozellik: 5, kolaylik: 8, destek: 6, ekosistem: 4 },
-    bestFor: 'ABD\'de fiziksel + online satış yapan butikler'
-  },
-  {
-    id: 'bigcartel', name: 'Big Cartel', logoCls: 'lg-bigcartel', logoTxt: 'BCa',
-    sub: 'Sanatçı & yaratıcı odaklı', badge: { txt: 'NICHE', cls: 'badge-ent' },
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 4, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Free', growth: 'id: 'bigcartel', name: 'Big Cartel', logoCls: 'lg-bigcartel', logoTxt: 'BCa',
-    sub: 'Sanatçı & yaratıcı odaklı', badge: { txt: 'NICHE', cls: 'badge-ent' },
-    region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 4, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Free', growth: 5/mo', enterprise: '$30/mo' },
-    trial: 'Gold paketi kalıcı ücretsiz',
-    features: { themes: null, mobile: 1, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['3 paketli şeffaf fiyatlandırma: Gold $0 / Platinum $15 / Diamond $30 aylık (resmi sayfa)', 'Ürün limitleri açık: 5 / 50 / 500 fiziksel ürün (resmi sayfa)', 'Gold paketinde "No Big Cartel transaction fees" — Big Cartel işlem ücreti almıyor (resmi sayfa)', 'Mobil uyumlu şablon (resmi sayfa)', 'iOS ve Android mobil uygulaması erişimi (resmi sayfa)', 'Etsy, Squarespace, Shopify\'dan ürün içe aktarma (resmi sayfa)', 'Temel satış raporlaması (resmi sayfa)'],
-    cons: ['Üst plan dahi 500 ürünle sınırlı — ciddi e-ticaret için yetersiz', 'Türkiye odaklı ödeme/kargo/pazaryeri entegrasyon bilgisi resmi sayfada yok', 'Tema sayısı, çok dil, B2B, AI vb. resmi pricing sayfasında detaylandırılmamış', 'Niş hedef kitle (sanatçılar/yaratıcılar) — genel ticaret için sınırlı'],
-    scores: { fiyat: 9, ozellik: 4, kolaylik: 9, destek: 6, ekosistem: 3 },
-    bestFor: 'Sanatçılar, yaratıcılar, butik el yapımı ürün satanlar'
-  },
-  {
-    id: 'shoplazza', name: 'Shoplazza', logoCls: 'lg-shoplazza', logoTxt: 'Sl',
-    sub: 'Sınır ötesi e-ticaret', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇨🇳', popularity: 5, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '650K+ Online Store',
-    pricing: { starter: 'Resmi sayfada belirsiz', growth: 'Resmi sayfada belirsiz', enterprise: 'Resmi sayfada belirsiz' },
-    trial: 'Kayıt gerekmeden önizleme',
-    features: { themes: null, mobile: null, ai: 1, b2b: null, multilang: 1, pos: null, payments: null, marketplaces: null },
-    pros: ['"650K+ online mağaza" iddiası (resmi sayfa)', '"180+ ülkede aktif" iddiası (resmi sayfa)', 'AI Store Builder — açıklamayla otomatik mağaza kurulumu (resmi sayfa)', 'Athena AI Assistant — ürün/sipariş/promosyon yönetimi (resmi sayfa)', '"200+ uygulama app store\'da" iddiası (resmi sayfa)', 'Multichannel ve omnichannel sync özellikleri (resmi sayfa)', 'Kayıt gerektirmeden önizleme (resmi sayfa)'],
-    cons: ['Resmi ana sayfada paket fiyatları yok — ayrı pricing sayfası gerekir', 'Türk pazaryeri (Trendyol/HB) ve iyzico/PayTR entegrasyonu yok', 'Destek genelde İngilizce/Çince', 'Eklenti ekosistemi Shopify\'a göre küçük', 'Türkiye yerel kullanım için doğrudan uygun değil'],
-    scores: { fiyat: 7, ozellik: 7, kolaylik: 8, destek: 6, ekosistem: 6 },
-    bestFor: 'Çin\'e veya Asya pazarına ihracat yapanlar'
-  },
-
-  // ===== AÇIK KAYNAK / SELF-HOSTED =====
-  {
-    id: 'woocommerce', name: 'WooCommerce', logoCls: 'lg-woo', logoTxt: 'Wc',
-    sub: 'WordPress\'in e-ticaret eklentisi', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
-    region: 'Global', model: 'OSS', country: '🌐', popularity: 10, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '4 M+ online stores',
-    pricing: { starter: 'Plugin ücretsiz (açık kaynak)', growth: 'Hosting + eklenti maliyeti kullanıcıya ait', enterprise: 'Premium eklenti maliyetleri kullanıcıya ait' },
-    trial: '30-day money-back guarantee',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: 1, pos: null, payments: null, marketplaces: null },
-    pros: ['Çekirdek plugin tamamen ücretsiz ve açık kaynak (resmi sayfa)', '"4 milyondan fazla çevrimiçi mağaza WooCommerce ile kurulmuştur" (resmi sayfa)', '"Top 1 milyon e-ticaret sitesinin %31\'i" iddiası (resmi sayfa)', 'WordPress üzerinde çalışır — WP internetin %43\'ünü güçlendiriyor (resmi sayfa)', '"Yüzlerce güvenilir uzantı ve tema" (resmi sayfa — somut sayı yok)', 'PHP açık kaynak — tam özelleştirilebilir'],
-    cons: ['Hosting + güvenlik + bakım kullanıcıya ait', 'Setup için teknik bilgi gerekir (LAMP/LEMP yığını)', 'Resmi sayfada tema sayısı, eklenti sayısı sayısal verilmedi', 'Türkçe resmi destek yok — topluluk forumu var', 'Pek çok premium eklenti ücretli ($50-300+ adet)', 'Performans için CDN + cache + optimizasyon önerilir', 'Güvenlik için düzenli WordPress + plugin update gerekir'],
-    scores: { fiyat: 9, ozellik: 9, kolaylik: 5, destek: 5, ekosistem: 10 },
-    bestFor: 'Teknik bilgisi olan, full kontrol isteyen markalar'
-  },
-  {
-    id: 'magento', name: 'Magento / Adobe Commerce', logoCls: 'lg-magento', logoTxt: 'Mg',
-    sub: 'Enterprise açık kaynak', badge: { txt: 'KURUMSAL', cls: 'badge-ent' },
-    region: 'Global', model: 'OSS', country: '🇺🇸', popularity: 8, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Magento Open Source ücretsiz (genel kanı)', growth: 'Hosting + dev maliyeti — kullanıcıya ait', enterprise: 'Adobe Commerce: kurumsal sözleşme (5-6 haneli yıllık)' },
-    trial: 'Open Source ücretsiz indir',
-    features: { themes: null, mobile: null, ai: null, b2b: 1, multilang: 1, pos: null, payments: null, marketplaces: null },
-    pros: ['Magento Open Source kamuya açık ve ücretsiz olarak biliniyor (Adobe Commerce satın alımının ardından)', 'B2B + B2C senaryolarını destekleyen kurumsal mimari (sektör bilgisi)', 'Adobe Commerce edition Adobe Experience Cloud ile entegre (Adobe ürün portföyü)'],
-    cons: ['Resmi Adobe Commerce sayfası WebFetch tarafından zamanaşımı verdi — fiyat, müşteri sayısı, tema/eklenti sayısı bağımsız doğrulanamadı', 'Adobe Commerce edition kurumsal yıllık sözleşme — fiyatlar kamuya açıklanmıyor', 'Open Source bile çalıştırılması ciddi sunucu/dev kaynağı gerektirir (sektör bilgisi)', 'Türkiye odaklı ödeme/pazaryeri entegrasyon detayları resmi sayfadan teyit edilemedi', 'Karar vermeden önce business.adobe.com üzerinden detayları doğrudan kontrol edin'],
-    scores: { fiyat: 4, ozellik: 10, kolaylik: 3, destek: 7, ekosistem: 9 },
-    bestFor: 'Geliştirici ekibi olan, milyonlarca dolarlık ciro hedefleyen markalar'
-  },
-  {
-    id: 'prestashop', name: 'PrestaShop', logoCls: 'lg-prestashop', logoTxt: 'Ps',
-    sub: 'Avrupa\'nın açık kaynak çözümü', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
-    region: 'Global', model: 'OSS', country: '🇫🇷', popularity: 7, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '250000',
-    pricing: { starter: 'Classic indirme ücretsiz (resmi sayfa)', growth: 'Hosted ücretli', enterprise: 'Enterprise ücretli' },
-    trial: 'Classic sürümü ücretsiz indir',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['Classic sürümü "kaynak kodu ücretsiz indir" — açık kaynak (resmi sayfa)', '"More than 250,000 merchants are already on PrestaShop" iddiası (resmi sayfa)', '"Thousands of modules and themes are available" (resmi sayfa — somut sayı yok)', 'Hosted ve Enterprise alternatifleri mevcut (resmi sayfa)'],
-    cons: ['Resmi sayfada tema sayısı, modül sayısı, dil desteği sayısal verilmemiş', 'Hosted/Enterprise paketlerin fiyatları kamuya açıklanmamış', 'Türkçe resmi destek yok — topluluk forumu', 'Self-hosted versiyonda hosting + güvenlik + bakım kullanıcıya ait', 'Modülün büyük kısmı premium / ücretli olduğu sektörde bilinir'],
-    scores: { fiyat: 8, ozellik: 7, kolaylik: 5, destek: 6, ekosistem: 7 },
-    bestFor: 'Avrupa\'ya satan, kendi sunucusuna sahip olmak isteyen markalar'
-  },
-  {
-    id: 'opencart', name: 'OpenCart', logoCls: 'lg-opencart', logoTxt: 'Oc',
-    sub: 'Hafif açık kaynak çözüm', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
-    region: 'Global', model: 'OSS', country: '🇬🇧', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '471669',
-    pricing: { starter: 'Açık kaynak ücretsiz (sektör bilgisi)', growth: 'Hosting + eklenti maliyeti kullanıcıya ait', enterprise: 'OpenCart Cloud / Enterprise alternatifleri mevcut' },
-    trial: 'Ücretsiz indir',
-    features: { themes: null, mobile: null, ai: null, b2b: null, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['Açık kaynak ve ücretsiz olarak biliniyor (sektör bilgisi)', 'Türkiye\'de orta-küçük mağazalar arasında yaygın kullanılan PHP tabanlı altyapı (genel kanı)', 'Topluluk tarafından geliştirilmiş Türkçe iyzico/PayTR eklentileri kullanılabilir (3. parti kaynaklar)'],
-    cons: ['Resmi web sitesi WebFetch erişimine kapalı / yanıt vermiyor — bağımsız doğrulama yapılamadı', 'Tema sayısı, eklenti sayısı, mağaza sayısı, sürüm bilgisi resmi siteden teyit edilemedi', 'Self-hosted — hosting + güvenlik + bakım kullanıcıya ait', 'Karar vermeden önce opencart.com adresinden detayları doğrudan kontrol edin'],
-    scores: { fiyat: 9, ozellik: 6, kolaylik: 6, destek: 6, ekosistem: 7 },
-    bestFor: 'PHP bilgisi olan, hafif çözüm arayan KOBİ\'ler'
-  },
-
-  // ===== KURUMSAL / HEADLESS =====
-  {
-    id: 'salesforce', name: 'Salesforce Commerce Cloud', logoCls: 'lg-salesforce', logoTxt: 'SF',
-    sub: 'Enterprise B2C/B2B', badge: { txt: 'ENTERPRISE', cls: 'badge-ent' },
-    region: 'Global', model: 'Enterprise', country: '🇺🇸', popularity: 7, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: 'Belirsiz',
-    pricing: { starter: 'Belirsiz', growth: 'Belirsiz', enterprise: 'Kurumsal sözleşme (kamuya açıklanmıyor)' },
-    trial: 'Demo (kurumsal iletişim)',
-    features: { themes: null, mobile: null, ai: null, b2b: 1, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['Salesforce CRM ekosistemine entegre kurumsal commerce çözümü (Salesforce ürün portföyü)', 'B2B + B2C senaryolarına yönelik kurumsal modüller olduğu biliniyor (sektör bilgisi)'],
-    cons: ['Resmi commerce sayfası WebFetch ile alınamadı (HTTP 403) — fiyat, müşteri sayısı, özellik detayları bağımsız doğrulanamadı', 'Kurumsal sözleşmeli — fiyatlandırma kamuya açıklanmıyor', 'Tipik olarak Fortune 500 / büyük marka odaklı — küçük/orta ölçek için uygun olmadığı sektörde bilinir', 'Implementation süresi ve maliyeti yüksek (genel kanı)', 'Karar vermeden önce salesforce.com/commerce üzerinden iletişime geçin'],
-    scores: { fiyat: 2, ozellik: 10, kolaylik: 4, destek: 9, ekosistem: 9 },
-    bestFor: 'Fortune 500, milyar dolar ciro hedefleyen küresel markalar'
-  },
-  {
-    id: 'commercetools', name: 'commercetools', logoCls: 'lg-commercetools', logoTxt: 'Ct',
-    sub: 'Headless, API-first', badge: { txt: 'HEADLESS', cls: 'badge-ent' },
-    region: 'Global', model: 'Enterprise', country: '🇩🇪', popularity: 6, foundedYear: null,
-    foundedNote: 'Belirsiz', customers: '600+ global enterprises',
-    pricing: { starter: 'Belirsiz', growth: 'Belirsiz', enterprise: 'Kurumsal sözleşme (kamuya açıklanmıyor)' },
-    trial: '60 days',
-    features: { themes: 0, mobile: null, ai: null, b2b: 1, multilang: null, pos: null, payments: null, marketplaces: null },
-    pros: ['"600+ küresel işletme" iddiası (resmi sayfa)', 'Müşteri listesi: L.L.Bean, Bang & Olufsen, BMW, Danone, Ulta Beauty, NBCUniversal, Woolworths, Zoro (resmi sayfa)', 'Headless / API-first commerce yaklaşımı (resmi sayfa)', '"Unified commerce foundation" — çok kanal/pazar deneyimi (resmi sayfa)', 'B2X Commerce: B2C + B2B + B2B2C + D2C tek platform (resmi sayfa)', 'Modern API-first ve bulut yerel mimari (resmi sayfa)'],
-    cons: ['Resmi sayfada paket/fiyat bilgisi yok — kurumsal iletişim gerekir', 'Headless yaklaşımı geliştirici ekibi gerektirir', 'Out-of-the-box frontend yok — sıfırdan inşa', 'Küçük/orta marka için aşırı', 'Tema sayısı 0 — frontend tamamen müşteri tarafında geliştirilir', 'Türkiye odaklı ödeme/pazaryeri detayları yok'],
-    scores: { fiyat: 3, ozellik: 10, kolaylik: 3, destek: 8, ekosistem: 7 },
-    bestFor: 'Headless commerce isteyen, geliştirici ekibi olan büyük markalar'
-  }
 ];
 
 PLATFORMS.forEach(p => {
@@ -834,21 +604,22 @@ let LANG = (localStorage.getItem('eticaret-lang') === 'en') ? 'en' : 'tr';
 
 const I18N = {
   tr: {
-    title: 'E-Ticaret Platformu Karşılaştırma — Türkiye & Dünya',
+    title: 'Türk E-Ticaret Platformu Karşılaştırma',
     updateBanner_prefix: '🔄 Son güncelleme:',
     updateBanner_suffix: '· Otomatik günlük yenileme aktif',
-    logo: 'E-Ticaret Platformu Karşılaştırma',
+    logo: 'Türk E-Ticaret Platformu Karşılaştırma',
     themeBtn_title: 'Tema değiştir',
     quizBtn: 'Bana Uygun Olan?',
-    hero_badge: 'Bağımsız Karşılaştırma · 22 Platform · 2026',
-    hero_h1_grad: 'E-ticaret platformunu',
+    hero_badge: 'Bağımsız Karşılaştırma · 7 Türk Platform · 2026',
+    hero_h1_grad: 'Türk e-ticaret platformlarını',
     hero_h1_after: 'tarafsız kıyasla',
-    hero_p: '7 Türk + 15 küresel altyapı; fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana. Hiçbir markaya kayırma yok.',
-    stat_platform: 'Platform',
-    stat_tr: 'Türkiye 🇹🇷',
-    stat_global: 'Dünya 🌍',
+    hero_p: 'Türkiye\'de aktif 7 e-ticaret altyapısı; fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında yan yana. Hiçbir markaya kayırma yok.',
+    stat_platform: 'Türk Platform 🇹🇷',
+    stat_tr: 'Türk Platform 🇹🇷',
+    stat_global: 'Kriter Skoru',
     stat_features: 'Özellik / Platform',
     stat_lowest: 'En düşük başlangıç',
+    stat_criteria: 'Kriter Skoru',
     tab_cards: '📋 Platform Kartları',
     tab_table: '📊 Karşılaştırma Tablosu',
     tab_compare: '🆚 İki Marka Kıyasla',
@@ -938,21 +709,22 @@ const I18N = {
     skip_link: 'İçeriğe atla'
   },
   en: {
-    title: 'E-Commerce Platform Comparison — Turkey & Global',
+    title: 'Turkish E-Commerce Platform Comparison',
     updateBanner_prefix: '🔄 Last updated:',
     updateBanner_suffix: '· Daily auto-refresh active',
-    logo: 'E-Commerce Platform Comparison',
+    logo: 'Turkish E-Commerce Platform Comparison',
     themeBtn_title: 'Toggle theme',
     quizBtn: 'Find My Match',
-    hero_badge: 'Independent Comparison · 22 Platforms · 2026',
-    hero_h1_grad: 'Compare e-commerce',
+    hero_badge: 'Independent Comparison · 7 Turkish Platforms · 2026',
+    hero_h1_grad: 'Compare Turkish e-commerce',
     hero_h1_after: 'platforms impartially',
-    hero_p: '7 Turkish + 15 global platforms; price, features, ease of use, ecosystem and support — side by side. No bias toward any brand.',
-    stat_platform: 'Platforms',
-    stat_tr: 'Turkey 🇹🇷',
-    stat_global: 'Global 🌍',
+    hero_p: '7 e-commerce platforms active in Turkey — compared side by side on price, features, ease of use, ecosystem and support. No bias toward any brand.',
+    stat_platform: 'Turkish Platforms 🇹🇷',
+    stat_tr: 'Turkish Platforms 🇹🇷',
+    stat_global: 'Criteria',
     stat_features: 'Features per platform',
     stat_lowest: 'Lowest starting price',
+    stat_criteria: 'Criteria',
     tab_cards: '📋 Platform Cards',
     tab_table: '📊 Comparison Table',
     tab_compare: '🆚 Compare Two Brands',
@@ -1474,11 +1246,7 @@ function tt(text) {
 // 10 = fiyat/özellik/komisyon/müşteri sayısı vb. hepsi açık; 0 = hiçbir somut bilgi yok
 const TRANSPARENCY = {
   hemenmagaza: 3, ikas: 5, ticimax: 4, ideasoft: 9, tsoft: 2,
-  platinmarket: 5, faprika: 7,
-  shopify: 10, bigcommerce: 7, wix: 8, squarespace: 7, webflow: 10,
-  ecwid: 10, squareonline: 8, bigcartel: 10, shoplazza: 6,
-  woocommerce: 9, magento: 7, prestashop: 9, opencart: 7,
-  salesforce: 5, commercetools: 6
+  platinmarket: 5, faprika: 7
 };
 
 const URL_MAP = {
@@ -1488,31 +1256,13 @@ const URL_MAP = {
   ideasoft: 'https://www.ideasoft.com.tr',
   tsoft: 'https://www.tsoft.com.tr',
   platinmarket: 'https://www.platinmarket.com',
-  faprika: 'https://www.faprika.com',
-  shopify: 'https://www.shopify.com',
-  bigcommerce: 'https://www.bigcommerce.com',
-  wix: 'https://www.wix.com/ecommerce',
-  squarespace: 'https://www.squarespace.com',
-  webflow: 'https://webflow.com/ecommerce',
-  ecwid: 'https://www.ecwid.com',
-  squareonline: 'https://squareup.com/online-store',
-  bigcartel: 'https://www.bigcartel.com',
-  shoplazza: 'https://www.shoplazza.com',
-  woocommerce: 'https://woocommerce.com',
-  magento: 'https://business.adobe.com/products/magento/magento-commerce.html',
-  prestashop: 'https://www.prestashop.com',
-  opencart: 'https://www.opencart.com',
-  salesforce: 'https://www.salesforce.com/commerce/',
-  commercetools: 'https://commercetools.com'
+  faprika: 'https://www.faprika.com'
 };
 
-const STATE = { region: 'all', model: 'brands', search: '', sort: 'score' };
+const STATE = { search: '', sort: 'score' };
 
 function filterPlatforms() {
   let list = [...PLATFORMS];
-  if (STATE.region !== 'all') list = list.filter(p => p.region === STATE.region);
-  if (STATE.model === 'brands') list = list.filter(p => p.model !== 'OSS');
-  else if (STATE.model !== 'all') list = list.filter(p => p.model === STATE.model);
   if (STATE.search) {
     const q = STATE.search.toLowerCase();
     list = list.filter(p => p.name.toLowerCase().includes(q) || p.sub.toLowerCase().includes(q) || p.bestFor.toLowerCase().includes(q));
@@ -1702,25 +1452,7 @@ function pickPriceLower(a, b) {
 }
 
 function updateCounts() {
-  const all = PLATFORMS.length;
-  const tr = PLATFORMS.filter(p => p.region === 'TR').length;
-  const global = PLATFORMS.filter(p => p.region === 'Global').length;
-  const brands = PLATFORMS.filter(p => p.model !== 'OSS').length;
-  const saas = PLATFORMS.filter(p => p.model === 'SaaS').length;
-  const oss = PLATFORMS.filter(p => p.model === 'OSS').length;
-  const ent = PLATFORMS.filter(p => p.model === 'Enterprise').length;
-  const set = (key, n) => {
-    const el = document.querySelector(`[data-count="${key}"]`);
-    if (el) el.textContent = n;
-  };
-  set('region-all', all);
-  set('region-TR', tr);
-  set('region-Global', global);
-  set('brands', brands);
-  set('all', all);
-  set('SaaS', saas);
-  set('OSS', oss);
-  set('Enterprise', ent);
+  // Filter chips removed (TR-only site); function kept as no-op to keep callers safe.
 }
 
 // ===== 2-Brand Comparison =====
@@ -1883,30 +1615,35 @@ function computeQuizScores() {
   const s = {}; PLATFORMS.forEach(p => s[p.id] = 0);
   const add = (id, n) => { if (s[id] !== undefined) s[id] += n; };
 
-  if (QUIZ.budget === 'free') { add('ecwid', 30); add('squareonline', 30); add('bigcartel', 30); add('woocommerce', 35); add('prestashop', 35); add('opencart', 35); add('ikas', 25); add('magento', 15); }
-  if (QUIZ.budget === 'low') { add('ikas', 30); add('hemenmagaza', 25); add('shopiverse', 25); add('faprika', 25); add('sentrop', 25); add('shopify', 15); add('squarespace', 15); add('wix', 20); }
-  if (QUIZ.budget === 'mid') { add('hemenmagaza', 30); add('ikas', 25); add('ideasoft', 20); add('shopify', 25); add('bigcommerce', 25); add('wix', 20); }
-  if (QUIZ.budget === 'high') { add('ideasoft', 30); add('ticimax', 25); add('shopify', 30); add('bigcommerce', 25); add('webflow', 20); }
-  if (QUIZ.budget === 'xhigh') { add('ticimax', 30); add('tsoft', 30); add('magento', 25); add('shopify', 25); add('salesforce', 30); add('commercetools', 30); }
+  // Budget
+  if (QUIZ.budget === 'free')  { add('ikas', 35); add('faprika', 15); add('hemenmagaza', 10); }
+  if (QUIZ.budget === 'low')   { add('ikas', 30); add('hemenmagaza', 30); add('faprika', 25); add('platinmarket', 15); }
+  if (QUIZ.budget === 'mid')   { add('hemenmagaza', 30); add('ikas', 25); add('faprika', 25); add('platinmarket', 20); add('ideasoft', 15); }
+  if (QUIZ.budget === 'high')  { add('ideasoft', 30); add('ticimax', 25); add('tsoft', 20); }
+  if (QUIZ.budget === 'xhigh') { add('ticimax', 30); add('tsoft', 30); add('ideasoft', 25); }
 
-  if (QUIZ.market === 'tr') { add('ikas', 30); add('hemenmagaza', 25); add('ticimax', 30); add('ideasoft', 30); add('tsoft', 25); add('shopiverse', 20); add('faprika', 20); add('sentrop', 20); }
-  if (QUIZ.market === 'export') { add('shopify', 30); add('bigcommerce', 25); add('ticimax', 25); add('tsoft', 25); add('ideasoft', 20); add('shoplazza', 25); }
-  if (QUIZ.market === 'global') { add('shopify', 35); add('bigcommerce', 30); add('woocommerce', 25); add('magento', 25); add('wix', 20); add('squarespace', 20); add('commercetools', 25); add('salesforce', 20); }
+  // Market
+  if (QUIZ.market === 'tr')     { add('ikas', 30); add('hemenmagaza', 25); add('ticimax', 30); add('ideasoft', 30); add('tsoft', 25); add('faprika', 20); add('platinmarket', 20); }
+  if (QUIZ.market === 'export') { add('faprika', 30); add('ticimax', 25); add('tsoft', 25); add('ideasoft', 25); add('ikas', 15); }
+  if (QUIZ.market === 'global') { add('ticimax', 20); add('tsoft', 15); add('ideasoft', 15); add('faprika', 20); }
 
-  if (QUIZ.experience === 'new') { add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 25); add('squarespace', 25); add('shopiverse', 25); add('squareonline', 25); add('bigcartel', 20); }
-  if (QUIZ.experience === 'some') { add('ikas', 25); add('hemenmagaza', 20); add('shopify', 25); add('bigcommerce', 20); add('ideasoft', 20); add('faprika', 20); add('wix', 20); }
-  if (QUIZ.experience === 'pro') { add('shopify', 25); add('bigcommerce', 25); add('ideasoft', 25); add('ticimax', 25); add('woocommerce', 25); add('magento', 20); }
-  if (QUIZ.experience === 'ent') { add('ticimax', 30); add('tsoft', 30); add('magento', 30); add('salesforce', 35); add('commercetools', 35); add('bigcommerce', 20); }
+  // Experience
+  if (QUIZ.experience === 'new')  { add('ikas', 30); add('hemenmagaza', 30); add('faprika', 25); add('platinmarket', 15); }
+  if (QUIZ.experience === 'some') { add('ikas', 25); add('hemenmagaza', 20); add('ideasoft', 25); add('faprika', 20); add('platinmarket', 15); }
+  if (QUIZ.experience === 'pro')  { add('ideasoft', 25); add('ticimax', 25); add('ikas', 20); add('tsoft', 15); }
+  if (QUIZ.experience === 'ent')  { add('ticimax', 30); add('tsoft', 30); add('ideasoft', 25); }
 
-  if (QUIZ.tech === 'none') { add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 30); add('squarespace', 30); add('shopiverse', 25); add('faprika', 25); add('ideasoft', 25); }
-  if (QUIZ.tech === 'basic') { add('shopify', 25); add('bigcommerce', 25); add('ikas', 25); add('ticimax', 20); add('webflow', 20); add('ideasoft', 25); }
-  if (QUIZ.tech === 'dev') { add('woocommerce', 35); add('magento', 30); add('prestashop', 30); add('opencart', 25); add('commercetools', 30); add('webflow', 25); add('bigcommerce', 20); add('tsoft', 25); }
+  // Tech know-how
+  if (QUIZ.tech === 'none')  { add('ikas', 30); add('hemenmagaza', 30); add('ideasoft', 25); add('faprika', 25); add('platinmarket', 20); }
+  if (QUIZ.tech === 'basic') { add('ikas', 25); add('hemenmagaza', 25); add('ideasoft', 25); add('ticimax', 20); add('faprika', 20); }
+  if (QUIZ.tech === 'dev')   { add('tsoft', 30); add('ticimax', 25); add('ideasoft', 20); add('platinmarket', 15); }
 
-  if (QUIZ.priority === 'simple') { add('hemenmagaza', 30); add('ikas', 30); add('shopify', 25); add('wix', 30); add('squarespace', 25); add('shopiverse', 25); }
-  if (QUIZ.priority === 'custom') { add('woocommerce', 35); add('magento', 30); add('webflow', 30); add('prestashop', 25); add('commercetools', 30); add('tsoft', 30); add('bigcommerce', 20); }
-  if (QUIZ.priority === 'ecosystem') { add('shopify', 35); add('ikas', 30); add('woocommerce', 30); add('ideasoft', 25); add('ticimax', 25); add('bigcommerce', 25); add('magento', 25); }
-  if (QUIZ.priority === 'design') { add('squarespace', 35); add('wix', 30); add('webflow', 35); add('shopify', 25); add('hemenmagaza', 20); }
-  if (QUIZ.priority === 'scale') { add('shopify', 30); add('magento', 30); add('salesforce', 35); add('commercetools', 35); add('bigcommerce', 25); add('ticimax', 25); }
+  // Priority
+  if (QUIZ.priority === 'simple')    { add('hemenmagaza', 30); add('ikas', 30); add('faprika', 25); }
+  if (QUIZ.priority === 'custom')    { add('tsoft', 30); add('ideasoft', 25); add('ticimax', 20); add('platinmarket', 15); }
+  if (QUIZ.priority === 'ecosystem') { add('ikas', 30); add('ideasoft', 30); add('ticimax', 25); add('faprika', 25); add('platinmarket', 15); }
+  if (QUIZ.priority === 'design')    { add('ikas', 25); add('hemenmagaza', 20); add('faprika', 15); add('ideasoft', 15); }
+  if (QUIZ.priority === 'scale')     { add('ticimax', 30); add('tsoft', 30); add('ideasoft', 25); }
 
   return s;
 }
@@ -1960,16 +1697,7 @@ themeBtn.addEventListener('click', () => {
   themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    const filter = chip.dataset.filter;
-    document.querySelectorAll(`.chip[data-filter="${filter}"]`).forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    STATE[filter] = chip.dataset.val;
-    renderCards();
-    renderTable();
-  });
-});
+// Filter chips removed (TR-only site) — no-op
 
 document.getElementById('searchInput').addEventListener('input', e => {
   STATE.search = e.target.value;
@@ -2007,13 +1735,12 @@ function applyLang() {
   document.querySelector('.hero h1').innerHTML = `<span class="grad">${t('hero_h1_grad')}</span> ${t('hero_h1_after')}`;
   document.querySelector('.hero p').textContent = t('hero_p');
 
-  // Stats
+  // Stats (4 stats now — TR-only site)
   const statLbls = document.querySelectorAll('.stat .lbl');
   if (statLbls[0]) statLbls[0].textContent = t('stat_platform');
-  if (statLbls[1]) statLbls[1].textContent = t('stat_tr');
-  if (statLbls[2]) statLbls[2].textContent = t('stat_global');
-  if (statLbls[3]) statLbls[3].textContent = t('stat_features');
-  if (statLbls[4]) statLbls[4].textContent = t('stat_lowest');
+  if (statLbls[1]) statLbls[1].textContent = t('stat_features');
+  if (statLbls[2]) statLbls[2].textContent = t('stat_criteria');
+  if (statLbls[3]) statLbls[3].textContent = t('stat_lowest');
 
   // Tabs
   const setTab = (sel, key) => { const el = document.querySelector(sel); if (el) el.textContent = t(key); };
@@ -2024,24 +1751,6 @@ function applyLang() {
 
   // Search placeholder
   document.getElementById('searchInput').placeholder = t('search_placeholder');
-
-  // Helper: update chip preserving count span
-  function chipText(chip, label) {
-    const count = chip.querySelector('.count');
-    chip.innerHTML = label + (count ? ' ' + count.outerHTML : '');
-  }
-  // Region chips
-  const rc = document.querySelectorAll('#regionChips .chip');
-  if (rc[0]) chipText(rc[0], t('chip_all'));
-  if (rc[1]) chipText(rc[1], t('chip_tr'));
-  if (rc[2]) chipText(rc[2], t('chip_global'));
-  // Model chips
-  const mc = document.querySelectorAll('#modelChips .chip');
-  if (mc[0]) chipText(mc[0], t('chip_brands'));
-  if (mc[1]) chipText(mc[1], t('chip_total'));
-  if (mc[2]) chipText(mc[2], t('chip_saas'));
-  if (mc[3]) chipText(mc[3], t('chip_oss'));
-  if (mc[4]) chipText(mc[4], t('chip_enterprise'));
 
   // Sort select
   const sortOpts = document.querySelectorAll('#sortSelect option');

@@ -16,32 +16,14 @@ const HTML_PATH = 'index.html';
 const MODEL = 'claude-haiku-4-5-20251001';
 
 const PLATFORM_URLS = {
-  // Türkiye
+  // Türkiye'de aktif e-ticaret platformları (yalnız)
   hemenmagaza: 'https://hemenmagaza.com',
   ikas: 'https://www.ikas.com/tr',
   ticimax: 'https://www.ticimax.com',
   ideasoft: 'https://www.ideasoft.com.tr',
   tsoft: 'https://www.tsoft.com.tr',
   platinmarket: 'https://www.platinmarket.com',
-  faprika: 'https://www.faprika.com',
-  // Global SaaS
-  shopify: 'https://www.shopify.com/pricing',
-  bigcommerce: 'https://www.bigcommerce.com/essentials/pricing/',
-  wix: 'https://www.wix.com/ecommerce/website',
-  squarespace: 'https://www.squarespace.com/pricing',
-  webflow: 'https://webflow.com/pricing',
-  ecwid: 'https://www.ecwid.com/pricing',
-  squareonline: 'https://squareup.com/us/en/online-store',
-  bigcartel: 'https://www.bigcartel.com/pricing',
-  shoplazza: 'https://www.shoplazza.com',
-  // Open source
-  woocommerce: 'https://woocommerce.com',
-  magento: 'https://business.adobe.com/products/magento/magento-commerce.html',
-  prestashop: 'https://www.prestashop.com',
-  opencart: 'https://www.opencart.com',
-  // Enterprise
-  salesforce: 'https://www.salesforce.com/commerce/',
-  commercetools: 'https://commercetools.com'
+  faprika: 'https://www.faprika.com'
 };
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
