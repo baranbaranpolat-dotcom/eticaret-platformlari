@@ -38,7 +38,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain)" ]]; then
             git add index.html
-            git commit -m "chore: nightly AI data refresh ($(date -u +%Y-%m-%d)) [skip ci]"
+            git commit -m "chore: nightly AI data refresh ($(date -u +%Y-%m-%d))"
             for attempt in 1 2 3; do
               if git push; then break; fi
               echo "Push rejected, rebasing (attempt $attempt)..."
