@@ -27,7 +27,12 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             git add index.html
             git commit -m "chore: daily timestamp update [skip ci]"
-            git push
+            for attempt in 1 2 3; do
+              if git push; then break; fi
+              echo "Push rejected, rebasing (attempt $attempt)..."
+              git pull --rebase origin main
+              sleep $((attempt * 2))
+            done
           else
             echo "No changes to commit"
           fi
