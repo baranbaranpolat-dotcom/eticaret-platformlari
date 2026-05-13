@@ -88,47 +88,41 @@ ${pageText}`;
   }
 }
 
+function sanitizeValue(v) {
+  // Refuse values that would break the JS structure
+  if (!v || typeof v !== 'string') return null;
+  if (v.length === 0 || v.length > 60) return null;
+  // No quotes, commas, braces, or colons (these break our string literal context)
+  if (/['",{}:]/.test(v)) return null;
+  // Must not contain "starter:" / "growth:" / "enterprise:" / "trial:" / "customers:" etc.
+  if (/(starter|growth|enterprise|trial|customers|pricing):/i.test(v)) return null;
+  return v;
+}
+
+function replaceFieldOnce(html, platformId, parent, field, newValue) {
+  // Match within a window of 1500 chars after the platform id, then find parent.field
+  const clean = sanitizeValue(newValue);
+  if (!clean) return html;
+  // The regex captures: id: 'platformId' + up to 1500 chars + parent: { + up to 200 chars + field: '
+  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,1500}?${parent}:\\s*\\{[^}]{0,300}?${field}:\\s*)'[^']*'`);
+  return html.replace(re, `$1'${clean}'`);
+}
+
+function replaceTopLevelField(html, platformId, field, newValue) {
+  // For top-level fields like trial, customers
+  const clean = sanitizeValue(newValue);
+  if (!clean) return html;
+  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,1500}?${field}:\\s*)'[^']*'`);
+  return html.replace(re, `$1'${clean}'`);
+}
+
 function updatePlatformInHtml(html, platformId, data) {
-  // Find the platform object in the PLATFORMS array
-  const idRegex = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]*?pricing:\\s*\\{)([^}]*)(\\})`);
-  const m = html.match(idRegex);
-  if (!m) {
-    console.warn(`Platform ${platformId} not found in HTML`);
-    return html;
-  }
-
-  let pricing = m[2];
-  let changed = false;
-
-  if (data.starter_price) {
-    pricing = pricing.replace(/starter:\s*'[^']*'/, `starter: '${data.starter_price.replace(/'/g, "\\'")}'`);
-    changed = true;
-  }
-  if (data.growth_price) {
-    pricing = pricing.replace(/growth:\s*'[^']*'/, `growth: '${data.growth_price.replace(/'/g, "\\'")}'`);
-    changed = true;
-  }
-  if (data.enterprise_price) {
-    pricing = pricing.replace(/enterprise:\s*'[^']*'/, `enterprise: '${data.enterprise_price.replace(/'/g, "\\'")}'`);
-    changed = true;
-  }
-
-  if (changed) {
-    html = html.replace(idRegex, `$1${pricing}$3`);
-  }
-
-  // Update trial if found
-  if (data.trial) {
-    const trialRegex = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]*?trial:\\s*)'[^']*'`);
-    html = html.replace(trialRegex, `$1'${data.trial.replace(/'/g, "\\'")}'`);
-  }
-
-  // Update customer count if found
-  if (data.customer_count) {
-    const custRegex = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]*?customers:\\s*)'[^']*'`);
-    html = html.replace(custRegex, `$1'${data.customer_count.replace(/'/g, "\\'")}'`);
-  }
-
+  let before = html;
+  if (data.starter_price) html = replaceFieldOnce(html, platformId, 'pricing', 'starter', data.starter_price);
+  if (data.growth_price) html = replaceFieldOnce(html, platformId, 'pricing', 'growth', data.growth_price);
+  if (data.enterprise_price) html = replaceFieldOnce(html, platformId, 'pricing', 'enterprise', data.enterprise_price);
+  if (data.trial) html = replaceTopLevelField(html, platformId, 'trial', data.trial);
+  if (data.customer_count) html = replaceTopLevelField(html, platformId, 'customers', data.customer_count);
   return html;
 }
 

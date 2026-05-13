@@ -7,71 +7,76 @@
 <meta name="description" content="Hemenmağaza, ikas, Ticimax, ideaSoft, T-Soft, Shopify, BigCommerce, WooCommerce ve daha fazlası — 26 e-ticaret platformunun karşılaştırması.">
 <style>
   :root {
-    --bg: #0b0d12; --bg-2: #11141b; --card: #161a23; --card-hover: #1c2230;
-    --border: #252b3a; --text: #e7ecf3; --text-dim: #9aa3b2; --text-mute: #6b7280;
-    --accent: #6366f1; --accent-2: #8b5cf6; --accent-3: #ec4899;
-    --good: #22c55e; --bad: #ef4444; --warn: #f59e0b; --hemen: #f97316;
+    --bg: #f5faf7; --bg-2: #ffffff; --card: #ffffff; --card-hover: #ecfdf5;
+    --border: #d1fae5; --text: #064e3b; --text-dim: #374151; --text-mute: #6b7280;
+    --accent: #10b981; --accent-2: #059669; --accent-3: #34d399;
+    --good: #16a34a; --bad: #ef4444; --warn: #f59e0b; --hemen: #f97316;
+    --shadow: 0 1px 2px rgba(16,185,129,0.04), 0 4px 14px rgba(16,185,129,0.06);
+    --shadow-hover: 0 8px 24px rgba(16,185,129,0.14);
   }
-  [data-theme="light"] {
-    --bg: #f7f8fb; --bg-2: #ffffff; --card: #ffffff; --card-hover: #f3f4f6;
-    --border: #e5e7eb; --text: #0f172a; --text-dim: #475569; --text-mute: #64748b;
+  [data-theme="dark"] {
+    --bg: #06120e; --bg-2: #0a1a14; --card: #0f221b; --card-hover: #173028;
+    --border: #1f4338; --text: #ecfdf5; --text-dim: #9ca3af; --text-mute: #6b7280;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.2);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,0.4);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; min-height: 100vh; -webkit-font-smoothing: antialiased; transition: background 0.25s, color 0.25s; }
-  .container { max-width: 1340px; margin: 0 auto; padding: 0 24px; }
-  header { position: sticky; top: 0; z-index: 50; background: rgba(11,13,18,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-  [data-theme="light"] header { background: rgba(255,255,255,0.85); }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-  .logo { font-weight: 800; font-size: 19px; display: flex; align-items: center; gap: 8px; }
+  html, body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.5; min-height: 100vh; -webkit-font-smoothing: antialiased; transition: background 0.25s, color 0.25s; }
+  .container { max-width: 1340px; margin: 0 auto; padding: 0 20px; }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  [data-theme="dark"] header { background: rgba(6,18,14,0.85); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+  .logo { font-weight: 800; font-size: 17px; display: flex; align-items: center; gap: 8px; color: var(--accent-2); }
   .logo .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-3)); }
   .nav-actions { display: flex; gap: 8px; align-items: center; }
-  .btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.15s; }
+  .btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 7px 13px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.15s; }
   .btn:hover { background: var(--card-hover); border-color: var(--accent); }
   .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; border-color: transparent; }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,0.35); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(16,185,129,0.35); }
 
-  .update-banner { background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.04)); border-bottom: 1px solid rgba(34,197,94,0.25); padding: 8px 16px; text-align: center; font-size: 13px; color: var(--good); }
+  .update-banner { background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04)); border-bottom: 1px solid rgba(16,185,129,0.25); padding: 6px 16px; text-align: center; font-size: 12px; color: var(--accent-2); font-weight: 500; }
 
-  .hero { padding: 56px 0 28px; text-align: center; }
-  .hero-badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(99,102,241,0.15); color: var(--accent); font-size: 13px; font-weight: 600; margin-bottom: 18px; border: 1px solid rgba(99,102,241,0.25); }
-  .hero h1 { font-size: clamp(30px, 5vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.1; }
-  .hero h1 .grad { background: linear-gradient(135deg, var(--hemen), var(--accent-3), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero p { color: var(--text-dim); font-size: 17px; max-width: 720px; margin: 0 auto; }
+  .hero { padding: 40px 0 18px; text-align: center; }
+  .hero-badge { display: inline-block; padding: 5px 12px; border-radius: 999px; background: rgba(16,185,129,0.1); color: var(--accent-2); font-size: 12px; font-weight: 600; margin-bottom: 14px; border: 1px solid rgba(16,185,129,0.25); }
+  .hero h1 { font-size: clamp(26px, 4.5vw, 42px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.1; }
+  .hero h1 .grad { background: linear-gradient(135deg, var(--accent), var(--accent-2), #047857); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { color: var(--text-dim); font-size: 15px; max-width: 680px; margin: 0 auto; }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
-  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
-  .stat .num { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-3)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .stat .lbl { color: var(--text-dim); font-size: 12px; margin-top: 4px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 20px 0; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; box-shadow: var(--shadow); }
+  .stat .num { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+  .stat .lbl { color: var(--text-dim); font-size: 11px; margin-top: 2px; }
 
-  .tabs { display: flex; gap: 6px; margin: 32px 0 18px; background: var(--card); padding: 6px; border-radius: 12px; border: 1px solid var(--border); overflow-x: auto; }
-  .tab { flex: 1; min-width: max-content; padding: 10px 18px; border: none; background: transparent; color: var(--text-dim); cursor: pointer; font-weight: 600; font-size: 14px; border-radius: 8px; transition: all 0.18s; white-space: nowrap; }
+  .tabs { display: flex; gap: 4px; margin: 22px 0 14px; background: var(--card); padding: 5px; border-radius: 10px; border: 1px solid var(--border); overflow-x: auto; box-shadow: var(--shadow); }
+  .tab { flex: 1; min-width: max-content; padding: 9px 14px; border: none; background: transparent; color: var(--text-dim); cursor: pointer; font-weight: 600; font-size: 13px; border-radius: 7px; transition: all 0.18s; white-space: nowrap; }
   .tab.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; }
-  .tab:not(.active):hover { color: var(--text); background: var(--card-hover); }
+  .tab:not(.active):hover { color: var(--accent-2); background: var(--card-hover); }
 
-  /* Filter Bar */
-  .filter-bar { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 18px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-  .filter-search { flex: 1; min-width: 220px; position: relative; }
-  .filter-search input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 9px 14px 9px 36px; border-radius: 9px; font-size: 14px; outline: none; transition: border-color 0.15s; }
+  .filter-bar { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-bottom: 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; box-shadow: var(--shadow); }
+  .filter-search { flex: 1; min-width: 200px; position: relative; }
+  .filter-search input { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 7px 13px 7px 32px; border-radius: 8px; font-size: 13px; outline: none; transition: border-color 0.15s; }
   .filter-search input:focus { border-color: var(--accent); }
-  .filter-search::before { content: "🔍"; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; pointer-events: none; }
-  .chip-group { display: flex; gap: 6px; flex-wrap: wrap; }
-  .chip { padding: 7px 14px; background: var(--bg); border: 1px solid var(--border); color: var(--text-dim); border-radius: 999px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.15s; }
-  .chip:hover { color: var(--text); border-color: var(--accent); }
+  .filter-search::before { content: "🔍"; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 12px; pointer-events: none; }
+  .chip-group { display: flex; gap: 4px; flex-wrap: wrap; }
+  .chip { padding: 6px 12px; background: var(--bg); border: 1px solid var(--border); color: var(--text-dim); border-radius: 999px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.15s; }
+  .chip:hover { color: var(--accent-2); border-color: var(--accent); }
   .chip.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; border-color: transparent; }
+  #sortSelect { padding: 7px 12px; font-size: 12px; }
 
-  section { margin-bottom: 44px; }
-  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-  .section-head h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
-  .section-head p { color: var(--text-dim); font-size: 14px; }
-  .result-count { color: var(--text-mute); font-size: 13px; }
+  section { margin-bottom: 32px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .section-head h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
+  .section-head p { color: var(--text-dim); font-size: 13px; }
+  .result-count { color: var(--text-mute); font-size: 12px; }
 
-  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; transition: all 0.2s; position: relative; display: flex; flex-direction: column; }
-  .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
-  .card.featured { border: 2px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, var(--hemen), var(--accent-3)) border-box; }
-  .card-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
-  .card-title { display: flex; align-items: center; gap: 11px; min-width: 0; }
-  .card-logo { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: white; flex-shrink: 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; transition: all 0.2s; position: relative; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
+  .card.featured { border: 2px solid var(--accent); position: relative; }
+  .card.featured::after { content: '★ Hemenmağaza'; position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 999px; letter-spacing: 0.05em; }
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+  .card-title { display: flex; align-items: center; gap: 9px; min-width: 0; }
+  .card-logo { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: white; flex-shrink: 0; }
   .lg-hemen { background: linear-gradient(135deg, #f97316, #ef4444); }
   .lg-ikas { background: linear-gradient(135deg, #14b8a6, #06b6d4); }
   .lg-tici { background: linear-gradient(135deg, #ef4444, #dc2626); }
@@ -99,93 +104,112 @@
   .lg-sentrop { background: linear-gradient(135deg, #10b981, #047857); }
   .lg-egold { background: linear-gradient(135deg, #eab308, #a16207); }
 
-  .card h3 { font-size: 17px; font-weight: 700; line-height: 1.2; }
-  .card-sub { color: var(--text-mute); font-size: 11.5px; margin-top: 2px; }
-  .card-meta { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
-  .meta-pill { padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; background: var(--bg); color: var(--text-mute); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
-  .meta-tr { color: #e11d48; border-color: rgba(225,29,72,0.3); background: rgba(225,29,72,0.08); }
-  .meta-global { color: var(--accent); border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.08); }
-  .meta-saas { color: var(--accent-2); border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.08); }
-  .meta-oss { color: var(--good); border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.08); }
+  .card h3 { font-size: 15px; font-weight: 700; line-height: 1.2; color: var(--text); }
+  .card-sub { color: var(--text-mute); font-size: 11px; margin-top: 1px; }
+  .card-meta { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+  .meta-pill { padding: 2px 7px; border-radius: 999px; font-size: 9.5px; font-weight: 700; background: var(--bg); color: var(--text-mute); border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.04em; }
+  .meta-tr { color: #be123c; border-color: rgba(225,29,72,0.25); background: rgba(225,29,72,0.06); }
+  .meta-global { color: #0e7490; border-color: rgba(14,116,144,0.25); background: rgba(14,116,144,0.06); }
+  .meta-saas { color: var(--accent-2); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08); }
+  .meta-oss { color: #6d28d9; border-color: rgba(109,40,217,0.25); background: rgba(109,40,217,0.06); }
   .meta-ent { color: var(--warn); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08); }
 
-  .badge { padding: 3px 9px; border-radius: 999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
-  .badge-new { background: rgba(249,115,22,0.18); color: var(--hemen); }
-  .badge-pop { background: rgba(99,102,241,0.18); color: var(--accent); }
-  .badge-ent { background: rgba(139,92,246,0.18); color: var(--accent-2); }
-  .badge-king { background: rgba(34,197,94,0.18); color: var(--good); }
-  .badge-free { background: rgba(34,197,94,0.18); color: var(--good); }
+  .badge { padding: 2px 8px; border-radius: 999px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
+  .badge-new { background: rgba(249,115,22,0.15); color: var(--hemen); }
+  .badge-pop { background: rgba(16,185,129,0.15); color: var(--accent-2); }
+  .badge-ent { background: rgba(139,92,246,0.15); color: #6d28d9; }
+  .badge-king { background: rgba(22,163,74,0.15); color: var(--good); }
+  .badge-free { background: rgba(22,163,74,0.15); color: var(--good); }
 
-  .price-row { margin: 10px 0; padding: 10px; border-radius: 9px; background: var(--bg); border: 1px solid var(--border); }
-  .price-row .label { font-size: 10.5px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.05em; }
-  .price-row .val { font-size: 18px; font-weight: 800; margin-top: 2px; line-height: 1.2; }
-  .price-row .val small { font-size: 11px; color: var(--text-dim); font-weight: 500; }
+  .price-row { margin: 8px 0; padding: 8px 10px; border-radius: 7px; background: var(--bg); border: 1px solid var(--border); }
+  .price-row .label { font-size: 9.5px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .price-row .val { font-size: 15px; font-weight: 800; margin-top: 1px; line-height: 1.2; color: var(--accent-2); }
+  .price-row .val small { font-size: 10px; color: var(--text-dim); font-weight: 500; }
 
-  .feat-list { list-style: none; margin: 10px 0; }
-  .feat-list li { display: flex; gap: 7px; padding: 3px 0; font-size: 13px; color: var(--text-dim); line-height: 1.4; }
-  .feat-list.pros li::before { content: "✓"; color: var(--good); flex-shrink: 0; font-weight: 700; }
-  .feat-list.cons li::before { content: "✕"; color: var(--bad); flex-shrink: 0; font-weight: 700; }
+  .features-panel { margin: 8px 0; padding: 8px; background: var(--bg); border-radius: 7px; border: 1px solid var(--border); }
+  .features-title { font-size: 9.5px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 6px; }
+  .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .feat-pill { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5px 2px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; font-size: 9.5px; font-weight: 600; color: var(--text-dim); position: relative; cursor: help; }
+  .feat-pill .icon { font-size: 13px; line-height: 1; margin-bottom: 2px; }
+  .feat-pill .value { font-size: 9px; color: var(--accent-2); font-weight: 700; }
+  .feat-pill.no { opacity: 0.45; }
+  .feat-pill.no .value { color: var(--text-mute); }
+  .feat-pill.partial .value { color: var(--warn); }
+  .feat-pill:hover { border-color: var(--accent); }
+  .feat-pill::after { content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--text); color: var(--bg-2); padding: 4px 8px; border-radius: 5px; font-size: 10px; font-weight: 500; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 10; }
+  .feat-pill:hover::after { opacity: 1; }
 
-  .score-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 10px 0; }
-  .score-item { background: var(--bg); padding: 6px 9px; border-radius: 7px; border: 1px solid var(--border); font-size: 11px; }
-  .score-item .name { color: var(--text-mute); margin-bottom: 3px; }
-  .score-bar { height: 5px; background: var(--border); border-radius: 999px; overflow: hidden; }
-  .score-bar > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-3)); border-radius: 999px; }
-  .total-score { text-align: center; padding: 10px; border-radius: 9px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1)); border: 1px solid rgba(99,102,241,0.2); margin: 10px 0; }
-  .total-score .big { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-3)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-  .total-score .lbl { font-size: 11px; color: var(--text-mute); }
+  .feat-list { list-style: none; margin: 6px 0; }
+  .feat-list li { display: flex; gap: 6px; padding: 2px 0; font-size: 11.5px; color: var(--text-dim); line-height: 1.35; }
+  .feat-list.pros li::before { content: "+"; color: var(--good); flex-shrink: 0; font-weight: 700; }
+  .feat-list.cons li::before { content: "−"; color: var(--bad); flex-shrink: 0; font-weight: 700; }
 
-  .best-for { margin-top: auto; padding: 11px; background: var(--bg); border-radius: 9px; border-left: 3px solid var(--accent); }
-  .best-for strong { font-size: 10.5px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.05em; }
-  .best-for div { font-size: 12.5px; margin-top: 4px; color: var(--text-dim); }
+  .pros-cons-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+  .pros-cons-col strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
+  .pros-cons-col.pros strong { color: var(--good); }
+  .pros-cons-col.cons strong { color: var(--bad); }
 
-  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
+  .score-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 8px 0; }
+  .score-item { background: var(--bg); padding: 5px 4px; border-radius: 6px; border: 1px solid var(--border); font-size: 10px; text-align: center; }
+  .score-item .name { color: var(--text-mute); font-size: 9px; margin-bottom: 2px; }
+  .score-item .num { font-weight: 700; color: var(--accent-2); font-size: 11px; }
+  .total-score { text-align: center; padding: 8px; border-radius: 8px; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(52,211,153,0.05)); border: 1px solid rgba(16,185,129,0.25); margin: 8px 0; }
+  .total-score .big { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+  .total-score .lbl { font-size: 10px; color: var(--text-mute); margin-top: 1px; }
+
+  .best-for { margin-top: auto; padding: 8px 10px; background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02)); border-radius: 7px; border-left: 3px solid var(--accent); }
+  .best-for strong { font-size: 9.5px; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+  .best-for div { font-size: 11.5px; margin-top: 2px; color: var(--text-dim); line-height: 1.35; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); }
   table { width: 100%; border-collapse: collapse; min-width: 1200px; }
-  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
-  th { background: var(--bg-2); font-weight: 700; color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; position: sticky; top: 0; z-index: 5; white-space: nowrap; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 12px; vertical-align: top; }
+  th { background: var(--bg); font-weight: 700; color: var(--accent-2); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; position: sticky; top: 0; z-index: 5; white-space: nowrap; }
   tr:last-child td { border-bottom: none; }
   td.platform-cell { font-weight: 700; }
   .check { color: var(--good); font-weight: 700; }
   .cross { color: var(--bad); font-weight: 700; }
   .partial { color: var(--warn); font-weight: 700; }
-  tr.highlight { background: rgba(249,115,22,0.06); }
-  tr.highlight td:first-child { border-left: 3px solid var(--hemen); }
+  tr:hover { background: var(--card-hover); }
 
-  .quiz-card { background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.05)); border: 1px solid rgba(99,102,241,0.25); border-radius: 20px; padding: 28px; margin-top: 18px; }
-  .quiz-q { margin-bottom: 20px; }
-  .quiz-q h4 { font-size: 15px; margin-bottom: 10px; font-weight: 600; }
-  .quiz-opts { display: flex; flex-wrap: wrap; gap: 8px; }
-  .quiz-opt { padding: 9px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.15s; }
-  .quiz-opt:hover { border-color: var(--accent); }
+  .quiz-card { background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(52,211,153,0.03)); border: 1px solid rgba(16,185,129,0.25); border-radius: 16px; padding: 22px; margin-top: 14px; }
+  .quiz-q { margin-bottom: 18px; }
+  .quiz-q h4 { font-size: 14px; margin-bottom: 8px; font-weight: 600; color: var(--text); }
+  .quiz-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .quiz-opt { padding: 8px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.15s; color: var(--text-dim); }
+  .quiz-opt:hover { border-color: var(--accent); color: var(--accent-2); }
   .quiz-opt.selected { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; border-color: transparent; }
-  .quiz-result { margin-top: 22px; padding: 20px; border-radius: 12px; background: var(--card); border: 1px solid var(--border); display: none; }
+  .quiz-result { margin-top: 18px; padding: 16px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); display: none; box-shadow: var(--shadow); }
   .quiz-result.show { display: block; animation: fadeIn 0.4s; }
-  .quiz-result h4 { margin-bottom: 8px; font-size: 18px; }
-  .quiz-result .rec { display: flex; align-items: center; gap: 14px; margin: 12px 0; padding: 14px; background: var(--bg); border-radius: 10px; }
-  .quiz-result .rec .pct { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-3)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; min-width: 60px; }
+  .quiz-result h4 { margin-bottom: 6px; font-size: 16px; color: var(--text); }
+  .quiz-result .rec { display: flex; align-items: center; gap: 12px; margin: 8px 0; padding: 10px 12px; background: var(--bg); border-radius: 8px; }
+  .quiz-result .rec .pct { font-size: 18px; font-weight: 800; color: var(--accent-2); min-width: 50px; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  .vs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
-  .vs-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-  .vs-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
-  .vs-head .arrow { color: var(--text-mute); font-size: 18px; }
-  .vs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 8px 0; border-top: 1px solid var(--border); font-size: 13px; }
+  .vs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+  .vs-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); }
+  .vs-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .vs-head .arrow { color: var(--text-mute); font-size: 14px; }
+  .vs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 0; border-top: 1px solid var(--border); font-size: 12px; }
   .vs-row:first-of-type { border-top: none; }
-  .vs-row .key { color: var(--text-mute); font-size: 11px; margin-bottom: 2px; }
-  .vs-winner { color: var(--good); font-weight: 600; }
+  .vs-row .key { color: var(--text-mute); font-size: 10px; margin-bottom: 1px; }
+  .vs-winner { color: var(--good); font-weight: 700; }
   .vs-loser { color: var(--text-mute); }
 
-  .empty { text-align: center; padding: 48px 20px; color: var(--text-mute); }
+  .empty { text-align: center; padding: 36px 16px; color: var(--text-mute); }
 
-  footer { padding: 28px 0; border-top: 1px solid var(--border); margin-top: 56px; color: var(--text-mute); font-size: 13px; text-align: center; }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer { padding: 22px 0; border-top: 1px solid var(--border); margin-top: 40px; color: var(--text-mute); font-size: 12px; text-align: center; }
+  footer a { color: var(--accent-2); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
   .hidden { display: none !important; }
 
   @media (max-width: 640px) {
-    .hero { padding: 36px 0 18px; }
-    section { margin-bottom: 28px; }
-    .card { padding: 16px; }
-    .quiz-card { padding: 20px; }
+    .hero { padding: 28px 0 14px; }
+    section { margin-bottom: 22px; }
+    .card { padding: 12px; }
+    .quiz-card { padding: 16px; }
+    .features-grid { grid-template-columns: repeat(4, 1fr); }
+    .score-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -208,14 +232,14 @@
   <section class="hero">
     <div class="hero-badge">Türkiye + Dünya · 26 Platform · 2026</div>
     <h1><span class="grad">Hemenmağaza</span> rakipleri arasında nerede duruyor?</h1>
-    <p>11 Türk + 15 küresel e-ticaret altyapısı yan yana. Filtrele, ara, kıyasla, sana uygun olanı bul.</p>
+    <p>11 Türk + 15 küresel e-ticaret altyapısı yan yana. Fiyat, özellik, kullanım kolaylığı, ekosistem ve destek başlıklarında karşılaştır.</p>
   </section>
 
   <div class="stats">
     <div class="stat"><div class="num">26</div><div class="lbl">Platform</div></div>
     <div class="stat"><div class="num">11</div><div class="lbl">Türkiye 🇹🇷</div></div>
     <div class="stat"><div class="num">15</div><div class="lbl">Dünya 🌍</div></div>
-    <div class="stat"><div class="num">25+</div><div class="lbl">Kriter</div></div>
+    <div class="stat"><div class="num">8</div><div class="lbl">Özellik / Platform</div></div>
     <div class="stat"><div class="num">0₺</div><div class="lbl">En düşük başlangıç</div></div>
   </div>
 
@@ -226,7 +250,6 @@
     <button class="tab" data-tab="quiz">🎯 Bana Uygun Olan?</button>
   </div>
 
-  <!-- Filters (only shown on cards/table tabs) -->
   <div class="filter-bar" id="filterBar">
     <div class="filter-search">
       <input type="text" id="searchInput" placeholder="Platform ara (ör: Shopify, ikas, WooCommerce)..." autocomplete="off">
@@ -242,7 +265,7 @@
       <div class="chip" data-filter="model" data-val="OSS">Açık Kaynak</div>
       <div class="chip" data-filter="model" data-val="Enterprise">Kurumsal</div>
     </div>
-    <select id="sortSelect" class="btn" style="padding: 8px 14px;">
+    <select id="sortSelect" class="btn">
       <option value="score">Skor (yüksek → düşük)</option>
       <option value="name">Alfabetik</option>
       <option value="popularity">Popülerlik</option>
@@ -254,7 +277,7 @@
     <div class="section-head">
       <div>
         <h2>Platform Kartları</h2>
-        <p>Filtreleri kullanarak ihtiyacına uygun platformları daralt.</p>
+        <p>8 özellik pill'i, 5 kriter skoru ve detaylı artı/eksiler bir arada.</p>
       </div>
       <span class="result-count" id="cardCount"></span>
     </div>
@@ -266,7 +289,7 @@
     <div class="section-head">
       <div>
         <h2>Detaylı Karşılaştırma Tablosu</h2>
-        <p>Hemenmağaza turuncu çizgi ile vurgulanmıştır. Yatay kaydır.</p>
+        <p>Tüm platformlar yan yana. Yatay kaydır.</p>
       </div>
       <span class="result-count" id="tableCount"></span>
     </div>
@@ -294,7 +317,7 @@
     <div class="section-head">
       <div>
         <h2>Hangisi senin için doğru?</h2>
-        <p>5 hızlı soru — 26 platform arasından profiline en uygun 3'ünü önerelim.</p>
+        <p>5 hızlı soru — 26 platform arasından profiline en uygun 5'ini önerelim.</p>
       </div>
     </div>
     <div class="quiz-card">
@@ -343,8 +366,8 @@
           <div class="quiz-opt" data-v="scale">Ölçeklenebilirlik</div>
         </div>
       </div>
-      <div style="text-align:center; margin-top: 18px;">
-        <button class="btn btn-primary" id="quizGo" style="padding: 12px 28px; font-size: 15px;">Önerimi Göster</button>
+      <div style="text-align:center; margin-top: 16px;">
+        <button class="btn btn-primary" id="quizGo" style="padding: 11px 26px; font-size: 14px;">Önerimi Göster</button>
       </div>
       <div class="quiz-result" id="quizResult"></div>
     </div>
@@ -352,7 +375,7 @@
 
   <footer>
     <p>Veriler kamuya açık kaynaklardan derlenmiştir; fiyatlar zamanla değişebilir. Karar vermeden önce ilgili platformun resmi sitesini kontrol edin.</p>
-    <p style="margin-top: 8px">Bağımsız karşılaştırma · v2.0 · <a href="https://github.com/baranbaranpolat-dotcom/eticaret-platformlari" target="_blank">GitHub'da görüntüle</a></p>
+    <p style="margin-top: 6px">Bağımsız karşılaştırma · v3.0 · <a href="https://github.com/baranbaranpolat-dotcom/eticaret-platformlari" target="_blank">GitHub</a></p>
   </footer>
 </div>
 
@@ -366,8 +389,9 @@ const PLATFORMS = [
     foundedNote: 'Yeni (2024)', customers: '200+',
     pricing: { starter: '1.490₺/ay', growth: '2.990₺/ay', enterprise: '5.990₺/ay' },
     trial: '30 gün',
-    pros: ['Sade ve modern panel', 'Şeffaf paket fiyatları', '30 gün ücretsiz deneme', '7/24 destek', 'Hızlı kurulum'],
-    cons: ['Yeni platform, referans az', 'Dar pazaryeri entegrasyonu', 'Az tema seçeneği', 'Ekosistem henüz oluşmamış'],
+    features: { themes: 5, mobile: 0, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 2, marketplaces: 0 },
+    pros: ['Sade ve modern yönetim paneli, kurumsal yapıya uygun', 'Şeffaf 3 paket fiyatı (1.490₺ / 2.990₺ / 5.990₺)', '30 gün ücretsiz deneme — sektör ortalamasının üstü', '7/24 destek altyapısı', 'Hızlı kurulum, kendi domainde panel', 'iyzico ve PayTR entegrasyonu', 'Yurtiçi ve Aras Kargo entegrasyonu', 'Klaviyo ve ElasticSearch desteği'],
+    cons: ['Yeni platform, uzun vadeli referans azlığı', 'Pazaryeri entegrasyonu (Trendyol/HB) henüz yok', 'Az tema seçeneği', 'Geliştirici/eklenti ekosistemi henüz oluşmamış', 'Mobil yönetim uygulaması yok', 'Komisyon politikası net duyurulmamış'],
     scores: { fiyat: 7, ozellik: 6, kolaylik: 9, destek: 8, ekosistem: 4 },
     bestFor: 'Sade çözüm arayan yeni nesil D2C markalar'
   },
@@ -376,10 +400,11 @@ const PLATFORMS = [
     sub: 'KOBİ favorisi, hızla büyüyen', badge: { txt: 'POPÜLER', cls: 'badge-pop' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 9, foundedYear: 2017,
     foundedNote: '2017, Türkiye', customers: '20.000+',
-    pricing: { starter: 'Free', growth: '~1.000₺+/ay', enterprise: 'Premium özel' },
+    pricing: { starter: 'Ücretsiz (Start)', growth: '~1.000₺+/ay', enterprise: 'Premium özel' },
     trial: '14 gün',
-    pros: ['Ücretsiz başlangıç paketi', 'Modern ve mobil odaklı', 'AWS altyapı', 'Trendyol, HB, Amazon, Etsy entegrasyon', '20.000+ aktif kullanıcı'],
-    cons: ['Tema özelleştirme için Premium gerek', 'Aylık fiyat ölçeklendikçe yükseliyor', 'Bazı entegrasyonlar ek ücretli'],
+    features: { themes: 25, mobile: 1, ai: 0.5, b2b: 0, multilang: 1, pos: 0.5, payments: 8, marketplaces: 4 },
+    pros: ['Ücretsiz Start paketi — 0₺ ile başlangıç', 'AWS altyapı, %99.9 uptime', '20.000+ aktif Türk mağaza', 'Trendyol, Hepsiburada, Amazon, Etsy entegre', 'iyzico, PayTR, Tami, Paratika ödeme', 'Yurtiçi, Aras, MNG, HepsiJET kargo', 'Modern mobil odaklı arayüz', 'Sınırsız ürün ve trafik', 'Türkçe 7/24 destek'],
+    cons: ['Tema özelleştirme için Premium paket gerek', 'Aylık fiyat ölçeklendikçe hızla yükseliyor', 'Bazı entegrasyonlar ek ücretli', 'API/headless desteği sınırlı', 'B2B özellikleri zayıf'],
     scores: { fiyat: 9, ozellik: 8, kolaylik: 9, destek: 9, ekosistem: 9 },
     bestFor: 'KOBİ ve yeni başlayan D2C markalar'
   },
@@ -390,8 +415,9 @@ const PLATFORMS = [
     foundedNote: '2010, Türkiye', customers: '30.000+',
     pricing: { starter: 'Özel teklif', growth: 'Özel teklif', enterprise: 'Özel teklif' },
     trial: '15 gün',
-    pros: ['30.000+ marka — geniş referans', "Victoria's Secret, Starbucks gibi kurumsal müşteriler", 'AI destekli içerik', 'Native iOS/Android', 'WMS, Omnichannel', 'B2B + e-ihracat paketleri'],
-    cons: ['Fiyat şeffaf değil', 'Yeni başlayanlar için karmaşık', 'Öğrenme eğrisi dik', 'Küçük işletmeler için maliyetli'],
+    features: { themes: 50, mobile: 1, ai: 1, b2b: 1, multilang: 1, pos: 1, payments: 15, marketplaces: 6 },
+    pros: ['30.000+ marka — sektörün en geniş referansı', "Victoria's Secret, Starbucks, English Home gibi kurumsal müşteriler", 'Yapay zeka destekli içerik üretimi', 'Native iOS/Android mobil uygulama', 'WMS (Depo Yönetim Sistemi) yerleşik', 'Omnichannel (mağaza+web+pazaryeri) tek panel', 'B2B + B2C + e-ihracat paketleri', '7/24 ödüllü Türkçe destek', 'Ödeme: iyzico, PayTR, Sipay, Logo POS, +15'],
+    cons: ['Fiyatlandırma kapalı — özel teklif modeli', 'Yeni başlayanlar için karmaşık', 'Panel öğrenme eğrisi dik', 'Küçük işletmeler için maliyet yüksek', 'Bazı özelleştirmeler ek teknik destek ister'],
     scores: { fiyat: 5, ozellik: 9, kolaylik: 6, destek: 9, ekosistem: 9 },
     bestFor: 'Orta-büyük markalar, omnichannel/e-ihracat'
   },
@@ -400,10 +426,11 @@ const PLATFORMS = [
     sub: 'Köklü, anahtar teslim', badge: { txt: 'KÖKLÜ', cls: 'badge-ent' },
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 10, foundedYear: 2007,
     foundedNote: '2007, Türkiye', customers: '50.000+',
-    pricing: { starter: '19.900₺/ay', growth: '64.900₺/ay', enterprise: '84.900₺/ay' },
+    pricing: { starter: '~1.658₺/ay (indirimli)', growth: '~5.408₺/ay', enterprise: '~7.075₺/ay' },
     trial: '15 gün',
-    pros: ['50.000+ firma — en geniş baz', '100+ hazır tema', 'ideaSoft AI', 'Sınırsız panel kullanıcısı', 'Logo/Mikro/Nebim/Paraşüt entegre', 'VIP danışman desteği'],
-    cons: ['Üst paketler pahalı', 'UI/UX biraz eski', 'Tema özelleştirme teknik bilgi ister', 'Yıllık peşin ödeme'],
+    features: { themes: 100, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: 0, payments: 12, marketplaces: 5 },
+    pros: ['50.000+ firma — Türkiye en geniş kullanıcı tabanı', '100+ hazır tema ve tasarım', 'ideaSoft AI — yapay zeka ürün/içerik üretimi', 'Sınırsız panel kullanıcısı (tüm paketler)', 'Logo Tiger, Mikro, Nebim, Paraşüt muhasebe entegre', 'Trendyol, Hepsiburada, n11, ÇiçekSepeti, PttAVM', 'VIP danışman desteği üst paketlerde', 'Anahtar teslim kurulum hizmeti', '%99.9 uptime SLA', 'E-fatura, E-arşiv yerleşik'],
+    cons: ['Üst paketler (Platinum) pahalı', 'UI/UX bazı kullanıcılara eski geliyor', 'Tema özelleştirmesi için teknik bilgi gerek', 'Bazı entegrasyonlar modüler/ek ücretli', 'Yıllık peşin ödeme modeli', 'B2B özellikleri Ticimax/T-Soft\'a göre zayıf'],
     scores: { fiyat: 6, ozellik: 9, kolaylik: 7, destek: 9, ekosistem: 9 },
     bestFor: 'ERP/muhasebe entegrasyonu kritik olan markalar'
   },
@@ -413,9 +440,10 @@ const PLATFORMS = [
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 7, foundedYear: 2003,
     foundedNote: '2003, Türkiye', customers: '10.000+',
     pricing: { starter: 'Özel teklif', growth: 'Özel teklif', enterprise: 'Özel teklif' },
-    trial: '30 gün',
-    pros: ["Türkiye'nin en eski altyapılarından", 'B2B, B2C, B2B2C senaryolar', 'Derin ERP (SAP, Logo, Netsis)', 'Çok dilli + e-ihracat', 'Yüksek özelleştirilebilirlik', 'Mağaza zinciri için olgun'],
-    cons: ['Fiyat tamamen kapalı', 'Modern UI/UX rakiplerden geride', 'Küçük işletmeler için fazla kurumsal', 'Setup süreci uzun'],
+    trial: 'Talebe bağlı',
+    features: { themes: 30, mobile: 1, ai: 0, b2b: 1, multilang: 1, pos: 1, payments: 10, marketplaces: 5 },
+    pros: ['Türkiye\'nin en eski e-ticaret altyapısı (2003)', 'B2B, B2C ve B2B2C senaryoları güçlü', 'Derin ERP entegrasyonu (SAP, Logo, Netsis, Mikro)', 'Çok dilli + çok para birimli (e-ihracat)', 'Yüksek özelleştirilebilirlik — kaynak kod erişimi', 'Mağaza zincirleri için olgun çözüm', 'POS + perakende senaryoları', 'Native mobil uygulama', '20+ pazaryeri entegrasyonu', 'Kurumsal SLA ve hesap yöneticisi'],
+    cons: ['Fiyatlandırma tamamen kapalı', 'Modern UI/UX rakiplerden geride', 'Küçük işletmeler için fazla kurumsal', 'Setup ve eğitim süreci uzun (haftalar)', 'Geliştirici/topluluk eklenti pazarı dar', 'Modern tema/storefront seçenekleri sınırlı'],
     scores: { fiyat: 5, ozellik: 8, kolaylik: 5, destek: 7, ekosistem: 7 },
     bestFor: 'Mağaza zincirleri, B2B, derin ERP gerektiren markalar'
   },
@@ -426,8 +454,9 @@ const PLATFORMS = [
     foundedNote: '2021, Türkiye', customers: 'Büyüyor',
     pricing: { starter: 'Ücretsiz / Düşük', growth: '~1.500₺/ay', enterprise: 'Kurumsal teklif' },
     trial: 'Var',
-    pros: ['Modern, hızlı panel', 'Pazaryeri entegrasyonları', 'Türk girişim ekosistemi', 'Mobil odaklı', 'Yeni nesil markalar tarafından tercih ediliyor'],
-    cons: ['Daha küçük müşteri tabanı', 'Sınırlı tema kütüphanesi', 'Bazı kurumsal özellikler yok', 'Topluluk küçük'],
+    features: { themes: 10, mobile: 0.5, ai: 0, b2b: 0, multilang: 1, pos: 0, payments: 5, marketplaces: 3 },
+    pros: ['Modern, hızlı ve mobil odaklı panel', 'Türk girişim ekosistemi içinde büyüyor', 'Pazaryeri entegrasyonları (Trendyol, HB)', 'Yeni nesil D2C markalar tarafından tercih ediliyor', 'iyzico, PayTR ödeme', 'Şeffaf fiyatlandırma yaklaşımı', 'Hızlı kurulum süreci'],
+    cons: ['Küçük müşteri tabanı — referans az', 'Sınırlı tema kütüphanesi', 'Bazı kurumsal özellikler yok (B2B, POS)', 'Topluluk/forum küçük', 'AI özellikleri yok', 'Native mobil app sınırlı'],
     scores: { fiyat: 8, ozellik: 7, kolaylik: 8, destek: 7, ekosistem: 5 },
     bestFor: 'Modern, mobil odaklı yeni Türk markalar'
   },
@@ -436,10 +465,11 @@ const PLATFORMS = [
     sub: 'Köklü, çoklu özellik paketi', badge: null,
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 5, foundedYear: 2008,
     foundedNote: '~2008, Türkiye', customers: 'Geniş',
-    pricing: { starter: 'Yaklaşık 1.000-2.000₺/ay', growth: '~3.000-5.000₺/ay', enterprise: 'Özel teklif' },
+    pricing: { starter: '~1.000-2.000₺/ay', growth: '~3.000-5.000₺/ay', enterprise: 'Özel teklif' },
     trial: 'Demo talep',
-    pros: ['Geniş özellik seti', 'B2B ve B2C desteği', 'Çoklu mağaza yönetimi', 'Köklü Türk platformu', 'Pazaryeri entegrasyonu'],
-    cons: ['Panel hızlı/modern hissi vermiyor', 'Mobil deneyim sınırlı', 'Yeni başlayanlar için karmaşık', 'Fiyat şeffaf değil'],
+    features: { themes: 30, mobile: 0.5, ai: 0, b2b: 1, multilang: 1, pos: 0.5, payments: 5, marketplaces: 4 },
+    pros: ['Geniş özellik seti — modüler yapı', 'B2B ve B2C aynı panelde', 'Çoklu mağaza yönetimi', '15+ yıllık köklü Türk platformu', 'Pazaryeri entegrasyonu (Trendyol, HB, n11)', 'Türkçe destek ekibi', 'Toptan + perakende senaryoları'],
+    cons: ['Panel modern hissi vermiyor', 'Mobil deneyim sınırlı', 'Yeni başlayanlar için karmaşık', 'Fiyat şeffaf değil — paket detayları kapalı', 'AI özellikleri yok', 'Tema çeşitliliği orta'],
     scores: { fiyat: 6, ozellik: 7, kolaylik: 6, destek: 7, ekosistem: 6 },
     bestFor: 'B2B + B2C hibrit çalışan orta ölçek işletmeler'
   },
@@ -450,8 +480,9 @@ const PLATFORMS = [
     foundedNote: '~2016, Türkiye', customers: '3000+',
     pricing: { starter: '~800-1.500₺/ay', growth: '~2.500₺/ay', enterprise: 'Özel teklif' },
     trial: 'Demo talep',
-    pros: ['Makul giriş fiyatı', 'Modern arayüz', 'KOBİ odaklı paketler', 'Yerel destek', 'Pazaryeri entegrasyonu'],
-    cons: ['Tanınırlığı görece düşük', 'Ölçek konusunda sınırlar', 'Tema seçeneği orta', 'Topluluk küçük'],
+    features: { themes: 15, mobile: 0.5, ai: 0, b2b: 0, multilang: 1, pos: 0, payments: 5, marketplaces: 3 },
+    pros: ['Düşük giriş fiyatı (~800₺/ay)', 'Modern, anlaşılır arayüz', 'KOBİ odaklı paket yapısı', 'Yerel Türkçe destek', 'iyzico, PayTR ödeme', 'Trendyol, HB pazaryeri', 'Hızlı kurulum'],
+    cons: ['Tanınırlığı görece düşük', 'Ölçek konusunda sınırlar (büyük markalara dar)', 'Tema seçeneği orta düzeyde', 'Topluluk/forum küçük', 'AI özellikleri yok', 'B2B desteği sınırlı'],
     scores: { fiyat: 7, ozellik: 7, kolaylik: 8, destek: 7, ekosistem: 6 },
     bestFor: 'Bütçe dostu, modern panel arayan KOBİ\'ler'
   },
@@ -460,10 +491,11 @@ const PLATFORMS = [
     sub: 'Köklü, deneyim odaklı', badge: null,
     region: 'TR', model: 'SaaS', country: '🇹🇷', popularity: 4, foundedYear: 2007,
     foundedNote: '~2007, Türkiye', customers: 'Köklü',
-    pricing: { starter: 'Yaklaşık 1.500-3.000₺/ay', growth: 'Özel', enterprise: 'Özel teklif' },
+    pricing: { starter: '~1.500-3.000₺/ay', growth: 'Özel', enterprise: 'Özel teklif' },
     trial: 'Demo talep',
-    pros: ['15+ yıllık tecrübe', 'B2B desteği güçlü', 'Geniş entegrasyonlar', 'Kurumsal müşteri tabanı', 'Çoklu mağaza/dil'],
-    cons: ['Modern markaların tercih sıralamasında geride', 'UI/UX güncel değil', 'Fiyat şeffaf değil', 'Yeni başlayanlar için fazla kurumsal'],
+    features: { themes: 20, mobile: 0, ai: 0, b2b: 1, multilang: 1, pos: 0, payments: 5, marketplaces: 3 },
+    pros: ['15+ yıllık sektör tecrübesi', 'B2B desteği güçlü — toptan satış senaryoları', 'Geniş entegrasyon listesi', 'Kurumsal müşteri tabanı', 'Çoklu mağaza/dil/para birimi', 'ERP entegrasyon deneyimi'],
+    cons: ['Modern markaların tercih sıralamasında geride', 'UI/UX güncel hissi vermiyor', 'Fiyat şeffaf değil', 'Yeni başlayanlar için fazla kurumsal', 'Native mobil app yok', 'AI özellikleri yok'],
     scores: { fiyat: 6, ozellik: 7, kolaylik: 6, destek: 7, ekosistem: 6 },
     bestFor: 'B2B ağırlıklı, kurumsal alışkanlığı olan markalar'
   },
@@ -474,8 +506,9 @@ const PLATFORMS = [
     foundedNote: '~2020, Türkiye', customers: 'Büyüyor',
     pricing: { starter: '~900-1.500₺/ay', growth: '~2.500₺/ay', enterprise: 'Kurumsal' },
     trial: 'Var',
-    pros: ['Modüler paketler', 'Şeffaf fiyatlandırma', 'Hızlı kurulum', 'Modern arayüz', 'Pazaryeri entegrasyonu'],
-    cons: ['Müşteri tabanı küçük', 'Sınırlı tema havuzu', 'Bazı gelişmiş özellikler yok', 'Bilinirlik düşük'],
+    features: { themes: 10, mobile: 0.5, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 3, marketplaces: 2 },
+    pros: ['Modüler paket yapısı — sadece ihtiyacın kadar öde', 'Şeffaf fiyatlandırma', 'Hızlı kurulum (saatler)', 'Modern, sade arayüz', 'iyzico, PayTR ödeme', 'Trendyol, HB pazaryeri entegrasyonu', 'Düşük giriş bariyeri'],
+    cons: ['Müşteri tabanı çok küçük', 'Sınırlı tema havuzu', 'Bazı gelişmiş özellikler yok (AI, B2B)', 'Bilinirlik düşük', 'Topluluk yok', 'Çok dilli destek zayıf'],
     scores: { fiyat: 8, ozellik: 6, kolaylik: 8, destek: 7, ekosistem: 5 },
     bestFor: 'Bütçesi sınırlı, hızlı başlamak isteyen yeni markalar'
   },
@@ -486,8 +519,9 @@ const PLATFORMS = [
     foundedNote: '~2010, Türkiye', customers: 'Orta',
     pricing: { starter: '~1.000-2.000₺/ay', growth: 'Modüllere göre', enterprise: 'Özel teklif' },
     trial: 'Demo',
-    pros: ['Çoklu modül seçenekleri', 'Köklü Türk platform', 'B2B + B2C', 'Geniş entegrasyon listesi', 'Makul giriş fiyatı'],
-    cons: ['UI tasarımı eski', 'Modern mobil deneyim sınırlı', 'Modül bazlı fiyatlama karmaşık', 'Topluluk küçük'],
+    features: { themes: 20, mobile: 0, ai: 0, b2b: 1, multilang: 0, pos: 0, payments: 5, marketplaces: 3 },
+    pros: ['Çoklu modül seçenekleri — istediğin kadar', 'Köklü Türk platform (15+ yıl)', 'B2B + B2C senaryoları', 'Geniş entegrasyon listesi', 'Makul giriş fiyatı', 'Türkçe destek'],
+    cons: ['UI tasarımı görece eski', 'Modern mobil deneyim sınırlı', 'Modül bazlı fiyatlama hesabı karmaşıklaştırıyor', 'Topluluk küçük', 'Çok dilli destek zayıf', 'AI özellikleri yok'],
     scores: { fiyat: 6, ozellik: 7, kolaylik: 5, destek: 6, ekosistem: 6 },
     bestFor: 'Eski okul, modüler yapı tercih edenler'
   },
@@ -495,13 +529,14 @@ const PLATFORMS = [
   // ===== ULUSLARARASI SaaS =====
   {
     id: 'shopify', name: 'Shopify', logoCls: 'lg-shopify', logoTxt: 'Sh',
-    sub: "Dünyanın en büyük e-ticaret SaaS'ı", badge: { txt: 'KRAL', cls: 'badge-king' },
+    sub: 'Dünyanın en büyük e-ticaret SaaS\'ı', badge: { txt: 'KRAL', cls: 'badge-king' },
     region: 'Global', model: 'SaaS', country: '🇨🇦', popularity: 10, foundedYear: 2006,
     foundedNote: '2006, Kanada', customers: '4.000.000+',
-    pricing: { starter: ' starter: 'Basic $39/ay', growth: 'Shopify $105/ay', enterprise: 'Advanced $399 / Plus $2000+' 9/ay', growth: '$79/ay', enterprise: ' starter: 'Basic $39/ay', growth: 'Shopify $105/ay', enterprise: 'Advanced $399 / Plus $2000+' .300/ay' },
-    trial: '3 gün',
-    pros: ['4M+ aktif mağaza — dünyanın #1\'i', 'Devasa eklenti pazarı (8000+ app)', '100+ premium tema', 'Shopify Payments + Shop Pay', 'Global ödeme/kargo desteği', 'POS ve Omnichannel', 'Olağanüstü ekosistem'],
-    cons: ['Shopify Payments dışında işlem komisyonu (2%+)', 'Türkiye\'de doğrudan destek sınırlı', 'iyzico/PayTR eklenti gerekiyor', 'Aylık fiyat USD/EUR cinsinden', 'Tema özelleştirme Liquid bilgisi ister'],
+    pricing: { starter: 'Basic $39/ay', growth: 'Shopify $105/ay', enterprise: 'Advanced $399 / Plus $2.000+' },
+    trial: '3 gün ($1/ay promo)',
+    features: { themes: 130, mobile: 1, ai: 1, b2b: 0.5, multilang: 1, pos: 1, payments: 100, marketplaces: 10 },
+    pros: ['4M+ aktif mağaza — dünyanın #1\'i', '8.000+ uygulama eklenti pazarı', '130+ premium tema (Liquid)', 'Shopify Payments + Shop Pay (1-click checkout)', '100+ ödeme yöntemi (Stripe, PayPal, Apple Pay)', 'POS donanımı + omnichannel', 'Shopify Magic (AI içerik, ürün açıklaması)', '175+ ülkede aktif, 20+ dil', '99.99% uptime, AWS altyapı', 'Headless commerce (Hydrogen, Storefront API)'],
+    cons: ['Shopify Payments dışında %2 işlem komisyonu', 'Türkiye\'de doğrudan destek sınırlı', 'iyzico/PayTR için 3. parti eklenti gerek', 'Aylık fiyat USD cinsinden', 'Tema özelleştirme Liquid bilgisi ister', 'Trendyol/HB direkt entegre değil'],
     scores: { fiyat: 6, ozellik: 10, kolaylik: 9, destek: 9, ekosistem: 10 },
     bestFor: 'Global ölçekli D2C, yurt dışına satan markalar'
   },
@@ -510,10 +545,11 @@ const PLATFORMS = [
     sub: 'Shopify\'ın en yakın rakibi', badge: { txt: 'POPÜLER', cls: 'badge-pop' },
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 7, foundedYear: 2009,
     foundedNote: '2009, ABD', customers: '60.000+',
-    pricing: { starter: ' starter: 'Standard $39/ay', growth: 'Plus $105/ay', enterprise: 'Pro $399 / Enterprise özel' 9/ay', growth: '$79/ay', enterprise: 'Custom pricing' },
+    pricing: { starter: 'Standard $39/ay', growth: 'Plus $105/ay', enterprise: 'Pro $399 / Enterprise özel' },
     trial: '15 gün',
-    pros: ['Hiç işlem komisyonu yok', 'Açık API mimarisi', 'B2B desteği güçlü (Plus)', 'Çok kanallı satış (eBay, Amazon, FB)', 'SEO en güçlü olanlardan biri', 'Headless commerce desteği'],
-    cons: ['Plan başına yıllık satış limiti var', 'Türkiye\'de tema/eklenti seçeneği dar', 'Türkiye destek/topluluk küçük', 'Liquid yerine kendi templating motoru'],
+    features: { themes: 50, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: 60, marketplaces: 8 },
+    pros: ['Hiç işlem komisyonu yok — kazancın tamamı senin', 'Açık ve güçlü API mimarisi', 'B2B Edition güçlü (kurumsal müşteri yönetimi, fiyat listeleri)', 'Çok kanallı (eBay, Amazon, FB, Google)', 'SEO en güçlü SaaS platformlarından biri', 'Headless commerce desteği yerleşik', 'WordPress entegrasyon (Headless)', '60+ ödeme gateway', 'Plan başı yıllık gelir limiti şeffaf'],
+    cons: ['Plan başına yıllık satış limiti zorlayıcı olabilir', 'Türkiye\'de tema/eklenti seçeneği dar', 'Türkiye topluluk/destek küçük', 'Stencil templating motoru (Liquid değil)', 'Eklenti pazarı Shopify\'dan küçük'],
     scores: { fiyat: 7, ozellik: 9, kolaylik: 8, destek: 8, ekosistem: 7 },
     bestFor: 'Komisyonsuz Shopify alternatifi arayan global markalar'
   },
@@ -522,18 +558,11 @@ const PLATFORMS = [
     sub: 'Drag-drop site + ticaret', badge: null,
     region: 'Global', model: 'SaaS', country: '🇮🇱', popularity: 8, foundedYear: 2006,
     foundedNote: '2006, İsrail', customers: '200M+ kullanıcı (genel)',
-    pricing: { starter: 'id: 'wix', name: 'Wix eCommerce', logoCls: 'lg-wix', logoTxt: 'W',
-    sub: 'Drag-drop site + ticaret', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇮🇱', popularity: 8, foundedYear: 2006,
-    foundedNote: '2006, İsrail', customers: '200M+ kullanıcı (genel)',
-    pricing: {7.77/mo', growth: ' starter: 'Core $27/ay', growth: 'Business $32/ay', enterprise: 'Business Elite $159/ay' 9.77/mo', enterprise: 'id: 'wix', name: 'Wix eCommerce', logoCls: 'lg-wix', logoTxt: 'W',
-    sub: 'Drag-drop site + ticaret', badge: null,
-    region: 'Global', model: 'SaaS', country: '🇮🇱', popularity: 8, foundedYear: 2006,
-    foundedNote: '2006, İsrail', customers: '200M+ kullanıcı (genel)',
-    pricing: {59.77/mo' },
+    pricing: { starter: 'Core $27/ay', growth: 'Business $32/ay', enterprise: 'Business Elite $159/ay' },
     trial: '14 gün',
-    pros: ['Sürükle-bırak site builder', '800+ ücretsiz şablon', 'Kurulum çok hızlı', 'Tasarım esnekliği', 'AI site builder (Wix ADI)', 'Sosyal medya & marketplace entegrasyonu'],
-    cons: ['E-ticaret özellikleri Shopify kadar derin değil', 'Şablon değişikliği site sıfırlar', 'Ölçeklendikçe sınırlar zorlanıyor', 'SEO bazı durumlarda zayıf'],
+    features: { themes: 800, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: 0.5, payments: 20, marketplaces: 5 },
+    pros: ['Sürükle-bırak site builder — kodsuz tasarım', '800+ ücretsiz şablon (tüm sektörler)', 'Kurulum çok hızlı (saatler içinde)', 'Tasarım esnekliği yüksek', 'Wix ADI (AI site builder) — otomatik site', 'Wix Owner mobil app (yönetim)', 'Sosyal medya & marketplace entegrasyonu', '500+ uygulama Wix App Market\'ten', 'SEO Wiz aracı'],
+    cons: ['E-ticaret özellikleri Shopify kadar derin değil', 'Şablon değiştirme yeniden tasarım gerektirir', 'Ölçeklendikçe ürün/sipariş yönetimi zorlanır', 'B2B özellikleri yok', 'SEO çekirdek hız bazı durumlarda zayıf', 'API gücü düşük'],
     scores: { fiyat: 8, ozellik: 7, kolaylik: 9, destek: 7, ekosistem: 7 },
     bestFor: 'Tasarım önemli, ufak-orta ölçek markalar'
   },
@@ -544,8 +573,9 @@ const PLATFORMS = [
     foundedNote: '2003, ABD', customers: '4M+ site',
     pricing: { starter: 'Business $23/ay', growth: 'Commerce Basic $27/ay', enterprise: 'Commerce Advanced $49/ay' },
     trial: '14 gün',
-    pros: ['Sektörün en güzel şablonları', 'Premium estetik', 'Yerleşik blog + sosyal', 'Tasarım için tercih edilen platform', 'Klan/yaratıcı topluluğu güçlü'],
-    cons: ['Eklenti pazarı çok kısıtlı', 'Plug-and-play e-ticaret özellikleri sınırlı', 'API ve özelleştirme zayıf', 'Türk pazaryeri entegrasyonu yok'],
+    features: { themes: 100, mobile: 1, ai: 0.5, b2b: 0, multilang: 0, pos: 1, payments: 10, marketplaces: 3 },
+    pros: ['Sektörün en güzel şablonları (tasarımcı favorisi)', '100+ premium estetik tema', 'Yerleşik blog + sosyal medya yönetimi', 'Squarespace AI (tasarım + içerik)', 'Square POS entegrasyonu (perakende)', 'Mobil app güçlü', 'Premium görsel/foto yönetimi', 'Üyelik/abonelik satışı', 'Açılış sayfası araçları'],
+    cons: ['Eklenti pazarı çok kısıtlı — kapalı ekosistem', 'Plug-and-play e-ticaret özellikleri sınırlı', 'API ve özelleştirme zayıf', 'Türk pazaryeri entegrasyonu yok', 'Çok dilli site sınırlı', 'B2B desteği yok'],
     scores: { fiyat: 7, ozellik: 6, kolaylik: 9, destek: 7, ekosistem: 5 },
     bestFor: 'Estetik öncelikli, az ürünlü butik markalar'
   },
@@ -556,8 +586,9 @@ const PLATFORMS = [
     foundedNote: '2013, ABD', customers: '3.5M+ site',
     pricing: { starter: 'Standard $29/ay', growth: 'Plus $74/ay', enterprise: 'Advanced $212/ay' },
     trial: 'Ücretsiz başlangıç',
-    pros: ['Pixel-perfect tasarım kontrolü', 'Tasarımcı/ajans favorisi', 'CMS güçlü', 'Hosting + tasarım + ticaret tek yerde', 'Animasyon ve etkileşim güçlü'],
-    cons: ['Ürün sayısı sınırlı (3000\'e kadar)', 'Eklenti ekosistemi küçük', 'Türkiye ödeme entegrasyonu zor', 'Öğrenme eğrisi dik'],
+    features: { themes: 100, mobile: 0.5, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 5, marketplaces: 2 },
+    pros: ['Pixel-perfect tasarım kontrolü', 'Tasarımcı ve ajans favorisi', 'Güçlü CMS (içerik yönetimi)', 'Hosting + tasarım + ticaret tek yerde', 'Animasyon ve etkileşim güçlü (Lottie, GSAP)', 'Webflow Designer — Figma seviyesi araç', 'CDN dahil hızlı yayın', 'Custom kod ekleme imkânı'],
+    cons: ['Ürün sayısı sınırlı (Standard 500, Plus 5000)', 'Eklenti ekosistemi çok küçük', 'Türkiye ödeme entegrasyonu zor', 'Öğrenme eğrisi dik (CSS bilgisi şart)', 'B2B özellikleri yok', 'Mobil uygulama yok', 'Hesap kapanırsa site kayıp'],
     scores: { fiyat: 6, ozellik: 7, kolaylik: 6, destek: 7, ekosistem: 6 },
     bestFor: 'Tasarım odaklı, ajans/tasarımcı ile çalışan markalar'
   },
@@ -566,10 +597,11 @@ const PLATFORMS = [
     sub: 'Mevcut siteye eklenebilir', badge: null,
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: 2009,
     foundedNote: '2009, ABD (Lightspeed)', customers: '1.5M+',
-    pricing: { starter: 'Free (10 ürün)', growth: 'Venture $25, Business $35/ay', enterprise: 'Unlimited $105/ay' },
-    trial: 'Ücretsiz plan',
-    pros: ['Ücretsiz plan var', 'Mevcut WordPress/Wix/site\'ye eklenebilir', 'Mobil app yönetimi', 'Çok kanallı satış (FB, IG, Amazon)', 'Lightspeed POS entegrasyonu'],
-    cons: ['Tek başına storefront sınırlı', 'Tema/tasarım çok kısıtlı', 'Türkiye ödeme/kargo entegrasyonu yetersiz', 'Gelişmiş özellikler üst paketlerde'],
+    pricing: { starter: 'Free (10 ürün)', growth: 'Venture $25 / Business $35', enterprise: 'Unlimited $105/ay' },
+    trial: 'Ücretsiz plan kalıcı',
+    features: { themes: 20, mobile: 1, ai: 0, b2b: 0, multilang: 1, pos: 1, payments: 50, marketplaces: 5 },
+    pros: ['Kalıcı ücretsiz plan (10 ürün)', 'Mevcut WordPress/Wix/Joomla site\'ye widget olarak eklenir', 'Native iOS/Android yönetim uygulaması', 'Facebook, Instagram, Amazon, eBay satış', 'Lightspeed POS entegrasyonu', '50+ ödeme gateway (PayPal, Stripe, vs)', '50+ dil desteği', 'Hızlı kurulum (5 dk)'],
+    cons: ['Tek başına storefront sınırlı', 'Tema/tasarım çok kısıtlı', 'Türkiye ödeme/kargo entegrasyonu yetersiz', 'Gelişmiş özellikler üst paketlerde', 'SEO sınırlı', 'B2B yok', 'AI yok'],
     scores: { fiyat: 9, ozellik: 6, kolaylik: 8, destek: 7, ekosistem: 6 },
     bestFor: 'Var olan bir siteye/blog\'a satış ekleyenler'
   },
@@ -579,9 +611,10 @@ const PLATFORMS = [
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 6, foundedYear: 2018,
     foundedNote: '2018 (Weebly satın alımı)', customers: 'Geniş',
     pricing: { starter: 'Free', growth: 'Plus $29/ay', enterprise: 'Premium $79/ay' },
-    trial: 'Ücretsiz plan',
-    pros: ['Tamamen ücretsiz başlangıç', 'Square POS ile mükemmel entegrasyon', 'Restoran/butik için ideal', 'Hızlı kurulum', 'ABD\'de fiziksel mağaza + online ideal'],
-    cons: ['Türkiye\'de Square mevcut değil', 'Sınırlı özelleştirme', 'Tema/tasarım sınırlı', 'Türk ödeme/kargo yok'],
+    trial: 'Ücretsiz plan kalıcı',
+    features: { themes: 10, mobile: 1, ai: 0, b2b: 0, multilang: 0, pos: 1, payments: 5, marketplaces: 2 },
+    pros: ['Tamamen ücretsiz başlangıç planı', 'Square POS ile mükemmel entegrasyon', 'Restoran/butik için ideal (menü, masa)', 'Mobil order/pickup desteği', 'Hızlı kurulum (1 saat)', 'ABD\'de fiziksel + online ideal', 'Sosyal medya satış entegre', 'Cazip işlem oranları (Square)'],
+    cons: ['Türkiye\'de Square mevcut değil', 'Sınırlı özelleştirme', 'Tema/tasarım çok sınırlı', 'Türk ödeme/kargo entegrasyonu yok', 'Sadece ABD/Kanada/UK/Avustralya'],
     scores: { fiyat: 9, ozellik: 5, kolaylik: 8, destek: 6, ekosistem: 4 },
     bestFor: 'ABD\'de fiziksel + online satış yapan butikler'
   },
@@ -590,10 +623,11 @@ const PLATFORMS = [
     sub: 'Sanatçı & yaratıcı odaklı', badge: { txt: 'NICHE', cls: 'badge-ent' },
     region: 'Global', model: 'SaaS', country: '🇺🇸', popularity: 4, foundedYear: 2005,
     foundedNote: '2005, ABD', customers: 'Geniş yaratıcı topluluk',
-    pricing: { starter: 'Free (5 ürün)', growth: 'Platinum $9.99, Diamond $19.99/ay', enterprise: 'Titanium $29.99/ay' },
-    trial: 'Ücretsiz plan',
-    pros: ['Çok düşük başlangıç maliyeti', 'Bağımsız sanatçılar için tasarlanmış', 'Hızlı setup', 'Minimal & temiz tasarım', 'Hiçbir işlem komisyonu yok'],
-    cons: ['Ürün sayısı sınırlı (Titanium 500)', 'Özellik seti çok kısıtlı', 'Ciddi e-ticaret için yetersiz', 'Türkiye ödeme entegrasyonu yok'],
+    pricing: { starter: 'Free (5 ürün)', growth: 'Platinum $9.99 / Diamond $19.99', enterprise: 'Titanium $29.99/ay' },
+    trial: 'Ücretsiz plan kalıcı',
+    features: { themes: 20, mobile: 1, ai: 0, b2b: 0, multilang: 0, pos: 0, payments: 3, marketplaces: 0 },
+    pros: ['Çok düşük başlangıç maliyeti', 'Bağımsız sanatçılar için özel tasarlanmış', 'Hızlı setup (10 dk)', 'Minimal, temiz tasarım', 'Hiçbir işlem komisyonu yok', 'Stripe, PayPal entegre', 'Mobil app (Big Cartel Mobile)', 'Topluluğu güçlü (sanatçı/maker)'],
+    cons: ['Ürün sayısı çok sınırlı (max 500)', 'Özellik seti zayıf — basit storefront', 'Ciddi e-ticaret için yetersiz', 'Türkiye ödeme entegrasyonu yok', 'B2B yok', 'AI yok', 'Marketplace entegrasyonu yok', 'Çok dilli destek yok'],
     scores: { fiyat: 9, ozellik: 4, kolaylik: 9, destek: 6, ekosistem: 3 },
     bestFor: 'Sanatçılar, yaratıcılar, butik el yapımı ürün satanlar'
   },
@@ -604,8 +638,9 @@ const PLATFORMS = [
     foundedNote: '2017, Singapur/Çin', customers: '360.000+',
     pricing: { starter: 'Free / $29/ay', growth: '$59/ay', enterprise: '$269+/ay' },
     trial: '7 gün',
-    pros: ['Çin pazarına satış için güçlü', 'Çok dilli, çok para birimli', 'Dropshipping odaklı', 'Düşük başlangıç fiyatı', 'Hızlı kurulum'],
-    cons: ['Türkiye için doğrudan uygun değil', 'Premium temalar sınırlı', 'Eklenti ekosistemi küçük', 'Destek genelde İngilizce/Çince'],
+    features: { themes: 30, mobile: 1, ai: 1, b2b: 0, multilang: 1, pos: 0.5, payments: 30, marketplaces: 5 },
+    pros: ['Çin/Asya pazarına satış için güçlü', 'Çok dilli, çok para birimli yapı', 'Dropshipping odaklı araçlar', 'Düşük başlangıç fiyatı', 'Hızlı kurulum', 'AI tasarım ve ürün açıklaması', 'WhatsApp, TikTok Shop entegre', '30+ ödeme yöntemi (Alipay, WeChat, vs)'],
+    cons: ['Türkiye için doğrudan uygun değil', 'Premium temalar sınırlı', 'Eklenti ekosistemi küçük', 'Destek genelde İngilizce/Çince', 'Türk pazaryeri yok', 'iyzico/PayTR yok'],
     scores: { fiyat: 8, ozellik: 7, kolaylik: 8, destek: 6, ekosistem: 6 },
     bestFor: 'Çin\'e veya Asya pazarına ihracat yapanlar'
   },
@@ -613,13 +648,14 @@ const PLATFORMS = [
   // ===== AÇIK KAYNAK / SELF-HOSTED =====
   {
     id: 'woocommerce', name: 'WooCommerce', logoCls: 'lg-woo', logoTxt: 'Wc',
-    sub: "WordPress'in e-ticaret eklentisi", badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
+    sub: 'WordPress\'in e-ticaret eklentisi', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
     region: 'Global', model: 'OSS', country: '🌐', popularity: 10, foundedYear: 2008,
     foundedNote: '2008, ABD (Automattic)', customers: '3.000.000+ mağaza',
-    pricing: { starter: 'Plugin ücretsiz', growth: 'Hosting ~$10-50/ay + eklenti', enterprise: 'WooCommerce Pro maliyeti $50-300+/ay' },
+    pricing: { starter: 'Plugin ücretsiz', growth: 'Hosting $10-50/ay + eklenti', enterprise: 'Eklenti $50-300+/ay toplam' },
     trial: 'Sürekli ücretsiz',
-    pros: ['Eklenti tamamen ücretsiz', '3M+ mağaza ile devasa topluluk', 'Sınırsız özelleştirme (PHP)', 'Tema havuzu çok geniş', 'WordPress\'in tüm SEO gücü', 'Tüm ödeme/kargo entegre edilebilir'],
-    cons: ['Hosting + güvenlik + bakım sana ait', 'Setup için teknik bilgi şart', 'Eklentiler birikince site yavaşlar', 'Update\'ler bazen kırar', 'Türkçe destek yok (eklenti dışında)'],
+    features: { themes: 1000, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 1, payments: 100, marketplaces: 20 },
+    pros: ['Plugin tamamen ücretsiz — açık kaynak', '3M+ mağaza ile dünyanın en büyük topluluğu', 'Sınırsız özelleştirme (PHP açık kaynak)', '1.000+ tema (premium + ücretsiz)', '50.000+ WordPress eklentisi mevcut', 'WordPress\'in tüm SEO gücü (Yoast vs)', 'Tüm ödeme/kargo entegre edilebilir', 'Türkçe iyzico, PayTR eklentileri var', 'WooCommerce Subscriptions, Bookings, Memberships', 'WP-CLI ile otomasyon, REST API güçlü'],
+    cons: ['Hosting + güvenlik + bakım sana ait', 'Setup için teknik bilgi şart (LAMP)', 'Eklentiler birikince site yavaşlar', 'Update\'ler bazen breaking — yedekleme şart', 'Türkçe resmi destek yok', 'Performans için CDN + cache şart', 'Güvenlik açıkları — düzenli update'],
     scores: { fiyat: 9, ozellik: 9, kolaylik: 5, destek: 5, ekosistem: 10 },
     bestFor: 'Teknik bilgisi olan, full kontrol isteyen markalar'
   },
@@ -628,10 +664,11 @@ const PLATFORMS = [
     sub: 'Enterprise açık kaynak devi', badge: { txt: 'KURUMSAL', cls: 'badge-ent' },
     region: 'Global', model: 'OSS', country: '🇺🇸', popularity: 8, foundedYear: 2008,
     foundedNote: '2008, ABD (Adobe)', customers: '200.000+ büyük marka',
-    pricing: { starter: 'Open Source ücretsiz', growth: 'Hosting $50-500/ay + dev maliyeti', enterprise: 'Adobe Commerce $22.000-$190.000/yıl' },
+    pricing: { starter: 'Open Source ücretsiz', growth: 'Hosting $50-500/ay + dev', enterprise: 'Adobe Commerce $22K-$190K/yıl' },
     trial: 'Open Source sürekli ücretsiz',
-    pros: ['Open Source versiyon ücretsiz', 'Enterprise düzeyinde özellikler', 'Çok mağaza/çok dil/çok para birimi', 'B2B + B2C aynı platform', 'Headless commerce destekli', 'Coca-Cola, Ford gibi markalar kullanıyor'],
-    cons: ['Çok karmaşık — geliştirici şart', 'Sunucu maliyeti yüksek', 'Setup ve bakım pahalı (yıllık $30K-100K+)', 'Küçük markalara aşırı', 'Hata ayıklama zor'],
+    features: { themes: 100, mobile: 1, ai: 1, b2b: 1, multilang: 1, pos: 1, payments: 100, marketplaces: 10 },
+    pros: ['Open Source versiyon tamamen ücretsiz', 'Enterprise düzeyinde tüm özellikler', 'Çok mağaza/çok dil/çok para birimi yerleşik', 'B2B + B2C aynı platformda (fiyat listeleri, B2B kataloglar)', 'Headless commerce desteği (PWA Studio)', 'Adobe Sensei AI (kişiselleştirme, arama)', 'Coca-Cola, Ford, Nike gibi markalar', 'GraphQL + REST API güçlü', 'Magento Marketplace 5000+ eklenti', 'Çok katmanlı önbellek (Varnish, Redis)'],
+    cons: ['Çok karmaşık — geliştirici şart', 'Sunucu maliyeti yüksek (4-8GB RAM şart)', 'Setup ve bakım pahalı (yıllık $30K-100K+ dev)', 'Küçük markalar için aşırı', 'Hata ayıklama zor — büyük codebase', 'Magento 2 öğrenme eğrisi çok dik', 'Adobe Commerce lisans çok pahalı'],
     scores: { fiyat: 4, ozellik: 10, kolaylik: 3, destek: 7, ekosistem: 9 },
     bestFor: 'Geliştirici ekibi olan, milyonlarca dolarlık ciro hedefleyen markalar'
   },
@@ -640,10 +677,11 @@ const PLATFORMS = [
     sub: 'Avrupa\'nın açık kaynak çözümü', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
     region: 'Global', model: 'OSS', country: '🇫🇷', popularity: 7, foundedYear: 2007,
     foundedNote: '2007, Fransa', customers: '300.000+ mağaza',
-    pricing: { starter: 'Yazılım ücretsiz', growth: 'Hosting ~$5-30/ay + modüller', enterprise: 'PrestaShop Cloud var' },
+    pricing: { starter: 'Yazılım ücretsiz', growth: 'Hosting $5-30/ay + modüller', enterprise: 'PrestaShop Cloud + Enterprise' },
     trial: 'Ücretsiz indir',
-    pros: ['Tamamen ücretsiz açık kaynak', 'Avrupa\'da yaygın (özellikle FR/IT/ES)', '600+ tema mevcut', '3000+ modül', 'Çok dil/para birimi yerleşik', 'B2B özellikleri var'],
-    cons: ['Tema/modül çoğu ücretli ($50-300)', 'Türkiye topluluk küçük', 'Bakım/güncelleme manuel', 'Performans optimize edilmesi gerek', 'Hosting + güvenlik sende'],
+    features: { themes: 600, mobile: 0.5, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: 250, marketplaces: 10 },
+    pros: ['Yazılım tamamen ücretsiz', 'Avrupa\'da yaygın (özellikle FR/IT/ES/PL)', '600+ tema mevcut', '3.000+ modül (Addons Marketplace)', '75+ dil yerleşik', 'B2B özellikleri yerleşik', '250+ ödeme yöntemi (Stripe, PayPal, Klarna)', 'PrestaShop Edition AI (modül)', 'Hızlı performans optimize edilirse'],
+    cons: ['Tema/modül çoğu ücretli ($50-300 her biri)', 'Türkiye topluluk küçük', 'Bakım/güncelleme manuel — kırıcı update\'ler', 'Performans optimize edilmesi gerek', 'Hosting + güvenlik sende', 'Native mobil app yok', 'Modüller arası uyumsuzluk yaygın'],
     scores: { fiyat: 8, ozellik: 7, kolaylik: 5, destek: 6, ekosistem: 7 },
     bestFor: 'Avrupa\'ya satan, kendi sunucusuna sahip olmak isteyen markalar'
   },
@@ -652,10 +690,11 @@ const PLATFORMS = [
     sub: 'Hafif, sade açık kaynak', badge: { txt: 'ÜCRETSİZ', cls: 'badge-free' },
     region: 'Global', model: 'OSS', country: '🇬🇧', popularity: 6, foundedYear: 2010,
     foundedNote: '2010, İngiltere', customers: '350.000+ mağaza',
-    pricing: { starter: 'Ücretsiz', growth: 'Hosting $5-30/ay', enterprise: 'OpenCart Cloud var' },
+    pricing: { starter: 'Ücretsiz', growth: 'Hosting $5-30/ay', enterprise: 'OpenCart Cloud / OpenCart Enterprise' },
     trial: 'Ücretsiz indir',
-    pros: ['Tamamen ücretsiz', 'Hafif ve hızlı', 'Çok dil/para birimi', 'Türkiye\'de yaygın kullanım', 'Geniş modül pazarı', 'Setup PrestaShop\'tan kolay'],
-    cons: ['Magento/WooCommerce kadar derin değil', 'Tema kalitesi karışık', 'Bakım/güncelleme manuel', 'Bazı modüller ücretli', 'Resmi Türkçe destek yok'],
+    features: { themes: 500, mobile: 0.5, ai: 0, b2b: 1, multilang: 1, pos: 0, payments: 100, marketplaces: 5 },
+    pros: ['Tamamen ücretsiz', 'Hafif ve hızlı — minimal kaynak', 'Çok dilli + çok para birimi', 'Türkiye\'de yaygın kullanım (Türkçe yerel)', '500+ tema mevcut', '13.000+ eklenti OpenCart Extension Store', 'Setup PrestaShop\'tan kolay', 'iyzico, PayTR Türkçe eklentileri', 'OCMOD ile kod modifikasyonu'],
+    cons: ['Magento/WooCommerce kadar derin değil', 'Tema kalitesi karışık (çoğu eski)', 'Bakım/güncelleme manuel', 'Bazı eklentiler ücretli ve karışık', 'Resmi Türkçe destek yok', 'Native mobil app yok', 'AI özellikleri yok'],
     scores: { fiyat: 9, ozellik: 6, kolaylik: 6, destek: 6, ekosistem: 7 },
     bestFor: 'PHP bilgisi olan, hafif çözüm arayan KOBİ\'ler'
   },
@@ -665,11 +704,12 @@ const PLATFORMS = [
     id: 'salesforce', name: 'Salesforce Commerce Cloud', logoCls: 'lg-salesforce', logoTxt: 'SF',
     sub: 'Enterprise B2C/B2B', badge: { txt: 'ENTERPRISE', cls: 'badge-ent' },
     region: 'Global', model: 'Enterprise', country: '🇺🇸', popularity: 7, foundedYear: 2004,
-    foundedNote: '2004 (Demandware), Salesforce 2016', customers: '2000+ büyük marka',
-    pricing: { starter: 'Revenue-based', growth: 'GMV %1-3', enterprise: 'Yıllık minimum $50K+, sıklıkla $200K-$1M+' },
+    foundedNote: '2004 (Demandware), Salesforce 2016', customers: '2.000+ büyük marka',
+    pricing: { starter: 'Revenue-based', growth: 'GMV %1-3', enterprise: 'Yıllık min. $50K, sıklıkla $200K-$1M+' },
     trial: 'Demo (sales\'den)',
-    pros: ['Fortune 500 markalarda yaygın', 'Salesforce ekosistemine tam entegre', 'AI (Einstein) destekli', 'Omnichannel + B2B + B2C', 'Global çoklu mağaza', 'En üst seviye güvenlik & SLA'],
-    cons: ['Pahalı — minimum 6 figür', 'Implementation 6-12 ay', 'Geliştirici/sertifikalı ajans şart', 'Vendor lock-in riski yüksek', 'Küçük/orta ölçek için kesinlikle değil'],
+    features: { themes: 50, mobile: 1, ai: 1, b2b: 1, multilang: 1, pos: 1, payments: 50, marketplaces: 10 },
+    pros: ['Fortune 500 markalarda yaygın (Adidas, Puma, L\'Oréal)', 'Salesforce CRM ekosistemine tam entegre', 'Einstein AI (kişiselleştirme, ürün öneri)', 'Omnichannel + B2B + B2C tek platform', 'Global çoklu mağaza, 50+ dil', 'En üst seviye güvenlik & SLA (99.99%)', 'Headless commerce (SFRA, PWA Kit)', 'OMS (Order Management System) yerleşik', 'Marketing Cloud entegrasyonu', '24/7 enterprise destek'],
+    cons: ['Pahalı — minimum 6 figür yıllık', 'Implementation 6-12 ay', 'Geliştirici/sertifikalı ajans şart', 'Vendor lock-in riski yüksek', 'Küçük/orta ölçek için kesinlikle değil', 'Lisans + dev maliyeti çok yüksek', 'API rate limit\'leri katı'],
     scores: { fiyat: 2, ozellik: 10, kolaylik: 4, destek: 9, ekosistem: 9 },
     bestFor: 'Fortune 500, milyar dolar ciro hedefleyen küresel markalar'
   },
@@ -680,8 +720,9 @@ const PLATFORMS = [
     foundedNote: '2006, Almanya', customers: '300+ büyük marka',
     pricing: { starter: 'Revenue-based', growth: 'Order volume bazlı', enterprise: 'Yıllık $50K-$500K+' },
     trial: 'Demo',
-    pros: ['MACH (Microservices, API-first, Cloud, Headless) öncüsü', 'Tam esneklik — istediğin frontend', 'Modüler microservices', 'Audi, Tiffany, Express gibi müşteriler', 'Gartner Leader'],
-    cons: ['Pahalı', 'Headless yaklaşımı geliştirici ekibi gerektirir', 'Out-of-the-box frontend yok', 'Setup 3-6 ay', 'Küçük marka için aşırı'],
+    features: { themes: 0, mobile: 1, ai: 0.5, b2b: 1, multilang: 1, pos: 0.5, payments: 30, marketplaces: 5 },
+    pros: ['MACH (Microservices, API-first, Cloud, Headless) öncüsü', 'Tam esneklik — istediğin frontend (React, Vue, Next)', 'Modüler microservices mimarisi', 'Audi, Tiffany, Express, Telekom gibi müşteriler', 'Gartner Leader (Magic Quadrant)', 'Composable commerce — sadece ihtiyaç olan modüller', 'B2B + B2C tek API', 'GraphQL + REST API güçlü', 'Düşük TCO uzun vadede (enterprise için)'],
+    cons: ['Pahalı (minimum 5 figür yıllık)', 'Headless yaklaşımı geliştirici ekibi gerektirir', 'Out-of-the-box frontend yok — sıfırdan inşa', 'Setup 3-6 ay', 'Küçük marka için aşırı', 'Tasarım/UI ayrı maliyet (frontend dev)', 'Modüler — eksik özellikler 3. parti'],
     scores: { fiyat: 3, ozellik: 10, kolaylik: 3, destek: 8, ekosistem: 7 },
     bestFor: 'Headless commerce isteyen, geliştirici ekibi olan büyük markalar'
   }
@@ -692,13 +733,7 @@ PLATFORMS.forEach(p => {
   p.total = +((s.fiyat + s.ozellik + s.kolaylik + s.destek + s.ekosistem) / 5).toFixed(1);
 });
 
-// ===== State =====
-const STATE = {
-  region: 'all',
-  model: 'all',
-  search: '',
-  sort: 'score'
-};
+const STATE = { region: 'all', model: 'all', search: '', sort: 'score' };
 
 function filterPlatforms() {
   let list = [...PLATFORMS];
@@ -708,7 +743,6 @@ function filterPlatforms() {
     const q = STATE.search.toLowerCase();
     list = list.filter(p => p.name.toLowerCase().includes(q) || p.sub.toLowerCase().includes(q) || p.bestFor.toLowerCase().includes(q));
   }
-  // Sort
   if (STATE.sort === 'score') list.sort((a, b) => b.total - a.total);
   else if (STATE.sort === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
   else if (STATE.sort === 'popularity') list.sort((a, b) => b.popularity - a.popularity);
@@ -716,7 +750,26 @@ function filterPlatforms() {
   return list;
 }
 
-// ===== Cards =====
+function featPill(icon, label, value, tipName) {
+  let cls = '', display = '', tip = tipName;
+  if (typeof value === 'number' && value <= 1 && value > 0) {
+    // Binary feature (0/0.5/1)
+    if (value === 1) { display = '✓'; tip = `${tipName}: Var`; }
+    else if (value === 0.5) { display = '◐'; cls = 'partial'; tip = `${tipName}: Kısmen`; }
+  } else if (value === 0) {
+    display = '✗'; cls = 'no'; tip = `${tipName}: Yok`;
+  } else if (typeof value === 'number' && value > 1) {
+    display = value >= 100 ? `${value}+` : `${value}`;
+    tip = `${tipName}: ${display}`;
+  } else {
+    display = '–'; cls = 'no';
+  }
+  return `<div class="feat-pill ${cls}" data-tip="${tip}">
+    <div class="icon">${icon}</div>
+    <div class="value">${display}</div>
+  </div>`;
+}
+
 function renderCards() {
   const list = filterPlatforms();
   const grid = document.getElementById('platformsGrid');
@@ -730,7 +783,9 @@ function renderCards() {
   }
   empty.classList.add('hidden');
 
-  grid.innerHTML = list.map(p => `
+  grid.innerHTML = list.map(p => {
+    const f = p.features || {};
+    return `
     <div class="card ${p.id === 'hemenmagaza' ? 'featured' : ''}">
       <div class="card-head">
         <div class="card-title">
@@ -749,29 +804,45 @@ function renderCards() {
 
       <div class="total-score">
         <div class="big">${p.total}/10</div>
-        <div class="lbl">${p.customers} müşteri · ${p.foundedNote}</div>
+        <div class="lbl">${p.customers} · ${p.foundedNote}</div>
       </div>
 
       <div class="price-row">
-        <div class="label">Başlangıç fiyatı</div>
+        <div class="label">Başlangıç</div>
         <div class="val">${p.pricing.starter} <small>· deneme: ${p.trial}</small></div>
       </div>
 
+      <div class="features-panel">
+        <div class="features-title">Özellikler</div>
+        <div class="features-grid">
+          ${featPill('🎨', 'Tema', f.themes, 'Tema sayısı')}
+          ${featPill('📱', 'Mobil', f.mobile, 'Mobil yönetim app')}
+          ${featPill('🤖', 'AI', f.ai, 'Yapay zeka özellikleri')}
+          ${featPill('🏪', 'B2B', f.b2b, 'B2B desteği')}
+          ${featPill('🌐', 'Dil', f.multilang, 'Çok dilli site')}
+          ${featPill('🛒', 'POS', f.pos, 'POS / Perakende')}
+          ${featPill('💳', 'Ödeme', f.payments, 'Ödeme yöntemi')}
+          ${featPill('🔗', 'Pazaryeri', f.marketplaces, 'Pazaryeri entegrasyonu')}
+        </div>
+      </div>
+
       <div class="score-grid">
-        ${scoreItem('Fiyat', p.scores.fiyat)}
-        ${scoreItem('Özellik', p.scores.ozellik)}
-        ${scoreItem('Kolaylık', p.scores.kolaylik)}
-        ${scoreItem('Destek', p.scores.destek)}
+        <div class="score-item"><div class="name">Fiyat</div><div class="num">${p.scores.fiyat}</div></div>
+        <div class="score-item"><div class="name">Özellik</div><div class="num">${p.scores.ozellik}</div></div>
+        <div class="score-item"><div class="name">Kolay</div><div class="num">${p.scores.kolaylik}</div></div>
+        <div class="score-item"><div class="name">Destek</div><div class="num">${p.scores.destek}</div></div>
+        <div class="score-item"><div class="name">Ekosistem</div><div class="num">${p.scores.ekosistem}</div></div>
       </div>
 
-      <div style="margin-top:10px">
-        <strong style="font-size:12px; color: var(--good)">+ Artılar</strong>
-        <ul class="feat-list pros">${p.pros.slice(0, 5).map(x => `<li>${x}</li>`).join('')}</ul>
-      </div>
-
-      <div style="margin-top:8px">
-        <strong style="font-size:12px; color: var(--bad)">– Eksiler</strong>
-        <ul class="feat-list cons">${p.cons.slice(0, 4).map(x => `<li>${x}</li>`).join('')}</ul>
+      <div class="pros-cons-row">
+        <div class="pros-cons-col pros">
+          <strong>+ Artılar</strong>
+          <ul class="feat-list pros">${p.pros.slice(0, 5).map(x => `<li>${x}</li>`).join('')}</ul>
+        </div>
+        <div class="pros-cons-col cons">
+          <strong>− Eksiler</strong>
+          <ul class="feat-list cons">${p.cons.slice(0, 4).map(x => `<li>${x}</li>`).join('')}</ul>
+        </div>
       </div>
 
       <div class="best-for">
@@ -779,17 +850,9 @@ function renderCards() {
         <div>${p.bestFor}</div>
       </div>
     </div>
-  `).join('');
+  `;}).join('');
 }
 
-function scoreItem(name, val) {
-  return `<div class="score-item">
-    <div class="name">${name} · ${val}/10</div>
-    <div class="score-bar"><div style="width:${val*10}%"></div></div>
-  </div>`;
-}
-
-// ===== Table =====
 function renderTable() {
   const list = filterPlatforms();
   const head = document.getElementById('tableHead');
@@ -799,30 +862,49 @@ function renderTable() {
   head.innerHTML = '<th>Kriter</th>' + list.map(p => `<th>${p.region === 'TR' ? '🇹🇷 ' : '🌍 '}${p.name}</th>`).join('');
 
   const rows = [
-    { k: 'Başlangıç fiyatı', f: p => p.pricing.starter },
+    { k: 'Başlangıç', f: p => p.pricing.starter },
     { k: 'Üst paket', f: p => p.pricing.enterprise },
-    { k: 'Ücretsiz deneme', f: p => p.trial },
+    { k: 'Deneme', f: p => p.trial },
     { k: 'Kuruluş', f: p => p.foundedYear },
-    { k: 'Müşteri sayısı', f: p => p.customers },
+    { k: 'Müşteri', f: p => p.customers },
     { k: 'Model', f: p => p.model },
     { k: 'Bölge', f: p => p.region === 'TR' ? '🇹🇷 Türkiye' : `${p.country} Global` },
+    { k: 'Tema sayısı', f: p => featFmt(p.features?.themes) },
+    { k: 'Mobil app', f: p => boolFmt(p.features?.mobile) },
+    { k: 'AI', f: p => boolFmt(p.features?.ai) },
+    { k: 'B2B', f: p => boolFmt(p.features?.b2b) },
+    { k: 'Çok dil', f: p => boolFmt(p.features?.multilang) },
+    { k: 'POS', f: p => boolFmt(p.features?.pos) },
+    { k: 'Ödeme yöntemi', f: p => featFmt(p.features?.payments) },
+    { k: 'Pazaryeri', f: p => featFmt(p.features?.marketplaces) },
     { k: 'Toplam Skor', f: p => `${p.total}/10` },
-    { k: 'Fiyat skoru', f: p => `${p.scores.fiyat}/10` },
-    { k: 'Özellik skoru', f: p => `${p.scores.ozellik}/10` },
-    { k: 'Kolaylık skoru', f: p => `${p.scores.kolaylik}/10` },
-    { k: 'Destek skoru', f: p => `${p.scores.destek}/10` },
-    { k: 'Ekosistem skoru', f: p => `${p.scores.ekosistem}/10` }
+    { k: 'Fiyat', f: p => `${p.scores.fiyat}/10` },
+    { k: 'Özellik', f: p => `${p.scores.ozellik}/10` },
+    { k: 'Kolaylık', f: p => `${p.scores.kolaylik}/10` },
+    { k: 'Destek', f: p => `${p.scores.destek}/10` },
+    { k: 'Ekosistem', f: p => `${p.scores.ekosistem}/10` }
   ];
 
   tbody.innerHTML = rows.map(r => `
     <tr>
       <td><strong>${r.k}</strong></td>
-      ${list.map(p => `<td${p.id === 'hemenmagaza' ? ' class="highlight" style="background:rgba(249,115,22,0.06); border-left:3px solid var(--hemen)"' : ''}>${r.f(p)}</td>`).join('')}
+      ${list.map(p => `<td${p.id === 'hemenmagaza' ? ' style="background:rgba(16,185,129,0.06); border-left:3px solid var(--accent)"' : ''}>${r.f(p)}</td>`).join('')}
     </tr>
   `).join('');
 }
 
-// ===== VS =====
+function boolFmt(v) {
+  if (v === 1) return '<span class="check">✓ Var</span>';
+  if (v === 0.5) return '<span class="partial">◐ Kısmen</span>';
+  if (v === 0) return '<span class="cross">✗ Yok</span>';
+  return '–';
+}
+function featFmt(v) {
+  if (typeof v !== 'number') return '–';
+  if (v === 0) return '<span class="cross">✗ 0</span>';
+  return v >= 100 ? `${v}+` : `${v}`;
+}
+
 function renderVs() {
   const hemen = PLATFORMS[0];
   const topRivals = ['ikas', 'ticimax', 'ideasoft', 'tsoft', 'shopify', 'woocommerce', 'wix', 'shopiverse'];
@@ -837,17 +919,17 @@ function buildVs(a, b) {
     { key: 'Ücretsiz deneme', a: a.trial, b: b.trial, winner: a.trial.includes('30') ? 'a' : 'b' },
     { key: 'Müşteri tabanı', a: a.customers, b: b.customers, winner: 'b' },
     { key: 'Kolaylık', a: `${a.scores.kolaylik}/10`, b: `${b.scores.kolaylik}/10`, winner: cmp(a.scores.kolaylik, b.scores.kolaylik) },
-    { key: 'Özellik zenginliği', a: `${a.scores.ozellik}/10`, b: `${b.scores.ozellik}/10`, winner: cmp(a.scores.ozellik, b.scores.ozellik) },
+    { key: 'Özellik', a: `${a.scores.ozellik}/10`, b: `${b.scores.ozellik}/10`, winner: cmp(a.scores.ozellik, b.scores.ozellik) },
     { key: 'Ekosistem', a: `${a.scores.ekosistem}/10`, b: `${b.scores.ekosistem}/10`, winner: cmp(a.scores.ekosistem, b.scores.ekosistem) },
     { key: 'Toplam', a: `${a.total}/10`, b: `${b.total}/10`, winner: cmp(a.total, b.total) }
   ];
   return `<div class="vs-card">
     <div class="vs-head">
-      <div class="card-logo ${a.logoCls}" style="width:36px;height:36px;font-size:16px">${a.logoTxt}</div>
-      <strong style="font-size:14px">${a.name}</strong>
+      <div class="card-logo ${a.logoCls}" style="width:30px;height:30px;font-size:13px">${a.logoTxt}</div>
+      <strong style="font-size:13px">${a.name}</strong>
       <div class="arrow">⚔</div>
-      <strong style="font-size:14px">${b.name}</strong>
-      <div class="card-logo ${b.logoCls}" style="width:36px;height:36px;font-size:16px">${b.logoTxt}</div>
+      <strong style="font-size:13px">${b.name}</strong>
+      <div class="card-logo ${b.logoCls}" style="width:30px;height:30px;font-size:13px">${b.logoTxt}</div>
     </div>
     ${rows.map(r => `
       <div class="vs-row">
@@ -877,7 +959,6 @@ function pickPriceLower(a, b) {
   return 'tie';
 }
 
-// ===== Quiz =====
 const QUIZ = { budget: null, market: null, experience: null, tech: null, priority: null };
 
 document.querySelectorAll('.quiz-opt').forEach(opt => {
@@ -894,103 +975,37 @@ document.getElementById('quizGo').addEventListener('click', () => {
     alert('Lütfen tüm soruları yanıtlayın.');
     return;
   }
-  const scores = computeQuizScores();
-  showQuizResult(scores);
+  showQuizResult(computeQuizScores());
 });
 
 function computeQuizScores() {
   const s = {}; PLATFORMS.forEach(p => s[p.id] = 0);
   const add = (id, n) => { if (s[id] !== undefined) s[id] += n; };
 
-  // Budget
-  if (QUIZ.budget === 'free') {
-    add('ecwid', 30); add('squareonline', 30); add('bigcartel', 30); add('woocommerce', 35);
-    add('prestashop', 35); add('opencart', 35); add('ikas', 25); add('magento', 15);
-  }
-  if (QUIZ.budget === 'low') {
-    add('ikas', 30); add('hemenmagaza', 25); add('shopiverse', 25); add('faprika', 25);
-    add('sentrop', 25); add('shopify', 15); add('squarespace', 15); add('wix', 20);
-  }
-  if (QUIZ.budget === 'mid') {
-    add('hemenmagaza', 30); add('ikas', 25); add('ideasoft', 20); add('shopify', 25);
-    add('bigcommerce', 25); add('wix', 20); add('shopify', 20);
-  }
-  if (QUIZ.budget === 'high') {
-    add('ideasoft', 30); add('ticimax', 25); add('shopify', 30); add('bigcommerce', 25);
-    add('webflow', 20); add('hemenmagaza', 15);
-  }
-  if (QUIZ.budget === 'xhigh') {
-    add('ticimax', 30); add('tsoft', 30); add('magento', 25); add('shopify', 25);
-    add('salesforce', 30); add('commercetools', 30);
-  }
+  if (QUIZ.budget === 'free') { add('ecwid', 30); add('squareonline', 30); add('bigcartel', 30); add('woocommerce', 35); add('prestashop', 35); add('opencart', 35); add('ikas', 25); add('magento', 15); }
+  if (QUIZ.budget === 'low') { add('ikas', 30); add('hemenmagaza', 25); add('shopiverse', 25); add('faprika', 25); add('sentrop', 25); add('shopify', 15); add('squarespace', 15); add('wix', 20); }
+  if (QUIZ.budget === 'mid') { add('hemenmagaza', 30); add('ikas', 25); add('ideasoft', 20); add('shopify', 25); add('bigcommerce', 25); add('wix', 20); }
+  if (QUIZ.budget === 'high') { add('ideasoft', 30); add('ticimax', 25); add('shopify', 30); add('bigcommerce', 25); add('webflow', 20); }
+  if (QUIZ.budget === 'xhigh') { add('ticimax', 30); add('tsoft', 30); add('magento', 25); add('shopify', 25); add('salesforce', 30); add('commercetools', 30); }
 
-  // Market
-  if (QUIZ.market === 'tr') {
-    add('ikas', 30); add('hemenmagaza', 25); add('ticimax', 30); add('ideasoft', 30);
-    add('tsoft', 25); add('shopiverse', 20); add('faprika', 20); add('sentrop', 20);
-  }
-  if (QUIZ.market === 'export') {
-    add('shopify', 30); add('bigcommerce', 25); add('ticimax', 25); add('tsoft', 25);
-    add('ideasoft', 20); add('shoplazza', 25);
-  }
-  if (QUIZ.market === 'global') {
-    add('shopify', 35); add('bigcommerce', 30); add('woocommerce', 25); add('magento', 25);
-    add('wix', 20); add('squarespace', 20); add('commercetools', 25); add('salesforce', 20);
-  }
+  if (QUIZ.market === 'tr') { add('ikas', 30); add('hemenmagaza', 25); add('ticimax', 30); add('ideasoft', 30); add('tsoft', 25); add('shopiverse', 20); add('faprika', 20); add('sentrop', 20); }
+  if (QUIZ.market === 'export') { add('shopify', 30); add('bigcommerce', 25); add('ticimax', 25); add('tsoft', 25); add('ideasoft', 20); add('shoplazza', 25); }
+  if (QUIZ.market === 'global') { add('shopify', 35); add('bigcommerce', 30); add('woocommerce', 25); add('magento', 25); add('wix', 20); add('squarespace', 20); add('commercetools', 25); add('salesforce', 20); }
 
-  // Experience
-  if (QUIZ.experience === 'new') {
-    add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 25);
-    add('squarespace', 25); add('shopiverse', 25); add('squareonline', 25); add('bigcartel', 20);
-  }
-  if (QUIZ.experience === 'some') {
-    add('ikas', 25); add('hemenmagaza', 20); add('shopify', 25); add('bigcommerce', 20);
-    add('ideasoft', 20); add('faprika', 20); add('wix', 20);
-  }
-  if (QUIZ.experience === 'pro') {
-    add('shopify', 25); add('bigcommerce', 25); add('ideasoft', 25); add('ticimax', 25);
-    add('woocommerce', 25); add('magento', 20);
-  }
-  if (QUIZ.experience === 'ent') {
-    add('ticimax', 30); add('tsoft', 30); add('magento', 30); add('salesforce', 35);
-    add('commercetools', 35); add('bigcommerce', 20);
-  }
+  if (QUIZ.experience === 'new') { add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 25); add('squarespace', 25); add('shopiverse', 25); add('squareonline', 25); add('bigcartel', 20); }
+  if (QUIZ.experience === 'some') { add('ikas', 25); add('hemenmagaza', 20); add('shopify', 25); add('bigcommerce', 20); add('ideasoft', 20); add('faprika', 20); add('wix', 20); }
+  if (QUIZ.experience === 'pro') { add('shopify', 25); add('bigcommerce', 25); add('ideasoft', 25); add('ticimax', 25); add('woocommerce', 25); add('magento', 20); }
+  if (QUIZ.experience === 'ent') { add('ticimax', 30); add('tsoft', 30); add('magento', 30); add('salesforce', 35); add('commercetools', 35); add('bigcommerce', 20); }
 
-  // Tech
-  if (QUIZ.tech === 'none') {
-    add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 30);
-    add('squarespace', 30); add('shopiverse', 25); add('faprika', 25); add('ideasoft', 25);
-  }
-  if (QUIZ.tech === 'basic') {
-    add('shopify', 25); add('bigcommerce', 25); add('ikas', 25); add('ticimax', 20);
-    add('webflow', 20); add('ideasoft', 25);
-  }
-  if (QUIZ.tech === 'dev') {
-    add('woocommerce', 35); add('magento', 30); add('prestashop', 30); add('opencart', 25);
-    add('commercetools', 30); add('webflow', 25); add('bigcommerce', 20); add('tsoft', 25);
-  }
+  if (QUIZ.tech === 'none') { add('ikas', 30); add('hemenmagaza', 30); add('shopify', 25); add('wix', 30); add('squarespace', 30); add('shopiverse', 25); add('faprika', 25); add('ideasoft', 25); }
+  if (QUIZ.tech === 'basic') { add('shopify', 25); add('bigcommerce', 25); add('ikas', 25); add('ticimax', 20); add('webflow', 20); add('ideasoft', 25); }
+  if (QUIZ.tech === 'dev') { add('woocommerce', 35); add('magento', 30); add('prestashop', 30); add('opencart', 25); add('commercetools', 30); add('webflow', 25); add('bigcommerce', 20); add('tsoft', 25); }
 
-  // Priority
-  if (QUIZ.priority === 'simple') {
-    add('hemenmagaza', 30); add('ikas', 30); add('shopify', 25); add('wix', 30);
-    add('squarespace', 25); add('shopiverse', 25);
-  }
-  if (QUIZ.priority === 'custom') {
-    add('woocommerce', 35); add('magento', 30); add('webflow', 30); add('prestashop', 25);
-    add('commercetools', 30); add('tsoft', 30); add('bigcommerce', 20);
-  }
-  if (QUIZ.priority === 'ecosystem') {
-    add('shopify', 35); add('ikas', 30); add('woocommerce', 30); add('ideasoft', 25);
-    add('ticimax', 25); add('bigcommerce', 25); add('magento', 25);
-  }
-  if (QUIZ.priority === 'design') {
-    add('squarespace', 35); add('wix', 30); add('webflow', 35); add('shopify', 25);
-    add('hemenmagaza', 20);
-  }
-  if (QUIZ.priority === 'scale') {
-    add('shopify', 30); add('magento', 30); add('salesforce', 35); add('commercetools', 35);
-    add('bigcommerce', 25); add('ticimax', 25);
-  }
+  if (QUIZ.priority === 'simple') { add('hemenmagaza', 30); add('ikas', 30); add('shopify', 25); add('wix', 30); add('squarespace', 25); add('shopiverse', 25); }
+  if (QUIZ.priority === 'custom') { add('woocommerce', 35); add('magento', 30); add('webflow', 30); add('prestashop', 25); add('commercetools', 30); add('tsoft', 30); add('bigcommerce', 20); }
+  if (QUIZ.priority === 'ecosystem') { add('shopify', 35); add('ikas', 30); add('woocommerce', 30); add('ideasoft', 25); add('ticimax', 25); add('bigcommerce', 25); add('magento', 25); }
+  if (QUIZ.priority === 'design') { add('squarespace', 35); add('wix', 30); add('webflow', 35); add('shopify', 25); add('hemenmagaza', 20); }
+  if (QUIZ.priority === 'scale') { add('shopify', 30); add('magento', 30); add('salesforce', 35); add('commercetools', 35); add('bigcommerce', 25); add('ticimax', 25); }
 
   return s;
 }
@@ -1006,17 +1021,17 @@ function showQuizResult(scores) {
   const top = ranked[0];
   const out = document.getElementById('quizResult');
   out.innerHTML = `
-    <h4>🎯 Sana en uygun: <span style="background:linear-gradient(135deg,var(--accent),var(--accent-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">${top.p.name}</span></h4>
-    <p style="color:var(--text-dim); font-size:14px; margin-bottom:10px">Cevaplarına göre profilin <strong>${top.p.bestFor.toLowerCase()}</strong> profiline uyuyor. En uygun 5 platform:</p>
+    <h4>🎯 Sana en uygun: <span style="color:var(--accent-2);">${top.p.name}</span></h4>
+    <p style="color:var(--text-dim); font-size:13px; margin-bottom:8px">Cevaplarına göre: <strong>${top.p.bestFor.toLowerCase()}</strong></p>
     ${ranked.map(r => `
       <div class="rec">
         <div class="pct">%${r.pct}</div>
-        <div class="card-logo ${r.p.logoCls}" style="width:32px;height:32px;font-size:13px">${r.p.logoTxt}</div>
+        <div class="card-logo ${r.p.logoCls}" style="width:28px;height:28px;font-size:11px">${r.p.logoTxt}</div>
         <div style="flex:1">
-          <div style="font-weight:700">${r.p.name} <span style="font-size:10px; color:var(--text-mute); margin-left:6px">${r.p.country} · ${r.p.model}</span></div>
-          <div style="font-size:12px; color: var(--text-mute)">${r.p.sub}</div>
+          <div style="font-weight:700; font-size:13px">${r.p.name} <span style="font-size:9px; color:var(--text-mute); margin-left:4px">${r.p.country} · ${r.p.model}</span></div>
+          <div style="font-size:11px; color: var(--text-mute)">${r.p.sub}</div>
         </div>
-        <div style="font-size:13px; font-weight:700; color: var(--text-dim)">${r.p.total}/10</div>
+        <div style="font-size:12px; font-weight:700; color: var(--accent-2)">${r.p.total}/10</div>
       </div>
     `).join('')}
   `;
@@ -1024,7 +1039,6 @@ function showQuizResult(scores) {
   out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// ===== Tabs =====
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1032,21 +1046,19 @@ document.querySelectorAll('.tab').forEach(tab => {
     const target = tab.dataset.tab;
     document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
     document.getElementById(target).classList.remove('hidden');
-    const filterBar = document.getElementById('filterBar');
-    filterBar.style.display = (target === 'cards' || target === 'table') ? '' : 'none';
+    document.getElementById('filterBar').style.display = (target === 'cards' || target === 'table') ? '' : 'none';
   });
 });
 
-// ===== Theme =====
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   const cur = document.documentElement.getAttribute('data-theme');
-  const next = cur === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', next);
-  themeBtn.textContent = next === 'light' ? '☀️' : '🌙';
+  const next = cur === 'dark' ? '' : 'dark';
+  if (next) document.documentElement.setAttribute('data-theme', next);
+  else document.documentElement.removeAttribute('data-theme');
+  themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
-// ===== Filters =====
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const filter = chip.dataset.filter;
@@ -1070,10 +1082,8 @@ document.getElementById('sortSelect').addEventListener('change', e => {
   renderTable();
 });
 
-// ===== Last Update =====
 document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
 
-// Init
 renderCards();
 renderTable();
 renderVs();
