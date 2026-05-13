@@ -4,7 +4,7 @@
 
 ## 🔗 Canlı
 
-Sayfa GitHub Pages üzerinde yayında: `https://baranbaranpolat-dotcom.github.io/eticaret-platformlari/`
+Sayfa GitHub Pages üzerinde yayında: `https://baranbaranpolat-dotcom.github.io/eticaretplatformum/`
 
 ## 🛠 Nasıl çalışıyor
 
