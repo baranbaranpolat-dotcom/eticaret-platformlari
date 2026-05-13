@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * ai-refresh.js — Weekly AI-powered refresh of e-commerce platform data.
+ * ai-refresh.js — Nightly AI-powered data refresh.
  *
- * For each platform with a URL, fetches the live page, sends it to Claude Haiku
- * to extract structured pricing/feature info, and updates the PLATFORMS data in
- * index.html. Designed to be conservative — only updates fields that the model
- * confidently extracted.
+ * For each of 22 platforms, fetches the live homepage, sends it to Claude Haiku
+ * to extract pricing/trial/customer count, and conservatively updates index.html.
+ * Also bumps the "last updated" banner to today's date.
+ *
+ * Designed to be safe: refuses to write multi-line or special-char values that
+ * could break the JS structure.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import Anthropic from '@anthropic-ai/sdk';
@@ -14,17 +16,32 @@ const HTML_PATH = 'index.html';
 const MODEL = 'claude-haiku-4-5-20251001';
 
 const PLATFORM_URLS = {
+  // Türkiye
   hemenmagaza: 'https://hemenmagaza.com',
   ikas: 'https://www.ikas.com/tr',
   ticimax: 'https://www.ticimax.com',
   ideasoft: 'https://www.ideasoft.com.tr',
   tsoft: 'https://www.tsoft.com.tr',
+  platinmarket: 'https://www.platinmarket.com',
+  faprika: 'https://www.faprika.com',
+  // Global SaaS
   shopify: 'https://www.shopify.com/pricing',
   bigcommerce: 'https://www.bigcommerce.com/essentials/pricing/',
-  wix: 'https://www.wix.com/upgrade/website',
+  wix: 'https://www.wix.com/ecommerce/website',
   squarespace: 'https://www.squarespace.com/pricing',
-  shopiverse: 'https://shopiverse.com.tr',
-  faprika: 'https://www.faprika.com'
+  webflow: 'https://webflow.com/pricing',
+  ecwid: 'https://www.ecwid.com/pricing',
+  squareonline: 'https://squareup.com/us/en/online-store',
+  bigcartel: 'https://www.bigcartel.com/pricing',
+  shoplazza: 'https://www.shoplazza.com',
+  // Open source
+  woocommerce: 'https://woocommerce.com',
+  magento: 'https://business.adobe.com/products/magento/magento-commerce.html',
+  prestashop: 'https://www.prestashop.com',
+  opencart: 'https://www.opencart.com',
+  // Enterprise
+  salesforce: 'https://www.salesforce.com/commerce/',
+  commercetools: 'https://commercetools.com'
 };
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -32,18 +49,23 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 async function fetchPage(url) {
   try {
     const res = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; eticaret-bot/1.0)' },
-      signal: AbortSignal.timeout(20000)
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml',
+        'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7'
+      },
+      signal: AbortSignal.timeout(25000)
     });
     if (!res.ok) return null;
     const html = await res.text();
     return html
       .replace(/<script[\s\S]*?<\/script>/gi, '')
       .replace(/<style[\s\S]*?<\/style>/gi, '')
+      .replace(/<noscript[\s\S]*?<\/noscript>/gi, '')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' ')
       .trim()
-      .slice(0, 12000);
+      .slice(0, 14000);
   } catch (err) {
     console.warn(`Fetch failed for ${url}: ${err.message}`);
     return null;
@@ -51,21 +73,21 @@ async function fetchPage(url) {
 }
 
 async function extractData(platformId, url, pageText) {
-  const prompt = `Aşağıdaki "${platformId}" platformunun sayfasından şu bilgileri çıkar.
-Sadece SAYFA İÇERİĞİNDE açıkça yer alan bilgiyi ver — uyduruk veri yazma.
+  const prompt = `Bir e-ticaret platformu olan "${platformId}" sayfasından şu bilgileri DOĞRUDAN sayfada açıkça yazılı olanlardan çıkar.
 
-İstenen JSON:
+KURALLAR:
+- Sadece sayfa içinde EXPLICIT olarak yazılı veri. Çıkarım/yorum yapma.
+- Belirsiz/yazmıyor ise null döndür.
+- Değer 60 karakteri geçemez. Tek satır olmalı, tırnak/virgül/süslü-parantez/iki-nokta içermemeli.
+
+JSON (sadece bu, başka metin yok):
 {
-  "starter_price": "Başlangıç paket fiyatı, örn: '1.490₺/ay' veya 'Free' veya null",
-  "growth_price": "Orta paket fiyatı veya null",
+  "starter_price": "Başlangıç paket fiyatı tek satır metin (ör: '1.490₺/ay' veya 'Free' veya 'Basic $19/ay') veya null",
+  "growth_price": "Orta/büyüme paket fiyatı veya null",
   "enterprise_price": "Üst paket fiyatı veya null",
-  "trial": "Ücretsiz deneme süresi, örn: '14 gün' veya null",
-  "customer_count": "Müşteri/mağaza sayısı, örn: '50.000+' veya null",
-  "active_campaign": "Aktif kampanya/indirim bilgisi varsa kısa metin veya null",
-  "notes": "Diğer dikkate değer güncel bilgi veya null"
+  "trial": "Ücretsiz deneme süresi (ör: '14 gün' veya '30 days') veya null",
+  "customer_count": "Müşteri/mağaza sayısı (ör: '50.000+' veya '1M+') veya null"
 }
-
-Yalnızca JSON döndür, başka metin yok. Veri bulunmuyorsa alanları null bırak.
 
 URL: ${url}
 
@@ -75,7 +97,7 @@ ${pageText}`;
   try {
     const msg = await client.messages.create({
       model: MODEL,
-      max_tokens: 800,
+      max_tokens: 600,
       messages: [{ role: 'user', content: prompt }]
     });
     const text = msg.content[0].text.trim();
@@ -89,41 +111,49 @@ ${pageText}`;
 }
 
 function sanitizeValue(v) {
-  // Refuse values that would break the JS structure
   if (!v || typeof v !== 'string') return null;
+  v = v.trim();
   if (v.length === 0 || v.length > 60) return null;
-  // No quotes, commas, braces, or colons (these break our string literal context)
   if (/['",{}:]/.test(v)) return null;
-  // Must not contain "starter:" / "growth:" / "enterprise:" / "trial:" / "customers:" etc.
-  if (/(starter|growth|enterprise|trial|customers|pricing):/i.test(v)) return null;
+  if (/[\r\n]/.test(v)) return null;
+  if (/(starter|growth|enterprise|trial|customers|pricing|features|pros|cons|scores):/i.test(v)) return null;
   return v;
 }
 
 function replaceFieldOnce(html, platformId, parent, field, newValue) {
-  // Match within a window of 1500 chars after the platform id, then find parent.field
   const clean = sanitizeValue(newValue);
   if (!clean) return html;
-  // The regex captures: id: 'platformId' + up to 1500 chars + parent: { + up to 200 chars + field: '
-  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,1500}?${parent}:\\s*\\{[^}]{0,300}?${field}:\\s*)'[^']*'`);
+  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,2000}?${parent}:\\s*\\{[^}]{0,400}?${field}:\\s*)'[^']*'`);
   return html.replace(re, `$1'${clean}'`);
 }
 
 function replaceTopLevelField(html, platformId, field, newValue) {
-  // For top-level fields like trial, customers
   const clean = sanitizeValue(newValue);
   if (!clean) return html;
-  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,1500}?${field}:\\s*)'[^']*'`);
+  const re = new RegExp(`(id:\\s*'${platformId}'[\\s\\S]{0,2000}?${field}:\\s*)'[^']*'`);
   return html.replace(re, `$1'${clean}'`);
 }
 
 function updatePlatformInHtml(html, platformId, data) {
-  let before = html;
   if (data.starter_price) html = replaceFieldOnce(html, platformId, 'pricing', 'starter', data.starter_price);
   if (data.growth_price) html = replaceFieldOnce(html, platformId, 'pricing', 'growth', data.growth_price);
   if (data.enterprise_price) html = replaceFieldOnce(html, platformId, 'pricing', 'enterprise', data.enterprise_price);
   if (data.trial) html = replaceTopLevelField(html, platformId, 'trial', data.trial);
   if (data.customer_count) html = replaceTopLevelField(html, platformId, 'customers', data.customer_count);
   return html;
+}
+
+function updateBanner(html) {
+  // The lastUpdate span is rewritten by applyLang on page load (using browser locale),
+  // so we just bump a build-time marker in HTML to force a deploy if no other changes
+  // happened. We update the comment marker near the top.
+  const today = new Date().toISOString().slice(0, 10);
+  const marker = `<!-- last-refresh: ${today} -->`;
+  if (html.includes('<!-- last-refresh:')) {
+    return html.replace(/<!-- last-refresh: [^>]+>/, marker);
+  }
+  // Insert before </head>
+  return html.replace('</head>', `${marker}\n</head>`);
 }
 
 async function main() {
@@ -156,21 +186,19 @@ async function main() {
     html = updatePlatformInHtml(html, platformId, data);
     if (html !== before) {
       updates++;
-      summary.push(`${platformId}: updated (${Object.entries(data).filter(([_, v]) => v).map(([k]) => k).join(', ')})`);
+      const changedKeys = Object.entries(data).filter(([_, v]) => v).map(([k]) => k).join(', ');
+      summary.push(`${platformId}: updated (${changedKeys || 'no fields'})`);
     } else {
       summary.push(`${platformId}: no changes`);
     }
 
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise(r => setTimeout(r, 600));
   }
 
-  if (updates > 0) {
-    writeFileSync(HTML_PATH, html, 'utf8');
-    console.log(`\n✓ Updated ${updates} platform(s)`);
-  } else {
-    console.log('\n✓ No updates needed');
-  }
+  html = updateBanner(html);
+  writeFileSync(HTML_PATH, html, 'utf8');
 
+  console.log(`\n✓ ${updates} platform(s) updated · banner bumped`);
   console.log('\n--- Summary ---');
   summary.forEach(s => console.log(`  ${s}`));
 }

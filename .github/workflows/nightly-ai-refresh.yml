@@ -1,17 +1,22 @@
-name: Weekly AI-powered data refresh
+name: Nightly AI-powered data refresh
 
 on:
   schedule:
-    # Her Pazartesi 22:00 UTC = 01:00 Türkiye saati
-    - cron: '0 22 * * 1'
+    # Her gece 21:00 UTC = 00:00 Türkiye saati
+    - cron: '0 21 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: nightly-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -33,7 +38,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain)" ]]; then
             git add index.html
-            git commit -m "chore: weekly AI data refresh [skip ci]"
+            git commit -m "chore: nightly AI data refresh ($(date -u +%Y-%m-%d)) [skip ci]"
             for attempt in 1 2 3; do
               if git push; then break; fi
               echo "Push rejected, rebasing (attempt $attempt)..."
