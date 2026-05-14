@@ -169,17 +169,6 @@
   .total-score { text-align: center; padding: 12px; border-radius: 10px; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(52,211,153,0.05)); border: 1px solid rgba(16,185,129,0.25); }
   .total-score .big { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
   .total-score .lbl { font-size: 11px; color: var(--text-mute); margin-top: 4px !important; line-height: 1.35; }
-  .transparency-line { margin-top: 9px !important; padding-top: 9px; border-top: 1px dashed var(--border); font-size: 11px; color: var(--text-mute); display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; }
-  .transparency-line .lbl { font-weight: 600; }
-  .transparency-bar { display: inline-block; width: 70px; height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; }
-  .transparency-bar > div { height: 100%; border-radius: 999px; transition: width 0.3s; }
-  .transparency-num { font-weight: 700; }
-  .t-high { color: var(--good); }
-  .t-mid { color: var(--warn); }
-  .t-low { color: var(--bad); }
-  .transparency-bar > div.t-high-bg { background: var(--good); }
-  .transparency-bar > div.t-mid-bg { background: var(--warn); }
-  .transparency-bar > div.t-low-bg { background: var(--bad); }
 
   .best-for { margin-top: auto !important; padding: 11px 13px; background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02)); border-radius: 9px; border-left: 3px solid var(--accent); }
   .best-for strong { font-size: 10.5px; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
@@ -1245,11 +1234,6 @@ function tt(text) {
 
 // Veri Şeffaflığı: platformun resmi sitesinde ne kadar bilgi yayınladığı (0-10)
 // 10 = fiyat/özellik/komisyon/müşteri sayısı vb. hepsi açık; 0 = hiçbir somut bilgi yok
-const TRANSPARENCY = {
-  hemenmagaza: 3, ikas: 5, ticimax: 4, ideasoft: 9, tsoft: 2,
-  platinmarket: 5, faprika: 7
-};
-
 const URL_MAP = {
   hemenmagaza: 'https://hemenmagaza.com',
   ikas: 'https://www.ikas.com/tr',
@@ -1336,7 +1320,6 @@ function renderCards() {
       <div class="total-score">
         <div class="big">${p.total}/10</div>
         <div class="lbl">${tt(p.customers)} · ${tt(p.foundedNote)}</div>
-        ${(() => { const tr = TRANSPARENCY[p.id]; if (tr === undefined) return ''; const cls = tr >= 8 ? 't-high' : (tr >= 5 ? 't-mid' : 't-low'); return `<div class="transparency-line" title="${t('transparency_tip')}"><span class="lbl">${t('transparency_lbl')}</span><span class="transparency-bar"><div class="${cls}-bg" style="width:${tr*10}%"></div></span><span class="transparency-num ${cls}">${tr}/10</span></div>`; })()}
       </div>
 
       <div class="price-row">
@@ -1410,7 +1393,6 @@ function renderTable() {
     { k: t('tbl_pos'), f: p => boolFmt(p.features?.pos) },
     { k: t('tbl_payments'), f: p => featFmt(p.features?.payments) },
     { k: t('tbl_marketplaces'), f: p => featFmt(p.features?.marketplaces) },
-    { k: t('tbl_transparency'), f: p => { const tr = TRANSPARENCY[p.id]; if (tr === undefined) return '–'; const cls = tr >= 8 ? 'check' : (tr >= 5 ? 'partial' : 'cross'); return `<span class="${cls}">${tr}/10</span>`; } },
     { k: t('tbl_total'), f: p => `${p.total}/10` },
     { k: t('tbl_price_score'), f: p => `${p.scores.fiyat}/10` },
     { k: t('tbl_feat_score'), f: p => `${p.scores.ozellik}/10` },
@@ -1506,9 +1488,7 @@ function renderCompareResult() {
     { key: t('compare_feat_marketplaces'), a: featFmt(fA.marketplaces), b: featFmt(fB.marketplaces), winner: cmp(fA.marketplaces || 0, fB.marketplaces || 0) }
   ];
 
-  const tA = TRANSPARENCY[a.id], tB = TRANSPARENCY[b.id];
   const scoreRows = [
-    { key: t('compare_score_trans'), a: tA !== undefined ? `${tA}/10` : '?', b: tB !== undefined ? `${tB}/10` : '?', winner: cmp(tA || 0, tB || 0) },
     { key: t('compare_score_price'), a: `${a.scores.fiyat}/10`, b: `${b.scores.fiyat}/10`, winner: cmp(a.scores.fiyat, b.scores.fiyat) },
     { key: t('compare_score_feat'), a: `${a.scores.ozellik}/10`, b: `${b.scores.ozellik}/10`, winner: cmp(a.scores.ozellik, b.scores.ozellik) },
     { key: t('compare_score_easy'), a: `${a.scores.kolaylik}/10`, b: `${b.scores.kolaylik}/10`, winner: cmp(a.scores.kolaylik, b.scores.kolaylik) },
