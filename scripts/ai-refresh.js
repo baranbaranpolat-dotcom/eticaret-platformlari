@@ -68,7 +68,7 @@ JSON (sadece bu, başka metin yok):
   "growth_price": "Orta/büyüme paket fiyatı veya null",
   "enterprise_price": "Üst paket fiyatı veya null",
   "trial": "Ücretsiz deneme süresi (ör: '14 gün' veya '30 days') veya null",
-  "customer_count": "Müşteri/mağaza sayısı (ör: '50.000+' veya '1M+') veya null"
+  "customer_count": "Müşteri/mağaza sayısı (ör: '50.000+' veya '1M+'). KURAL: değer açıkça yazılı, kalıcı bir rakam olmalı. Eğer sayı dinamik bir sayaç gibi görünüyorsa (örn. '{{var}}', '<%= ... %>' veya 200-400 aralığında küçük rastgele rakamlı bir mağaza sayacı), null döndür."
 }
 
 URL: ${url}
@@ -119,20 +119,34 @@ function replaceTopLevelField(html, platformId, field, newValue) {
   return html.replace(re, `$1'${clean}'`);
 }
 
-// Platforms / fields where AI-extracted values must NEVER be written back.
-// Reason: site uses a dynamic placeholder (e.g. "{{stores_count+200}}+") that the AI
-// keeps interpreting as a real number, producing false counts like "239+ Aktif mağaza".
-const SKIP_FIELDS = {
-  hemenmagaza: new Set(['customer_count'])
-};
+// Smart sanity check for customer_count. Returns the cleaned value or null to skip.
+// Goal: accept genuine, persistent customer-count claims; reject dynamic-counter
+// placeholders that change every page load (e.g. hemenmagaza.com uses
+// "{{stores_count+200}}+ Aktif mağaza" which renders as 200+, 239+, 251+...).
+function validateCustomerCount(platformId, value) {
+  if (!value) return null;
+  // Reject any template syntax
+  if (/\{\{|\}\}|<%|%>/.test(value)) return null;
+  // Hemenmağaza-specific: their homepage uses a dynamic counter that hovers
+  // in the low 200-500 range. Only accept a customer count if it is well above
+  // that dynamic range, indicating a real, persistent claim.
+  if (platformId === 'hemenmagaza') {
+    const m = value.match(/(\d[\d.,]*)\s*\+?/);
+    if (m) {
+      const num = parseInt(m[1].replace(/[.,]/g, ''), 10);
+      if (Number.isFinite(num) && num < 1000) return null;
+    }
+  }
+  return value;
+}
 
 function updatePlatformInHtml(html, platformId, data) {
-  const skip = SKIP_FIELDS[platformId] || new Set();
-  if (data.starter_price && !skip.has('starter_price')) html = replaceFieldOnce(html, platformId, 'pricing', 'starter', data.starter_price);
-  if (data.growth_price && !skip.has('growth_price')) html = replaceFieldOnce(html, platformId, 'pricing', 'growth', data.growth_price);
-  if (data.enterprise_price && !skip.has('enterprise_price')) html = replaceFieldOnce(html, platformId, 'pricing', 'enterprise', data.enterprise_price);
-  if (data.trial && !skip.has('trial')) html = replaceTopLevelField(html, platformId, 'trial', data.trial);
-  if (data.customer_count && !skip.has('customer_count')) html = replaceTopLevelField(html, platformId, 'customers', data.customer_count);
+  if (data.starter_price) html = replaceFieldOnce(html, platformId, 'pricing', 'starter', data.starter_price);
+  if (data.growth_price) html = replaceFieldOnce(html, platformId, 'pricing', 'growth', data.growth_price);
+  if (data.enterprise_price) html = replaceFieldOnce(html, platformId, 'pricing', 'enterprise', data.enterprise_price);
+  if (data.trial) html = replaceTopLevelField(html, platformId, 'trial', data.trial);
+  const cleanCount = validateCustomerCount(platformId, data.customer_count);
+  if (cleanCount) html = replaceTopLevelField(html, platformId, 'customers', cleanCount);
   return html;
 }
 
